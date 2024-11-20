@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\helper\\md5helper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\helper\\md5helper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\models\\data\\authenticationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\models\\data\\authenticationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MD5Helper.cs",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Helper\\MD5Helper.cs",
+              "RelativeDocumentMoniker": "Authentication\\Helper\\MD5Helper.cs",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Helper\\MD5Helper.cs",
+              "RelativeToolTip": "Authentication\\Helper\\MD5Helper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T03:30:28.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Authentication\\Controllers\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Authentication\\Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAwCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T03:26:06.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthenticationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Models\\Data\\AuthenticationDbContext.cs",
+              "RelativeDocumentMoniker": "Authentication\\Models\\Data\\AuthenticationDbContext.cs",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Models\\Data\\AuthenticationDbContext.cs",
+              "RelativeToolTip": "Authentication\\Models\\Data\\AuthenticationDbContext.cs",
+              "ViewState": "AgIAAN8AAAAAAAAAAAAAwPYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T03:24:25.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Web.config",
+              "RelativeDocumentMoniker": "Authentication\\Web.config",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Web.config",
+              "RelativeToolTip": "Authentication\\Web.config",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEoAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-11-20T03:21:23.089Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
