@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Patient.Controllers
+namespace Receptionist.Controllers
 {
     public class AuthenticationController : Controller
     {
@@ -12,11 +14,11 @@ namespace Patient.Controllers
         {
             return View();
         }
-
+        // GET: Autithencation
         [HttpGet]
-        public ActionResult AuthenticationRequest(string patientid, string token)
+        public ActionResult AuthenticationRequest(string employeeid, string token)
         {
-            if (string.IsNullOrEmpty(patientid) || string.IsNullOrEmpty(token))
+            if (string.IsNullOrEmpty(employeeid) || string.IsNullOrEmpty(token))
             {
                 return Content("Thông tin đăng nhập không hợp lệ.");
             }
@@ -32,12 +34,10 @@ namespace Patient.Controllers
             //    return Content("Giải mã thất bại.");
             //}
 
-            Session["PatientId"] = patientid;
-
-            ViewBag.PatientId = Session["PatientId"];
+            ViewBag.EmployeeId = employeeid;
             ViewBag.Token = token;
 
-            
+            Session["EmployeeId"] = employeeid;
             return View();
         }
 

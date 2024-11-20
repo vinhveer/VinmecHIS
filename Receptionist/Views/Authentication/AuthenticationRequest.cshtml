@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Le tan";
+}
+
+<h2>Authentication Request</h2>
+
+<div>
+    <p><strong>Decrypted EmployeeID:</strong> @ViewBag.EmployeeId</p>
+    <p><strong>Token:</strong> @ViewBag.Token</p>
+</div>
+
+@if (ViewBag.EmployeeId != null && ViewBag.Token != null)
+{
+    <p style="color: green;">Thông tin le tan  đã được xử lý thành công!</p>
+}
+else
+{
+    <p style="color: red;">Thông tin xác thực không hợp lệ.</p>
+}
