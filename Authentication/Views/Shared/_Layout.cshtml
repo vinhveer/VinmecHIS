@@ -11,22 +11,25 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Vinmec", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Mã hoá", "MD5Hashing", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+                <ul class="navbar-nav me-auto">
+                    <li>@Html.ActionLink("Đăng nhập với vai trò bệnh nhân", "PatientSignIn", "Authentication", new { area = "" }, new { @class = "btn btn-outline-primary me-2" })</li>
+                    <li>@Html.ActionLink("Đăng nhập hệ thống quản lý", "EmployeeSignIn", "Authentication", new { area = "" }, new { @class = "btn btn-outline-secondary" })</li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container body-content">
+    <div class="container mt-4 body-content">
         @RenderBody()
         <hr />
         <footer>

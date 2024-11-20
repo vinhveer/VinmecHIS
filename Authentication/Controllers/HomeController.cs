@@ -13,17 +13,16 @@ namespace Authentication.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult MD5Hashing()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        [HttpPost]
+        public ActionResult MD5Hashing(string input)
         {
-            ViewBag.Message = "Your contact page.";
-
+            string hashedInput = Helper.MD5Helper.Hash(input);
+            ViewBag.HashedInput = hashedInput;
             return View();
         }
     }
