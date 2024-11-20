@@ -79,7 +79,6 @@ namespace Authentication.Controllers
             var newAccount = new PATIENTACCOUNT
             {
                 PATIENT_ID = newPatientId,
-                PATIENT_ID = newPatientId,
                 PATIENT_USERNAME = username,
                 PATIENT_PASSWORD = MD5Helper.Hash(password) 
             };
@@ -172,7 +171,11 @@ namespace Authentication.Controllers
                     else if (employee.ROLE_NAME == "Receptionist")
                     {
                         port = "44316";
-                    }
+                    } 
+                    else if (employee.ROLE_NAME == "Admin")
+                    {
+                        port = "44306";
+                    }    
                     // URL chuyển hướng
                     string redirectUrl = $"https://localhost:{port}/Authentication/AuthenticationRequest?employeeid={encryptedEmployeeId}&token={requestVerificationToken}";
 

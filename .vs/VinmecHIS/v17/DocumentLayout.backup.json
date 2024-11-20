@@ -3,40 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3DACBD47-C101-43BE-AF4F-D3485BA89412}|Receptionist\\Receptionist.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\receptionist\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3DACBD47-C101-43BE-AF4F-D3485BA89412}|Receptionist\\Receptionist.csproj|solutionrelative:receptionist\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3DACBD47-C101-43BE-AF4F-D3485BA89412}|Receptionist\\Receptionist.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\receptionist\\views\\authentication\\authenticationrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3DACBD47-C101-43BE-AF4F-D3485BA89412}|Receptionist\\Receptionist.csproj|solutionrelative:receptionist\\views\\authentication\\authenticationrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\admin\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64210619-900C-45CD-BA7C-0715A6789A96}|Pharmacy\\Pharmacy.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\pharmacy\\views\\authentication\\authenticationrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{64210619-900C-45CD-BA7C-0715A6789A96}|Pharmacy\\Pharmacy.csproj|solutionrelative:pharmacy\\views\\authentication\\authenticationrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64210619-900C-45CD-BA7C-0715A6789A96}|Pharmacy\\Pharmacy.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\pharmacy\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64210619-900C-45CD-BA7C-0715A6789A96}|Pharmacy\\Pharmacy.csproj|solutionrelative:pharmacy\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\admin\\models\\data\\admindbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\models\\data\\admindbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\views\\default\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\views\\default\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\controllers\\defaultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\controllers\\defaultcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\patient\\controllers\\examplecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|solutionrelative:patient\\controllers\\examplecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\patient\\views\\example\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|solutionrelative:patient\\views\\example\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\patient\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|solutionrelative:patient\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\patient\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|solutionrelative:patient\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,119 +70,162 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Pharmacy\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "Pharmacy\\Controllers\\AuthenticationController.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Pharmacy\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "Pharmacy\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T11:06:16.898Z",
+              "DocumentIndex": 1,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Admin\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "Admin\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Admin\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "Admin\\Views\\Home\\About.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-20T13:01:51.334Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AuthenticationRequest.cshtml",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Pharmacy\\Views\\Authentication\\AuthenticationRequest.cshtml",
-              "RelativeDocumentMoniker": "Pharmacy\\Views\\Authentication\\AuthenticationRequest.cshtml",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Pharmacy\\Views\\Authentication\\AuthenticationRequest.cshtml",
-              "RelativeToolTip": "Pharmacy\\Views\\Authentication\\AuthenticationRequest.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T11:06:22.097Z",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Admin\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Admin\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Admin\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Admin\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T12:58:53.293Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthenticationRequest.cshtml",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Receptionist\\Views\\Authentication\\AuthenticationRequest.cshtml",
-              "RelativeDocumentMoniker": "Receptionist\\Views\\Authentication\\AuthenticationRequest.cshtml",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Receptionist\\Views\\Authentication\\AuthenticationRequest.cshtml",
-              "RelativeToolTip": "Receptionist\\Views\\Authentication\\AuthenticationRequest.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T11:06:35.427Z",
+              "DocumentIndex": 3,
+              "Title": "AdminDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Admin\\Models\\Data\\AdminDbContext.cs",
+              "RelativeDocumentMoniker": "Admin\\Models\\Data\\AdminDbContext.cs",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Admin\\Models\\Data\\AdminDbContext.cs",
+              "RelativeToolTip": "Admin\\Models\\Data\\AdminDbContext.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T12:58:25.956Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Receptionist\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "Receptionist\\Controllers\\AuthenticationController.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Receptionist\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "Receptionist\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Authentication\\Controllers\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Authentication\\Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAAK0AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T11:06:29.965Z",
+              "WhenOpened": "2024-11-20T12:36:51.878Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "Doctor\\Controllers\\AuthenticationController.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "Doctor\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T11:00:33.821Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Default\\Index.cshtml",
+              "RelativeDocumentMoniker": "Doctor\\Views\\Default\\Index.cshtml",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Default\\Index.cshtml",
+              "RelativeToolTip": "Doctor\\Views\\Default\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-20T12:50:49.49Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Patient\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "Patient\\Controllers\\AuthenticationController.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Patient\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "Patient\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAA1AAAAAAAAAA==",
+              "Title": "DefaultController.cs",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\DefaultController.cs",
+              "RelativeDocumentMoniker": "Doctor\\Controllers\\DefaultController.cs",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\DefaultController.cs",
+              "RelativeToolTip": "Doctor\\Controllers\\DefaultController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T05:30:20.902Z",
+              "WhenOpened": "2024-11-20T12:50:21.964Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "Authentication\\Controllers\\AuthenticationController.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "Authentication\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Doctor\\Controllers\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Doctor\\Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T11:06:48.992Z",
+              "WhenOpened": "2024-11-20T12:50:01.903Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Doctor\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Doctor\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T11:01:35.111Z",
+              "Title": "ExampleController.cs",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Patient\\Controllers\\ExampleController.cs",
+              "RelativeDocumentMoniker": "Patient\\Controllers\\ExampleController.cs",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Patient\\Controllers\\ExampleController.cs",
+              "RelativeToolTip": "Patient\\Controllers\\ExampleController.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T12:45:46.414Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Doctor\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Doctor\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Patient\\Views\\Example\\Index.cshtml",
+              "RelativeDocumentMoniker": "Patient\\Views\\Example\\Index.cshtml",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Patient\\Views\\Example\\Index.cshtml",
+              "RelativeToolTip": "Patient\\Views\\Example\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-20T12:47:08.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Patient\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Patient\\Controllers\\AuthenticationController.cs",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Patient\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Patient\\Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T11:01:31.384Z",
+              "WhenOpened": "2024-11-20T12:46:22.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Patient\\Web.config",
+              "RelativeDocumentMoniker": "Patient\\Web.config",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Patient\\Web.config",
+              "RelativeToolTip": "Patient\\Web.config",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAEkAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-11-20T12:44:11.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Web.config",
+              "RelativeDocumentMoniker": "Authentication\\Web.config",
+              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Web.config",
+              "RelativeToolTip": "Authentication\\Web.config",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-11-20T12:43:37.464Z",
               "EditorCaption": ""
             },
             {
