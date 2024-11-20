@@ -177,6 +177,7 @@
     <Content Include="Views\Authentication\PatientSignIn.cshtml" />
     <Content Include="Views\Authentication\EmployeeSignIn.cshtml" />
     <Content Include="Views\Home\MD5Hashing.cshtml" />
+    <Content Include="Views\Authentication\PatientSignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

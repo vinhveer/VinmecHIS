@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Authentication.Models.Data;
 using Authentication.Helper;
 using System.Web;
+using System.Web.Helpers;
 using System.Diagnostics;
 
 namespace Authentication.Controllers
@@ -50,7 +51,6 @@ namespace Authentication.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult PatientSignUp(string username, string firstname, string lastname, string gender, DateTime dateofbirth, string address, string password, string email, string phonenumber)
         {
@@ -79,14 +79,17 @@ namespace Authentication.Controllers
             var newAccount = new PATIENTACCOUNT
             {
                 PATIENT_ID = newPatientId,
+                PATIENT_ID = newPatientId,
                 PATIENT_USERNAME = username,
-                PATIENT_PASSWORD = MD5Helper.Hash(password)
+                PATIENT_PASSWORD = MD5Helper.Hash(password) 
             };
 
             _db.PATIENTACCOUNTs.Add(newAccount);
-            _db.SaveChanges();
+            _db.SaveChanges(); 
             return RedirectToAction("PatientSignIn");
         }
+
+
 
         private string Encrypt(string plainText)
         {
