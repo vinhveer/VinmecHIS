@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Patient.Controllers
@@ -20,14 +21,21 @@ namespace Patient.Controllers
                 return Content("Thông tin đăng nhập không hợp lệ.");
             }
 
-            string decryptedPatientId = Decrypt(patientid);
-            if (string.IsNullOrEmpty(decryptedPatientId))
-            {
-                return Content("Giải mã thất bại.");
-            }
+            //// Decode URL để khôi phục dấu '+'
+            //string decodedPatientId = HttpUtility.UrlDecode(patientid);
 
-            ViewBag.PatientId = decryptedPatientId;
+            //// Giải mã chuỗi đã decode
+            //string decryptedPatientId = Decrypt(decodedPatientId);
+
+            //if (string.IsNullOrEmpty(decryptedPatientId))
+            //{
+            //    return Content("Giải mã thất bại.");
+            //}
+
+            ViewBag.PatientId = patientid;
             ViewBag.Token = token;
+
+            Session["PatientId"] = patientid;
             return View();
         }
 

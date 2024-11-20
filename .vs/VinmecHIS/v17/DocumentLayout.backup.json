@@ -3,31 +3,31 @@
   "WorkspaceRootPath": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\patient\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|solutionrelative:patient\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\authentication\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\patient\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\patient\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|solutionrelative:patient\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\patient\\views\\authentication\\authenticationrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\patient\\views\\authentication\\authenticationrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9CDFCEDE-773E-4B54-968C-AC0950E311BA}|Patient\\Patient.csproj|solutionrelative:patient\\views\\authentication\\authenticationrequest.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\views\\authentication\\patientsignin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\authentication\\views\\authentication\\patientsignin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\views\\authentication\\patientsignin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\views\\authentication\\employeesignin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\authentication\\views\\authentication\\employeesignin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\views\\authentication\\employeesignin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -47,6 +47,14 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Document",
@@ -58,31 +66,30 @@
               "RelativeToolTip": "Authentication\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T05:39:01.111Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T05:39:01.111Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AuthenticationController.cs",
               "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Patient\\Controllers\\AuthenticationController.cs",
               "RelativeDocumentMoniker": "Patient\\Controllers\\AuthenticationController.cs",
               "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Patient\\Controllers\\AuthenticationController.cs",
               "RelativeToolTip": "Patient\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAC8AAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T05:30:20.902Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AuthenticationController.cs",
               "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Controllers\\AuthenticationController.cs",
               "RelativeDocumentMoniker": "Authentication\\Controllers\\AuthenticationController.cs",
               "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Controllers\\AuthenticationController.cs",
               "RelativeToolTip": "Authentication\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAmwCYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T05:30:16.943Z",
               "EditorCaption": ""
@@ -97,12 +104,7 @@
               "RelativeToolTip": "Patient\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T05:17:39.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "WhenOpened": "2024-11-20T05:17:39.519Z"
             },
             {
               "$type": "Document",
@@ -114,12 +116,7 @@
               "RelativeToolTip": "Patient\\Views\\Authentication\\AuthenticationRequest.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T05:03:47.869Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+              "WhenOpened": "2024-11-20T05:03:47.869Z"
             },
             {
               "$type": "Document",
@@ -131,8 +128,7 @@
               "RelativeToolTip": "Authentication\\Views\\Authentication\\PatientSignIn.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T05:04:57.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T05:04:57.887Z"
             },
             {
               "$type": "Document",
@@ -144,8 +140,7 @@
               "RelativeToolTip": "Authentication\\Views\\Authentication\\EmployeeSignIn.cshtml",
               "ViewState": "AgIAABgAAAAAAAAAAAAAABEAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T04:42:47.991Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T04:42:47.991Z"
             }
           ]
         }

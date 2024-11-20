@@ -5,6 +5,7 @@ using System.Text;
 using System.Web.Mvc;
 using Authentication.Models.Data;
 using Authentication.Helper;
+using System.Web;
 
 namespace Authentication.Controllers
 {
@@ -26,16 +27,23 @@ namespace Authentication.Controllers
 
             if (patientAccount != null)
             {
-                string encryptedPatientId = Encrypt(patientAccount.PATIENT_ID.ToString());
+                // Mã hóa PatientId và mã hóa URL
+                string encryptedPatientId = patientAccount.PATIENT_ID.ToString();
+
+                // Sinh RequestVerificationToken
                 string requestVerificationToken = GenerateRequestVerificationToken();
 
+                // URL chuyển hướng
                 string redirectUrl = $"https://localhost:44327/Authentication/AuthenticationRequest?patientid={encryptedPatientId}&token={requestVerificationToken}";
+
+                // Chuyển hướng
                 return Redirect(redirectUrl);
             }
 
             ViewBag.Error = "Tên đăng nhập và mật khẩu không chính xác";
             return View();
         }
+
 
         public ActionResult PatientSignUp()
         {
