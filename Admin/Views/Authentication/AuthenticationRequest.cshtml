@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Xử lý đăng nhập";
+}
+@if (Session["EmployeeId"] != null && ViewBag.Token != null)
+{
+    <p style="color: green;">Thông tin xác thực đã được xử lý thành công <br /> Đang chuyển hướng ...</p>
+
+    <script>
+        // Hàm chuyển hướng
+        function chuyenHuong() {
+            window.location.href = "https://localhost:44306/Home/Index"; // Thay URL bằng trang bạn muốn chuyển
+        }
+
+        // Tự động gọi hàm chuyển hướng sau .5 giây
+        setTimeout(chuyenHuong, 500);
+    </script>
+}
+else
+{
+    <p style="color: red;">Thông tin xác thực không hợp lệ. <a href="https://localhost:44371/">Về trang đăng nhập</a></p>
+}

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using Admin.Filters;
 using Admin.Models.Data;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace Admin.Controllers
 {
+    [Authenticate]
     public class HomeController : Controller
     {
         private readonly AdminDbContext _db = new AdminDbContext();

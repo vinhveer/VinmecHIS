@@ -5,15 +5,24 @@ using System.Text;
 using System.Web.Mvc;
 using Authentication.Models.Data;
 using Authentication.Helper;
-using System.Web;
-using System.Web.Helpers;
 using System.Diagnostics;
+using System.Web;
+using System.Collections.Generic;
 
 namespace Authentication.Controllers
 {
     public class AuthenticationController : Controller
     {
         private readonly AuthenticationDbContext _db = new AuthenticationDbContext();
+
+        // Từ điển ánh xạ vai trò và port
+        private static readonly Dictionary<string, string> RolePorts = new Dictionary<string, string>
+        {
+            { "Doctor", "44386" },
+            { "Pharmacist", "44394" },
+            { "Receptionist", "44316" },
+            { "Admin", "44306" }
+        };
 
         public ActionResult PatientSignIn()
         {
@@ -23,22 +32,26 @@ namespace Authentication.Controllers
         [HttpPost]
         public ActionResult PatientSignIn(string username, string password)
         {
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                ViewBag.Error = "Vui lòng nhập đầy đủ thông tin.";
+                return View();
+            }
+
             string hashedPassword = MD5Helper.Hash(password);
 
-            var patientAccount = _db.PATIENTACCOUNTs.SingleOrDefault(x => x.PATIENT_USERNAME == username && x.PATIENT_PASSWORD == hashedPassword);
+            var patientAccount = _db.PATIENTACCOUNTs.SingleOrDefault(
+                x => x.PATIENT_USERNAME == username && x.PATIENT_PASSWORD == hashedPassword);
 
             if (patientAccount != null)
             {
-                // Mã hóa PatientId và mã hóa URL
-                string encryptedPatientId = patientAccount.PATIENT_ID.ToString();
-
-                // Sinh RequestVerificationToken
-                string requestVerificationToken = GenerateRequestVerificationToken();
+                // Mã hóa an toàn
+                string encryptedPatientId = EncryptAndSafeEncode(patientAccount.PATIENT_ID.ToString());
+                string safeToken = GenerateSafeToken();
 
                 // URL chuyển hướng
-                string redirectUrl = $"https://localhost:44327/Authentication/AuthenticationRequest?patientid={encryptedPatientId}&token={requestVerificationToken}";
+                string redirectUrl = $"https://localhost:44327/Authentication/AuthenticationRequest?patientid={encryptedPatientId}&token={safeToken}";
 
-                // Chuyển hướng
                 return Redirect(redirectUrl);
             }
 
@@ -46,52 +59,116 @@ namespace Authentication.Controllers
             return View();
         }
 
-
         public ActionResult PatientSignUp()
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult PatientSignUp(string username, string firstname, string lastname, string gender, DateTime dateofbirth, string address, string password, string email, string phonenumber)
+
+        public ActionResult PatientSignUp(string username, string firstname, string lastname,
+            string gender, DateTime dateofbirth, string address, string password,
+            string email, string phonenumber)
         {
+            // Kiểm tra trùng username
             if (_db.PATIENTACCOUNTs.Any(p => p.PATIENT_USERNAME == username))
             {
                 ViewBag.Error = "Tên đăng nhập đã tồn tại.";
                 return View();
             }
 
+            // Tạo bệnh nhân mới
             var newPatient = new PATIENT
             {
-                FIRST_NAME_ = firstname,
-                LAST_NAME_ = lastname,
-                DATE_OF_BIRTH_ = dateofbirth,
-                C_GENDER_ = gender,
+                FIRST_NAME = firstname,
+                LAST_NAME = lastname,
+                DATE_OF_BIRTH = dateofbirth,
+                GENDER = gender,
                 PATIENT_EMAIL = email,
                 PATIENT_PHONE = phonenumber,
                 PATIENT_ADDRESS = address,
             };
 
+            // Lưu bệnh nhân
             _db.PATIENTs.Add(newPatient);
             _db.SaveChanges();
 
-            long newPatientId = newPatient.PATIENT_ID;
-
+            // Tạo tài khoản
             var newAccount = new PATIENTACCOUNT
             {
-                PATIENT_ID = newPatientId,
+                PATIENT_ID = newPatient.PATIENT_ID,
                 PATIENT_USERNAME = username,
-                PATIENT_PASSWORD = MD5Helper.Hash(password) 
+                PATIENT_PASSWORD = MD5Helper.Hash(password)
             };
 
             _db.PATIENTACCOUNTs.Add(newAccount);
-            _db.SaveChanges(); 
+            _db.SaveChanges();
+
             return RedirectToAction("PatientSignIn");
         }
 
+        public ActionResult EmployeeSignIn()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult EmployeeSignIn(string username, string password)
+        {
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                ViewBag.Error = "Vui lòng nhập đầy đủ thông tin.";
+                return View();
+            }
 
+            string hashedPassword = MD5Helper.Hash(password);
+
+            var employeeAccount = _db.EMPLOYEEACCOUNTs.SingleOrDefault(
+                x => x.EMPLOYEE_USERNAME == username && x.EMPLOYEE_PASSWORD == hashedPassword);
+
+            if (employeeAccount != null)
+            {
+                var employee = _db.EMPLOYEEs.SingleOrDefault(e => e.EMPLOYEE_ID == employeeAccount.EMPLOYEE_ID);
+                if (employee != null)
+                {
+                    // Mã hóa EmployeeId
+                    string encryptedEmployeeId = EncryptAndSafeEncode(employeeAccount.EMPLOYEE_ID.ToString());
+                    string safeToken = GenerateSafeToken();
+
+                    // Lấy port
+                    if (!RolePorts.TryGetValue(employee.ROLE_NAME, out string port))
+                    {
+                        ViewBag.Error = "Vai trò không hợp lệ.";
+                        return View();
+                    }
+
+                    // URL chuyển hướng
+                    string redirectUrl = $"https://localhost:{port}/Authentication/AuthenticationRequest?employeeid={encryptedEmployeeId}&token={safeToken}";
+
+                    return Redirect(redirectUrl);
+                }
+            }
+
+            ViewBag.Error = "Tên đăng nhập và mật khẩu không chính xác";
+            return View();
+        }
+
+        // Mã hóa và mã hóa an toàn URL
+        private string EncryptAndSafeEncode(string plainText)
+        {
+            string encryptedText = Encrypt(plainText);
+            return ToBase64UrlSafe(Encoding.UTF8.GetBytes(encryptedText));
+        }
+
+        // Sinh token an toàn
+        private string GenerateSafeToken()
+        {
+            string token = GenerateRequestVerificationToken();
+            return ToBase64UrlSafe(Encoding.UTF8.GetBytes(token));
+        }
+
+        // Các phương thức mã hóa và hỗ trợ không thay đổi
         private string Encrypt(string plainText)
         {
+            // Giữ nguyên logic mã hóa
             const string keyBase64 = "qSLCtgCSolEzY5VVMyyZWy90qET4huVXG9XBLRSa10s=";
             const string ivBase64 = "jBEQDaG7vfNC4enrNFveaQ==";
 
@@ -124,67 +201,13 @@ namespace Authentication.Controllers
             }
         }
 
-        public ActionResult EmployeeSignIn()
+        // Mã hóa Base64 URL-safe
+        private string ToBase64UrlSafe(byte[] input)
         {
-            var patientAccounts = _db.PATIENTACCOUNTs.ToList();
-
-            // Print data to the Output pane
-            foreach (var account in patientAccounts)
-            {
-                Debug.WriteLine($"ID: {account.PATIENT_ID}, Username: {account.PATIENT_USERNAME}");
-            }
-
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult EmployeeSignIn(string username, string password)
-        {
-            string hashedPassword = MD5Helper.Hash(password);
-
-            var employeeAccount = _db.EMPLOYEEACCOUNTs.SingleOrDefault(x => x.EMPLOYEE_USERNAME == username && x.EMPLOYEE_PASSWORD == hashedPassword);
-
-            //Debug.WriteLine("hashedPassword:" + hashedPassword);
-            if (employeeAccount != null)
-            {
-                var employee = _db.EMPLOYEEs.SingleOrDefault(e => e.EMPLOYEE_ID == employeeAccount.EMPLOYEE_ID);
-                if (employee != null)
-                {
-                    var employeeRole = employee.ROLE_NAME;
-
-                    // Mã hóa PatientId và mã hóa URL
-                    string encryptedEmployeeId = employeeAccount.EMPLOYEE_ID.ToString();
-
-                    // Sinh RequestVerificationToken
-                    string requestVerificationToken = GenerateRequestVerificationToken();
-                    Debug.WriteLine("Role_name ", employee.ROLE_NAME);
-                    string port = "";
-
-                    if (employee.ROLE_NAME == "Doctor")
-                    {
-                        port = "44386";
-                    }
-                    else if (employee.ROLE_NAME == "Pharmacist")
-                    {
-                        port = "44394";
-                    }
-                    else if (employee.ROLE_NAME == "Receptionist")
-                    {
-                        port = "44316";
-                    } 
-                    else if (employee.ROLE_NAME == "Admin")
-                    {
-                        port = "44306";
-                    }    
-                    // URL chuyển hướng
-                    string redirectUrl = $"https://localhost:{port}/Authentication/AuthenticationRequest?employeeid={encryptedEmployeeId}&token={requestVerificationToken}";
-
-                    // Chuyển hướng
-                    return Redirect(redirectUrl);
-                }
-            }
-            ViewBag.Error = "Tên đăng nhập và mật khẩu không chính xác";
-            return View();
+            return Convert.ToBase64String(input)
+                .TrimEnd('=')           // Loại bỏ padding
+                .Replace('+', '-')      // Thay thế + bằng -
+                .Replace('/', '_');     // Thay thế / bằng _
         }
     }
 }

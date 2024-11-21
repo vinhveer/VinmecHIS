@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Receptionist.Filters;
 using System.Web.Mvc;
 
 namespace Receptionist.Controllers
 {
+    [Authenticate]
     public class HomeController : Controller
     {
         public ActionResult Index()
