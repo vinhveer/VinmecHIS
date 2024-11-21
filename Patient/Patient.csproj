@@ -131,6 +131,7 @@
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\ExampleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoicePatientController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,6 +204,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Authentication\AuthenticationRequest.cshtml" />
     <Content Include="Views\Example\Index.cshtml" />
+    <Content Include="Views\InvoicePatient\Index.cshtml" />
+    <Content Include="Views\InvoicePatient\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

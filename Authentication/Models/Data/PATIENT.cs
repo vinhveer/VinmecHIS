@@ -21,18 +21,17 @@ namespace Authentication.Models.Data
 
         [Required]
         [StringLength(30)]
-        public string FIRST_NAME_ { get; set; }
+        public string FIRST_NAME { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string LAST_NAME_ { get; set; }
+        public string LAST_NAME { get; set; }
 
-        public DateTime DATE_OF_BIRTH_ { get; set; }
+        public DateTime DATE_OF_BIRTH { get; set; }
 
-        [Column("_GENDER_")]
         [Required]
         [StringLength(1)]
-        public string C_GENDER_ { get; set; }
+        public string GENDER { get; set; }
 
         [Required]
         [StringLength(50)]

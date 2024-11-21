@@ -62,10 +62,10 @@ namespace Authentication.Controllers
 
             var newPatient = new PATIENT
             {
-                FIRST_NAME_ = firstname,
-                LAST_NAME_ = lastname,
-                DATE_OF_BIRTH_ = dateofbirth,
-                C_GENDER_ = gender,
+                FIRST_NAME = firstname,
+                LAST_NAME = lastname,
+                DATE_OF_BIRTH = dateofbirth,
+                GENDER = gender,
                 PATIENT_EMAIL = email,
                 PATIENT_PHONE = phonenumber,
                 PATIENT_ADDRESS = address,

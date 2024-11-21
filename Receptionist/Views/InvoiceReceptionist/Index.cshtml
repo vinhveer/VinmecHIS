@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@model IEnumerable<Receptionist.Models.Data.MEDICALRECORD>
+
+<div class="container py-5">
+    <h3>Danh sách hóa đơn</h3>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Mã số hồ sơ</th>
+                <th scope="col">Tên bệnh nhân</th>
+                <th scope="col">Ngày khám</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                int stt = 1;
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@stt</th>
+                        <th>@item.MEDICAL_RECORD_ID</th>
+                        <th>@item.PATIENT.FIRST_NAME @item.PATIENT.LAST_NAME</th>
+                        <td>@item.EXAMINATION_DATE.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <a href="@Url.Action("Details", "InvoiceReceptionist", new { id = item.MEDICAL_RECORD_ID})" class="">
+                                Xem chi tiết
+                            </a>
+                        </td>
+                    </tr>
+                    stt++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3">Không có dữ liệu</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

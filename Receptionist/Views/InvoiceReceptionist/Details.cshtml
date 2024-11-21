@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+@model IEnumerable<Receptionist.Models.Data.PRESCRIPTIONDETAIL>
+<div class="container py-5">
+    <h3>Chi tiết hóa đơn</h3>
+    <div class="border border-3 p-5 mt-5 d-flex flex-column w-75">
+        <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Tên bác sĩ:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" value="@ViewBag.EmployeeFirstName @ViewBag.EmployeeLastName" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Tên bệnh nhân:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" value="@ViewBag.patientFirstName @ViewBag.patientLastName" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput4" class="form-label">Ngày khám:</label>
+            <input type="date" class="form-control" id="formGroupExampleInput4" value="@ViewBag.medicalrecord.EXAMINATION_DATE.ToString("yyyy-MM-dd")" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput4" class="form-label">Mã hồ sơ:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput4" value="@ViewBag.medicalrecord.MEDICAL_RECORD_ID" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput8" class="form-label">Viện phí:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput8" value="@ViewBag.medicalrecord.HOSPITAL_FEES" disabled>
+        </div>
+        <div class="mb-3">
+            <h4>Chi tiết đơn thuốc</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Tên thuốc</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Liều dùng</th>
+                        <th scope="col">Đơn giá</th>
+                        <th scope="col">Tổng tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        int stt = 1;
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <th scope="row">@stt</th>
+                                <td>@item.MEDICINE.MEDICINE_NAME</td>
+                                <td>@item.PRESCRIBED_QUANTITY</td>
+                                <td>@item.DOSAGE</td>
+                                <td>@item.MEDICINE.PRICE</td>
+                                <td>@(item.PRESCRIBED_QUANTITY * item.MEDICINE.PRICE)</td>
+                            </tr>
+                            stt++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="3">Không có dữ liệu</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <h4>Tổng số tiền: @((Model.Sum(item => item.PRESCRIBED_QUANTITY * item.MEDICINE.PRICE) + ViewBag.medicalrecord.HOSPITAL_FEES))</h4>
+    </div>
+</div>
+
+
