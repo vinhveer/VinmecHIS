@@ -12,8 +12,8 @@ namespace Admin.Models.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MEDICINE()
         {
-            MEDICINEORDERDETAILs = new HashSet<MEDICINEORDERDETAIL>();
-            PRESCRIPTIONDETAILs = new HashSet<PRESCRIPTIONDETAIL>();
+            MEDICINEORDERDETAIL = new HashSet<MEDICINEORDERDETAIL>();
+            PRESCRIPTIONDETAIL = new HashSet<PRESCRIPTIONDETAIL>();
         }
 
         [Key]
@@ -36,11 +36,11 @@ namespace Admin.Models.Data
         public decimal PRICE { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MEDICINEORDERDETAIL> MEDICINEORDERDETAILs { get; set; }
+        public virtual ICollection<MEDICINEORDERDETAIL> MEDICINEORDERDETAIL { get; set; }
 
         public virtual SUPPLIER SUPPLIER { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRESCRIPTIONDETAIL> PRESCRIPTIONDETAILs { get; set; }
+        public virtual ICollection<PRESCRIPTIONDETAIL> PRESCRIPTIONDETAIL { get; set; }
     }
 }

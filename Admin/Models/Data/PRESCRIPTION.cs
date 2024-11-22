@@ -12,7 +12,7 @@ namespace Admin.Models.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PRESCRIPTION()
         {
-            PRESCRIPTIONDETAILs = new HashSet<PRESCRIPTIONDETAIL>();
+            PRESCRIPTIONDETAIL = new HashSet<PRESCRIPTIONDETAIL>();
         }
 
         [Key]
@@ -26,6 +26,6 @@ namespace Admin.Models.Data
         public virtual MEDICALRECORD MEDICALRECORD { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRESCRIPTIONDETAIL> PRESCRIPTIONDETAILs { get; set; }
+        public virtual ICollection<PRESCRIPTIONDETAIL> PRESCRIPTIONDETAIL { get; set; }
     }
 }

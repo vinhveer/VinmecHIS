@@ -12,8 +12,8 @@ namespace Admin.Models.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SUPPLIER()
         {
-            MEDICINEs = new HashSet<MEDICINE>();
-            MEDICINEORDERs = new HashSet<MEDICINEORDER>();
+            MEDICINE = new HashSet<MEDICINE>();
+            MEDICINEORDER = new HashSet<MEDICINEORDER>();
         }
 
         [Key]
@@ -36,9 +36,9 @@ namespace Admin.Models.Data
         public string CONTACT_PHONE { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MEDICINE> MEDICINEs { get; set; }
+        public virtual ICollection<MEDICINE> MEDICINE { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MEDICINEORDER> MEDICINEORDERs { get; set; }
+        public virtual ICollection<MEDICINEORDER> MEDICINEORDER { get; set; }
     }
 }

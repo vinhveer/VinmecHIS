@@ -12,8 +12,8 @@ namespace Admin.Models.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PATIENT()
         {
-            APPOINTMENTs = new HashSet<APPOINTMENT>();
-            MEDICALRECORDs = new HashSet<MEDICALRECORD>();
+            APPOINTMENT = new HashSet<APPOINTMENT>();
+            MEDICALRECORD = new HashSet<MEDICALRECORD>();
         }
 
         [Key]
@@ -21,18 +21,17 @@ namespace Admin.Models.Data
 
         [Required]
         [StringLength(30)]
-        public string FIRST_NAME_ { get; set; }
+        public string FIRST_NAME { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string LAST_NAME_ { get; set; }
+        public string LAST_NAME { get; set; }
 
-        public DateTime DATE_OF_BIRTH_ { get; set; }
+        public DateTime DATE_OF_BIRTH { get; set; }
 
-        [Column("_GENDER_")]
         [Required]
         [StringLength(1)]
-        public string C_GENDER_ { get; set; }
+        public string GENDER { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -52,10 +51,10 @@ namespace Admin.Models.Data
         public DateTime REGISTRATION_DATE { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<APPOINTMENT> APPOINTMENTs { get; set; }
+        public virtual ICollection<APPOINTMENT> APPOINTMENT { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MEDICALRECORD> MEDICALRECORDs { get; set; }
+        public virtual ICollection<MEDICALRECORD> MEDICALRECORD { get; set; }
 
         public virtual PATIENTACCOUNT PATIENTACCOUNT { get; set; }
     }

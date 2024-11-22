@@ -66,7 +66,7 @@ namespace Admin.Models.Data
                 .IsUnicode(false);
 
             modelBuilder.Entity<EMPLOYEE>()
-                .HasMany(e => e.APPOINTMENTs)
+                .HasMany(e => e.APPOINTMENT)
                 .WithRequired(e => e.EMPLOYEE)
                 .WillCascadeOnDelete(false);
 
@@ -75,17 +75,17 @@ namespace Admin.Models.Data
                 .WithRequired(e => e.EMPLOYEE);
 
             modelBuilder.Entity<EMPLOYEE>()
-                .HasMany(e => e.INVOICEs)
+                .HasMany(e => e.INVOICE)
                 .WithRequired(e => e.EMPLOYEE)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<EMPLOYEE>()
-                .HasMany(e => e.MEDICALRECORDs)
+                .HasMany(e => e.MEDICALRECORD)
                 .WithRequired(e => e.EMPLOYEE)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<EMPLOYEE>()
-                .HasMany(e => e.MEDICINEORDERs)
+                .HasMany(e => e.MEDICINEORDER)
                 .WithRequired(e => e.EMPLOYEE)
                 .WillCascadeOnDelete(false);
 
@@ -138,30 +138,30 @@ namespace Admin.Models.Data
                 .HasPrecision(10, 2);
 
             modelBuilder.Entity<MEDICINE>()
-                .HasMany(e => e.MEDICINEORDERDETAILs)
+                .HasMany(e => e.MEDICINEORDERDETAIL)
                 .WithRequired(e => e.MEDICINE)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<MEDICINE>()
-                .HasMany(e => e.PRESCRIPTIONDETAILs)
+                .HasMany(e => e.PRESCRIPTIONDETAIL)
                 .WithRequired(e => e.MEDICINE)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<MEDICINEORDER>()
-                .HasMany(e => e.MEDICINEORDERDETAILs)
+                .HasMany(e => e.MEDICINEORDERDETAIL)
                 .WithRequired(e => e.MEDICINEORDER)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PATIENT>()
-                .Property(e => e.FIRST_NAME_)
+                .Property(e => e.FIRST_NAME)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PATIENT>()
-                .Property(e => e.LAST_NAME_)
+                .Property(e => e.LAST_NAME)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PATIENT>()
-                .Property(e => e.C_GENDER_)
+                .Property(e => e.GENDER)
                 .IsFixedLength()
                 .IsUnicode(false);
 
@@ -182,12 +182,12 @@ namespace Admin.Models.Data
                 .IsUnicode(false);
 
             modelBuilder.Entity<PATIENT>()
-                .HasMany(e => e.APPOINTMENTs)
+                .HasMany(e => e.APPOINTMENT)
                 .WithRequired(e => e.PATIENT)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PATIENT>()
-                .HasMany(e => e.MEDICALRECORDs)
+                .HasMany(e => e.MEDICALRECORD)
                 .WithRequired(e => e.PATIENT)
                 .WillCascadeOnDelete(false);
 
@@ -208,7 +208,7 @@ namespace Admin.Models.Data
                 .IsUnicode(false);
 
             modelBuilder.Entity<PRESCRIPTION>()
-                .HasMany(e => e.PRESCRIPTIONDETAILs)
+                .HasMany(e => e.PRESCRIPTIONDETAIL)
                 .WithRequired(e => e.PRESCRIPTION)
                 .WillCascadeOnDelete(false);
 
@@ -233,12 +233,12 @@ namespace Admin.Models.Data
                 .IsUnicode(false);
 
             modelBuilder.Entity<SUPPLIER>()
-                .HasMany(e => e.MEDICINEs)
+                .HasMany(e => e.MEDICINE)
                 .WithRequired(e => e.SUPPLIER)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SUPPLIER>()
-                .HasMany(e => e.MEDICINEORDERs)
+                .HasMany(e => e.MEDICINEORDER)
                 .WithRequired(e => e.SUPPLIER)
                 .WillCascadeOnDelete(false);
         }
