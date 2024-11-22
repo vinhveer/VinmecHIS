@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Pharmacy.Models.Data.PRESCRIPTION>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MEDICALRECORD.DIAGNOSIS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRESCRIPTION_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOTES)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MEDICALRECORD.DIAGNOSIS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRESCRIPTION_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOTES)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MEDICAL_RECORD_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MEDICAL_RECORD_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MEDICAL_RECORD_ID })
+        </td>
+    </tr>
+}
+
+</table>

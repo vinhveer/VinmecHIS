@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace Patient.Models.Data
 {
-    public partial class PatientDbContext : DbContext
+    public partial class PatientDBContext : DbContext
     {
-        public PatientDbContext()
-            : base("name=PatientDbContext")
+        public PatientDBContext()
+            : base("name=PatientDBContext")
         {
         }
 
@@ -153,15 +153,15 @@ namespace Patient.Models.Data
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PATIENT>()
-                .Property(e => e.FIRST_NAME_)
+                .Property(e => e.FIRST_NAME)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PATIENT>()
-                .Property(e => e.LAST_NAME_)
+                .Property(e => e.LAST_NAME)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PATIENT>()
-                .Property(e => e.C_GENDER_)
+                .Property(e => e.GENDER)
                 .IsFixedLength()
                 .IsUnicode(false);
 

@@ -144,7 +144,7 @@
     <Compile Include="Models\Data\MEDICINEORDERDETAIL.cs" />
     <Compile Include="Models\Data\PATIENT.cs" />
     <Compile Include="Models\Data\PATIENTACCOUNT.cs" />
-    <Compile Include="Models\Data\PatientDbContext.cs" />
+    <Compile Include="Models\Data\PatientDBContext.cs" />
     <Compile Include="Models\Data\PRESCRIPTION.cs" />
     <Compile Include="Models\Data\PRESCRIPTIONDETAIL.cs" />
     <Compile Include="Models\Data\SUPPLIER.cs" />

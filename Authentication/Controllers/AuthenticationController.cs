@@ -13,7 +13,7 @@ namespace Authentication.Controllers
 {
     public class AuthenticationController : Controller
     {
-        private readonly AuthenticationDbContext _db = new AuthenticationDbContext();
+        private readonly AuthencitaionDBContext _db = new AuthencitaionDBContext();
 
         public ActionResult PatientSignIn()
         {
@@ -62,10 +62,10 @@ namespace Authentication.Controllers
 
             var newPatient = new PATIENT
             {
-                FIRST_NAME_ = firstname,
-                LAST_NAME_ = lastname,
-                DATE_OF_BIRTH_ = dateofbirth,
-                C_GENDER_ = gender,
+                FIRST_NAME = firstname,
+                LAST_NAME = lastname,
+                DATE_OF_BIRTH = dateofbirth,
+                GENDER = gender,
                 PATIENT_EMAIL = email,
                 PATIENT_PHONE = phonenumber,
                 PATIENT_ADDRESS = address,
@@ -126,13 +126,10 @@ namespace Authentication.Controllers
 
         public ActionResult EmployeeSignIn()
         {
-            var patientAccounts = _db.PATIENTACCOUNTs.ToList();
+            
 
-            // Print data to the Output pane
-            foreach (var account in patientAccounts)
-            {
-                Debug.WriteLine($"ID: {account.PATIENT_ID}, Username: {account.PATIENT_USERNAME}");
-            }
+            
+           
 
             return View();
         }
