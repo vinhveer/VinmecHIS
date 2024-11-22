@@ -51,42 +51,42 @@ namespace Authentication.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult PatientSignUp(string username, string firstname, string lastname, string gender, DateTime dateofbirth, string address, string password, string email, string phonenumber)
-        {
-            if (_db.PATIENTACCOUNTs.Any(p => p.PATIENT_USERNAME == username))
-            {
-                ViewBag.Error = "Tên đăng nhập đã tồn tại.";
-                return View();
-            }
+        //[HttpPost]
+        //public ActionResult PatientSignUp(string username, string firstname, string lastname, string gender, DateTime dateofbirth, string address, string password, string email, string phonenumber)
+        //{
+        //    if (_db.PATIENTACCOUNTs.Any(p => p.PATIENT_USERNAME == username))
+        //    {
+        //        ViewBag.Error = "Tên đăng nhập đã tồn tại.";
+        //        return View();
+        //    }
 
-            var newPatient = new PATIENT
-            {
-                FIRST_NAME_ = firstname,
-                LAST_NAME_ = lastname,
-                DATE_OF_BIRTH_ = dateofbirth,
-                C_GENDER_ = gender,
-                PATIENT_EMAIL = email,
-                PATIENT_PHONE = phonenumber,
-                PATIENT_ADDRESS = address,
-            };
+        //    var newPatient = new PATIENT
+        //    {
+        //        FIRST_NAME_ = firstname,
+        //        LAST_NAME_ = lastname,
+        //        DATE_OF_BIRTH_ = dateofbirth,
+        //        C_GENDER_ = gender,
+        //        PATIENT_EMAIL = email,
+        //        PATIENT_PHONE = phonenumber,
+        //        PATIENT_ADDRESS = address,
+        //    };
 
-            _db.PATIENTs.Add(newPatient);
-            _db.SaveChanges();
+        //    _db.PATIENTs.Add(newPatient);
+        //    _db.SaveChanges();
 
-            long newPatientId = newPatient.PATIENT_ID;
+        //    long newPatientId = newPatient.PATIENT_ID;
 
-            var newAccount = new PATIENTACCOUNT
-            {
-                PATIENT_ID = newPatientId,
-                PATIENT_USERNAME = username,
-                PATIENT_PASSWORD = MD5Helper.Hash(password) 
-            };
+        //    var newAccount = new PATIENTACCOUNT
+        //    {
+        //        PATIENT_ID = newPatientId,
+        //        PATIENT_USERNAME = username,
+        //        PATIENT_PASSWORD = MD5Helper.Hash(password) 
+        //    };
 
-            _db.PATIENTACCOUNTs.Add(newAccount);
-            _db.SaveChanges(); 
-            return RedirectToAction("PatientSignIn");
-        }
+        //    _db.PATIENTACCOUNTs.Add(newAccount);
+        //    _db.SaveChanges(); 
+        //    return RedirectToAction("PatientSignIn");
+        //}
 
 
 

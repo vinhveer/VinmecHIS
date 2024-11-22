@@ -128,13 +128,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AppointMentController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\ExampleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Data\AppointmentViewModel.cs" />
     <Compile Include="Models\Data\APPOINTMENT.cs" />
+    <Compile Include="Models\Data\AvailableDoctorViewModel.cs" />
     <Compile Include="Models\Data\EMPLOYEE.cs" />
     <Compile Include="Models\Data\EMPLOYEEACCOUNT.cs" />
     <Compile Include="Models\Data\INVOICE.cs" />
@@ -151,6 +154,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\BookingAppointment.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -203,6 +207,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Authentication\AuthenticationRequest.cshtml" />
     <Content Include="Views\Example\Index.cshtml" />
+    <Content Include="Views\AppointMent\Index.cshtml" />
+    <Content Include="Views\AppointMent\BookingApointmnet.cshtml" />
+    <Content Include="Views\AppointMent\AvailableAppointments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

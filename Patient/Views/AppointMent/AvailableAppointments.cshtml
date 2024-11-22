@@ -1,0 +1,56 @@
+﻿@model List<Patient.Models.Data.AvailableDoctorViewModel>
+@{
+    ViewBag.Title = "AvailableAppointments";
+}
+
+<div class="container">
+    @using (Html.BeginForm("AvailableAppointments", "AppointMent", FormMethod.Post, new { @class = "justify-content-center" }))
+    {
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2>Danh sách bác sĩ hẹn khám</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Bác sĩ</th>
+                            <th>Phòng khám</th>
+                            <th>Chọn giờ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var doctor in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <input type="radio" name="selectedDoctor" id="doctor_@doctor.EmployeeId" value="@doctor.EmployeeId" />
+                                </td>
+                                <td>
+                                    <label for="doctor_@doctor.EmployeeId">@doctor.EmployeeName</label>
+                                </td>
+                                <td>@doctor.EmployeeRoom</td>
+                                <td>
+                                    <select name="selectedHour" id="selectedHour" class="form-control">
+                                        <option value="" disabled selected>Chọn giờ</option>
+                                        @foreach (var hour in doctor.FreeHours)
+                                        {
+                                            <option value="@hour.ToString("HH:mm")">@hour.ToString("HH:mm")</option>
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-12 d-none">
+            <div class="mb-3">
+                <input type="text" name="PatientAppointmentDate" value="@ViewBag.AppointmentDate">
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn_send_book">Đăng ký</button>
+        </div>
+    }
+</div>
