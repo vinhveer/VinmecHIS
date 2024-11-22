@@ -1,0 +1,92 @@
+﻿@model Doctor.Models.Data.MEDICALRECORD
+
+@{
+    ViewBag.Title = "Tạo hồ sơ bệnh án";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-primary">Tạo hồ sơ bệnh án</h2>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]   
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!-- Thông tin ẩn (Hidden) -->
+        <div>
+            @Html.HiddenFor(model => model.PATIENT_ID, new { value = ViewBag.patient_id })
+            @Html.HiddenFor(model => model.EMPLOYEE_ID, new { value = ViewBag.employee_id })
+            @Html.HiddenFor(model => model.EXAMINATION_DATE, new { value = ViewBag.examination_date })
+        </div>
+
+        <!-- Ngày hẹn tái khám -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.FOLLOW_UP_DATE, "Ngày tái khám", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FOLLOW_UP_DATE, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                @Html.ValidationMessageFor(model => model.FOLLOW_UP_DATE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Chẩn đoán -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.DIAGNOSIS, "Chẩn đoán", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.DIAGNOSIS, new { @class = "form-control", rows = 3 })
+                @Html.ValidationMessageFor(model => model.DIAGNOSIS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Điều trị -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.TREATMENT, "Điều trị", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.TREATMENT, new { @class = "form-control", rows = 3 })
+                @Html.ValidationMessageFor(model => model.TREATMENT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Ghi chú thêm -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.ADDITIONAL_NOTES, "Ghi chú thêm", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.ADDITIONAL_NOTES, new { @class = "form-control", rows = 3 })
+                @Html.ValidationMessageFor(model => model.ADDITIONAL_NOTES, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Chi phí bệnh viện -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.HOSPITAL_FEES, "Chi phí", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HOSPITAL_FEES, new { htmlAttributes = new { @class = "form-control", type = "number", step = "0.01" } })
+                @Html.ValidationMessageFor(model => model.HOSPITAL_FEES, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!-- Nút tạo hồ sơ -->
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save"></i> Tạo hồ sơ
+                </button>
+            </div>
+        </div>
+    </div>
+}

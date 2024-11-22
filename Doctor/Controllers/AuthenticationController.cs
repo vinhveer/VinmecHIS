@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Doctor.Models.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -10,6 +11,8 @@ namespace Doctor.Controllers
 {
     public class AuthenticationController : Controller
     {
+        private readonly DoctorDbContext _db = new DoctorDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -41,6 +44,7 @@ namespace Doctor.Controllers
 
                 // Lưu thông tin
                 Session["EmployeeId"] = decryptedEmployeeId;
+                Session["EmployeeName"] = _db.EMPLOYEEs.Find(int.Parse(decryptedEmployeeId)).FIRST_NAME;
                 ViewBag.Token = decodedToken;
 
                 return View();
@@ -51,6 +55,18 @@ namespace Doctor.Controllers
                 return Content($"Lỗi xác thực: {ex.Message}");
             }
         }
+
+
+        // GET: Logout
+        public ActionResult Logout()
+        {
+            // Xóa tất cả session
+            Session.Clear();
+
+            // Chuyển hướng đến trang đăng nhập
+            return RedirectToAction("Login", "Account");
+        }
+
 
         private string Decrypt(string cipherText)
         {

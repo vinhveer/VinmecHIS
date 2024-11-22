@@ -1,0 +1,44 @@
+﻿@model Doctor.Models.Data.MEDICALRECORD
+
+
+@{
+    ViewBag.Title = "Chi Tiết Hồ Sơ Bệnh Án";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<div>
+    <h4>Hồ Sơ Bệnh Án</h4>
+    <dl class="dl-horizontal">
+        <dt>ID Hồ Sơ</dt>
+        <dd>@Model.MEDICAL_RECORD_ID</dd>
+
+        <dt>Bệnh Nhân</dt>
+        <dd>@Model.PATIENT?.NAME</dd>
+
+        <dt>Ngày Khám</dt>
+        <dd>@Model.EXAMINATION_DATE.ToString("dd/MM/yyyy")</dd>
+
+        <dt>Chẩn Đoán</dt>
+        <dd>@Model.DIAGNOSIS</dd>
+
+        <dt>Điều Trị</dt>
+        <dd>@Model.TREATMENT</dd>
+
+        <dt>Ghi Chú</dt>
+        <dd>@Model.ADDITIONAL_NOTES</dd>
+
+        <dt>Phí Bệnh Viện</dt>
+        <dd>@Model.HOSPITAL_FEES</dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Quay Lại", "Index", "Doctor", null, new { @class = "btn btn-danger" })
+</p>

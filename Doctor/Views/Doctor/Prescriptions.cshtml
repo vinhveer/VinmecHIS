@@ -1,0 +1,37 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewBag.Title = "Danh sách đơn thuốc";
+}
+
+<h2>Danh sách đơn thuốc</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tên bệnh nhân</th>
+            <th>Ngày khám</th>
+            <th>Tên thuốc</th>
+            <th>Số lượng</th>
+            <th>Liều dùng</th>
+        </tr>
+    </thead>
+
+</table>
+
+<a href="@Url.Action("Index", "Doctor")" class="btn btn-primary">Quay lại</a>
