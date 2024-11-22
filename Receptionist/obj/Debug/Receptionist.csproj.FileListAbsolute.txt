@@ -156,3 +156,7 @@ D:\Study\VinmecHIS\Receptionist\obj\Debug\Receptionist.csproj.CoreCompileInputs.
 D:\Study\VinmecHIS\Receptionist\obj\Debug\Receptio.CB130099.Up2Date
 D:\Study\VinmecHIS\Receptionist\obj\Debug\Receptionist.dll
 D:\Study\VinmecHIS\Receptionist\obj\Debug\Receptionist.pdb
+C:\Users\vinhnq\Desktop\VinmecHIS\Receptionist\bin\EntityFramework.dll
+C:\Users\vinhnq\Desktop\VinmecHIS\Receptionist\bin\EntityFramework.SqlServer.dll
+C:\Users\vinhnq\Desktop\VinmecHIS\Receptionist\bin\EntityFramework.xml
+C:\Users\vinhnq\Desktop\VinmecHIS\Receptionist\bin\EntityFramework.SqlServer.xml
