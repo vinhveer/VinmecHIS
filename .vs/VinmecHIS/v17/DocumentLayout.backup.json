@@ -5,38 +5,27 @@
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\views\\doctor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\views\\doctor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\views\\doctor\\createprescription.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\views\\doctor\\createprescription.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\patients\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\patients\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\views\\doctor\\createmedicalrecord.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\views\\doctor\\createmedicalrecord.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\patients\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\patients\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\models\\views\\medicalrecordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\models\\views\\medicalrecordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\employees\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\employees\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\models\\data\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\models\\data\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+
     },
     {
       "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\models\\data\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
