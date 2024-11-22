@@ -1,4 +1,16 @@
 ﻿@{
+    ViewBag.Title = "Le tan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Authentication Request</h2>
+
+<div>
+    <p><strong>Decrypted EmployeeID:</strong> @ViewBag.EmployeeId</p>
+    <p><strong>Token:</strong> @ViewBag.Token</p>
+</div>
+
+@if (ViewBag.EmployeeId != null && ViewBag.Token != null)
     ViewBag.Title = "Xử lý đăng nhập";
 }
 @if (Session["EmployeeId"] != null && ViewBag.Token != null)

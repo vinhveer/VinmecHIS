@@ -25,6 +25,7 @@ namespace Doctor.Models.Data
         public virtual DbSet<PRESCRIPTION> PRESCRIPTIONs { get; set; }
         public virtual DbSet<PRESCRIPTIONDETAIL> PRESCRIPTIONDETAILs { get; set; }
         public virtual DbSet<SUPPLIER> SUPPLIERs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

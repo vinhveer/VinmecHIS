@@ -128,14 +128,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AppointMentController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Filters\AuthenticateAttribute.cs" />
-    <Compile Include="Controllers\InvoiceReceptionistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Data\APPOINTMENT.cs" />
+    <Compile Include="Models\Data\AppointmentBookingModel.cs" />
+    <Compile Include="Models\Data\AppointmentViewModel.cs" />
+    <Compile Include="Models\Data\AvailableDoctorViewModel.cs" />
     <Compile Include="Models\Data\EMPLOYEE.cs" />
     <Compile Include="Models\Data\EMPLOYEEACCOUNT.cs" />
     <Compile Include="Models\Data\INVOICE.cs" />
@@ -147,15 +149,25 @@
     <Compile Include="Models\Data\PATIENTACCOUNT.cs" />
     <Compile Include="Models\Data\PRESCRIPTION.cs" />
     <Compile Include="Models\Data\PRESCRIPTIONDETAIL.cs" />
-    <Compile Include="Models\Data\receptionistDbContext.cs" />
+    <Compile Include="Models\Data\ReceiptionistDbContext.cs" />
     <Compile Include="Models\Data\SUPPLIER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\BookingAppointment.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.0.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -172,14 +184,18 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Authentication\AuthenticationRequest.cshtml" />
-    <Content Include="Views\InvoiceReceptionist\Index.cshtml" />
-    <Content Include="Views\InvoiceReceptionist\Details.cshtml" />
+    <Content Include="Views\AppointMent\Index.cshtml" />
+    <Content Include="Views\AppointMent\BookingApointmnet.cshtml" />
+    <Content Include="Views\AppointMent\ConfirmBooking.cshtml" />
+    <Content Include="Views\AppointMent\AvailableAppointments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.0.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

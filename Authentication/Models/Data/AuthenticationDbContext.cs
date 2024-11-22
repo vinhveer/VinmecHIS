@@ -8,7 +8,7 @@ namespace Authentication.Models.Data
     public partial class AuthenticationDbContext : DbContext
     {
         public AuthenticationDbContext()
-            : base("name=AuthenticationDbContext")
+            : base("name=AuthenticationDbContext1")
         {
         }
 

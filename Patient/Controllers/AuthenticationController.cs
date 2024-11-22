@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Patient.Models.Data;
+using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
@@ -8,6 +9,7 @@ namespace Patient.Controllers
 {
     public class AuthenticationController : Controller
     {
+       
         public ActionResult Index()
         {
             return View();
@@ -16,6 +18,11 @@ namespace Patient.Controllers
         [HttpGet]
         public ActionResult AuthenticationRequest(string patientid, string token)
         {
+            
+            if (string.IsNullOrEmpty(patientid) || string.IsNullOrEmpty(token))
+            {
+                return Content("Thông tin đăng nhập không hợp lệ.");
+            }
             try
             {
                 // Kiểm tra input

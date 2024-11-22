@@ -21,6 +21,7 @@ namespace Receptionist.Models.Data
         [Key]
         public long EMPLOYEE_ID { get; set; }
 
+
         [Required]
         [StringLength(30)]
         public string FIRST_NAME { get; set; }

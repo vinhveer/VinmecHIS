@@ -1,0 +1,77 @@
+﻿@model IEnumerable<string>
+@{
+    ViewBag.Title = "Đặt lịch khám";
+}
+<div class="container_body margin-auto">
+    <form action="/AppointMent/BookingApointMent" method="POST" id="bookingForm">
+        <section class="content_info_book">
+            <h2 class="title_cate_news">Nội dung chi tiết đặt hẹn</h2>
+            <div class="flex list_two_booking">
+                <div class="col-6">
+                    <div class="mb2">
+                        <p class="bold cl_blue1 mb1">
+                            Chuyên khoa <span class="cl_red">*</span>
+                        </p>
+                        <select id="specialty" name="specialty" class="input_book">
+                            <option value="" disabled="" selected="">Chọn chuyên khoa</option>
+                            @foreach (var department in Model)
+                            {
+                                <option value="@department">@department</option>
+                            }
+                        </select>
+                        <span id="specialtyError" class="error-message" style="color:red;display:none;">Vui lòng chọn chuyên khoa.</span>
+                    </div>
+                </div>
+                <div class="col-6 main-calender cal-disable">
+                    <div class="mb2">
+                        <p class="bold cl_blue1 mb1">
+                            Ngày khám <span class="cl_red">*</span>
+                        </p>
+                        <select id="appointmentDate" name="appointmentDate" class="input_book">
+                            <option value="" disabled="" selected="">Chọn ngày khám</option>
+                            @foreach (var day in ViewBag.WeekDays)
+                            {
+                                <option value="@day.ToString("yyyy-MM-dd")">@day.ToString("yyyy-MM-dd")</option>
+                            }
+                        </select>
+                        <span id="appointmentDateError" class="error-message" style="color:red;display:none;">Vui lòng chọn ngày khám.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="text-center">
+            <button type="submit" class="btn_send_book">Đăng ký</button>
+        </div>
+    </form>
+    <script>
+    document.getElementById("bookingForm").addEventListener("submit", function (event) {
+        let isValid = true;
+
+        // Validate specialty
+        const specialty = document.getElementById("specialty").value;
+        const specialtyError = document.getElementById("specialtyError");
+        if (specialty === "" || specialty === "Chọn chuyên khoa") { // Kiểm tra nếu giá trị vẫn là mặc định
+            specialtyError.style.display = "block";
+            isValid = false;
+        } else {
+            specialtyError.style.display = "none";
+        }
+
+        // Validate appointmentDate
+        const appointmentDate = document.getElementById("appointmentDate").value;
+        const appointmentDateError = document.getElementById("appointmentDateError");
+        if (appointmentDate === "") {
+            appointmentDateError.style.display = "block";
+            isValid = false;
+        } else {
+            appointmentDateError.style.display = "none";
+        }
+
+        // Prevent form submission if invalid
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+    </script>
+</div>
+
