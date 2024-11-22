@@ -12,7 +12,9 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            @Html.ActionLink("Vinmec", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <a class="navbar-brand" href="/">
+                <img src="../../Items/logo.svg" alt="" width="80">
+            </a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,7 +25,7 @@
                     <li>@Html.ActionLink("Mã hoá", "MD5Hashing", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
                 <ul class="navbar-nav me-auto">
-                    <li>@Html.ActionLink("Đăng nhập với vai trò bệnh nhân", "PatientSignIn", "Authentication", new { area = "" }, new { @class = "btn btn-primary me-2" })</li>
+                    <li>@Html.ActionLink("Đăng nhập với vai trò bệnh nhân", "PatientSignIn", "Authentication", new { area = "" }, new { @class = "btn btn-success me-2" })</li>
                     <li>@Html.ActionLink("Đăng nhập hệ thống quản lý", "EmployeeSignIn", "Authentication", new { area = "" }, new { @class = "btn btn-outline-secondary" })</li>
 
                     <!-- Nút chuyển đổi chế độ sáng/tối -->
@@ -40,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>Bản quyền &copy; @DateTime.Now.Year - thuộc về Vinmec</p>
         </footer>
     </div>
 
