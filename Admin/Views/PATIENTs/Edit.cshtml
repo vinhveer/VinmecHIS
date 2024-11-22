@@ -1,0 +1,136 @@
+﻿@model Admin.Models.Data.PATIENT
+
+@{
+    ViewBag.Title = "Chỉnh sửa thông tin bệnh nhân";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center mb-2">CHỈNH SỬA THÔNG TIN BỆNH NHÂN</h2>
+
+            @using (Html.BeginForm("Edit", "Patients", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+        <div class="form-horizontal p-4 border rounded bg-light">
+            @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+            <!-- Mã bệnh nhân -->
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.PATIENT_ID, "Mã bệnh nhân", htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.PATIENT_ID, new { @class = "form-control", @readonly = "readonly", @style = "background-color: #e9ecef;" })
+                    @Html.ValidationMessageFor(model => model.PATIENT_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <!-- Họ bệnh nhân -->
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.LAST_NAME, "Họ", htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.LAST_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LAST_NAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Tên bệnh nhân -->
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.FIRST_NAME, "Tên", htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.FIRST_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FIRST_NAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Ngày sinh -->
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.DATE_OF_BIRTH, "Ngày sinh", htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(model => model.DATE_OF_BIRTH, new { @class = "form-control", type = "date", @Value = Model.DATE_OF_BIRTH.ToString("yyyy-MM-dd") })
+                    @Html.ValidationMessageFor(model => model.DATE_OF_BIRTH, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Giới tính -->
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.GENDER, "Giới tính", htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            @Html.RadioButtonFor(model => model.GENDER, "M", new { @class = "form-check-input" }) Nam
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            @Html.RadioButtonFor(model => model.GENDER, "F", new { @class = "form-check-input" }) Nữ
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            @Html.RadioButtonFor(model => model.GENDER, "O", new { @class = "form-check-input" }) Khác
+                        </label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.GENDER, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <!-- Email -->
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.PATIENT_EMAIL, "Email", htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.PATIENT_EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PATIENT_EMAIL, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Điện thoại -->
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.PATIENT_PHONE, "Số điện thoại", htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.PATIENT_PHONE, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PATIENT_PHONE, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Địa chỉ -->
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.PATIENT_ADDRESS, "Địa chỉ", htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.PATIENT_ADDRESS, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PATIENT_ADDRESS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Liên hệ khẩn cấp -->
+            <div class="form-group row mb-3">
+                @Html.LabelFor(model => model.EMERGENCY_CONTACT, "Liên hệ khẩn cấp", htmlAttributes: new { @class = "col-md-3 col-form-label" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.EMERGENCY_CONTACT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EMERGENCY_CONTACT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!--<!-- Ngày đăng ký -->
+            <div class="form-group row mb-3" style="display: none;">
+            @Html.LabelFor(model => model.REGISTRATION_DATE, "Ngày đăng ký", htmlAttributes: new { @class = "col-md-3 col-form-label" })
+            <div class="col-md-9">
+                @Html.TextBoxFor(model => model.REGISTRATION_DATE, new { @class = "form-control", type = "date", @Value = Model.REGISTRATION_DATE.ToString("yyyy-MM-dd") })
+                @Html.ValidationMessageFor(model => model.REGISTRATION_DATE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+            <div class="form-group row">
+                <div class="col-md-9 offset-md-3">
+                    <input type="submit" value="Lưu thay đổi" class="btn btn-warning" />
+                    <a href="javascript:history.back()" class="btn btn-primary">Quay lại</a>
+                </div>
+            </div>
+        </div>
+            }
+        </div>
+    </div>
+</div>

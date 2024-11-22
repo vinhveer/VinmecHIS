@@ -12,10 +12,10 @@ namespace Admin.Models.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public EMPLOYEE()
         {
-            APPOINTMENTs = new HashSet<APPOINTMENT>();
-            INVOICEs = new HashSet<INVOICE>();
-            MEDICALRECORDs = new HashSet<MEDICALRECORD>();
-            MEDICINEORDERs = new HashSet<MEDICINEORDER>();
+            APPOINTMENT = new HashSet<APPOINTMENT>();
+            INVOICE = new HashSet<INVOICE>();
+            MEDICALRECORD = new HashSet<MEDICALRECORD>();
+            MEDICINEORDER = new HashSet<MEDICINEORDER>();
         }
 
         [Key]
@@ -62,17 +62,17 @@ namespace Admin.Models.Data
         public string DEPARTMENT { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<APPOINTMENT> APPOINTMENTs { get; set; }
+        public virtual ICollection<APPOINTMENT> APPOINTMENT { get; set; }
 
         public virtual EMPLOYEEACCOUNT EMPLOYEEACCOUNT { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<INVOICE> INVOICEs { get; set; }
+        public virtual ICollection<INVOICE> INVOICE { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MEDICALRECORD> MEDICALRECORDs { get; set; }
+        public virtual ICollection<MEDICALRECORD> MEDICALRECORD { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MEDICINEORDER> MEDICINEORDERs { get; set; }
+        public virtual ICollection<MEDICINEORDER> MEDICINEORDER { get; set; }
     }
 }

@@ -1,0 +1,51 @@
+﻿@model Admin.Models.Data.PATIENT
+
+@{
+    ViewBag.Title = "Chi Tiết Bệnh Nhân";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center mb-2">Thông Tin Chi Tiết Bệnh Nhân</h2>
+            <hr />
+
+            <div class="row mb-3 justify-content-center">
+                <div class="col-md-6">
+                    <p><strong>Tên đăng nhập:</strong> @Model.PATIENTACCOUNT.PATIENT_USERNAME</p>
+                    <p><strong>Họ và Tên:</strong> @Model.FIRST_NAME @Model.LAST_NAME</p>
+                    <p><strong>Ngày sinh:</strong> @Model.DATE_OF_BIRTH.ToString("dd/MM/yyyy")</p>
+                    <p>
+                        <strong>Giới tính:</strong>
+                        @if (Model.GENDER == "M")
+                        {
+                            @:Nam
+                        }
+                        else if (Model.GENDER == "F")
+                        {
+                            @:Nữ
+                        }
+                        else
+                        {
+                            @:Khác
+                        }
+                    </p>
+                    <p><strong>Email:</strong> @Model.PATIENT_EMAIL</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Số điện thoại:</strong> @Model.PATIENT_PHONE</p>
+                    <p><strong>Địa chỉ:</strong> @Model.PATIENT_ADDRESS</p>
+                    <p><strong>Liên hệ khẩn cấp:</strong> @Model.EMERGENCY_CONTACT</p>
+                    <p><strong>Ngày đăng ký:</strong> @Model.REGISTRATION_DATE.ToString("dd/MM/yyyy")</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="javascript:history.back()" class="btn btn-primary">Quay lại</a>
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.PATIENT_ID }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Xóa", "Delete", new { id = Model.PATIENT_ID }, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+    </div>
+</div>

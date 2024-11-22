@@ -1,86 +1,98 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\",
+  "WorkspaceRootPath": "D:\\Study\\VinmecHIS\\",
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\views\\doctor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\views\\doctor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\views\\doctor\\createprescription.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\views\\doctor\\createprescription.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\patients\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\patients\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\views\\doctor\\createmedicalrecord.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\views\\doctor\\createmedicalrecord.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\patients\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\patients\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\models\\views\\medicalrecordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\models\\views\\medicalrecordviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\employees\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\employees\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\models\\data\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\models\\data\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\models\\data\\medicalrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\models\\data\\medicalrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\models\\data\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\models\\data\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\employees\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\employees\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\employees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\employees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\patients\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\patients\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\models\\data\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\models\\data\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\employees\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\employees\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|d:\\study\\vinmechis\\authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\admin\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\models\\data\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\models\\data\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\models\\data\\admindbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\models\\data\\admindbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|d:\\study\\vinmechis\\authentication\\models\\data\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\models\\data\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\models\\data\\employeeaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\models\\data\\employeeaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\patients\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\patients\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|d:\\study\\vinmechis\\admin\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{038B6789-0BD3-4021-BDF6-8886F24D5D41}|Admin\\Admin.csproj|solutionrelative:admin\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\authentication\\views\\authentication\\employeesignin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{42D3DBF5-C560-4689-A696-D841FF945D8D}|Authentication\\Authentication.csproj|solutionrelative:authentication\\views\\authentication\\employeesignin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\models\\data\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\models\\data\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\views\\doctor\\prescriptions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\views\\doctor\\prescriptions.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\views\\doctor\\medicalrecorddetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\views\\doctor\\medicalrecorddetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\models\\views\\prescriptionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\models\\views\\prescriptionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\models\\data\\medicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\models\\data\\medicine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|c:\\users\\vinhnq\\desktop\\vinmechis\\doctor\\models\\data\\prescriptiondetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53FDD262-1996-41B0-BCB1-44207135EACB}|Doctor\\Doctor.csproj|solutionrelative:doctor\\models\\data\\prescriptiondetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -90,45 +102,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MedicalRecordViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Views\\MedicalRecordViewModel.cs",
-              "RelativeDocumentMoniker": "Doctor\\Models\\Views\\MedicalRecordViewModel.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Views\\MedicalRecordViewModel.cs",
-              "RelativeToolTip": "Doctor\\Models\\Views\\MedicalRecordViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "PATIENT.cs",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Models\\Data\\PATIENT.cs",
+              "RelativeDocumentMoniker": "Admin\\Models\\Data\\PATIENT.cs",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Models\\Data\\PATIENT.cs",
+              "RelativeToolTip": "Admin\\Models\\Data\\PATIENT.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T05:02:30.036Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Doctor\\Index.cshtml",
-              "RelativeDocumentMoniker": "Doctor\\Views\\Doctor\\Index.cshtml",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Doctor\\Index.cshtml",
-              "RelativeToolTip": "Doctor\\Views\\Doctor\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-22T04:21:19.755Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CreatePrescription.cshtml",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Doctor\\CreatePrescription.cshtml",
-              "RelativeDocumentMoniker": "Doctor\\Views\\Doctor\\CreatePrescription.cshtml",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Doctor\\CreatePrescription.cshtml",
-              "RelativeToolTip": "Doctor\\Views\\Doctor\\CreatePrescription.cshtml",
-              "ViewState": "AgIAACsAAAAAAAAAAAAQwEkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-22T04:20:59.846Z",
+              "WhenOpened": "2024-11-21T19:52:03.211Z",
               "EditorCaption": ""
             },
             {
@@ -137,185 +123,119 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CreateMedicalRecord.cshtml",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Doctor\\CreateMedicalRecord.cshtml",
-              "RelativeDocumentMoniker": "Doctor\\Views\\Doctor\\CreateMedicalRecord.cshtml",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Doctor\\CreateMedicalRecord.cshtml",
-              "RelativeToolTip": "Doctor\\Views\\Doctor\\CreateMedicalRecord.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-22T04:11:12.084Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DoctorController.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\DoctorController.cs",
-              "RelativeDocumentMoniker": "Doctor\\Controllers\\DoctorController.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\DoctorController.cs",
-              "RelativeToolTip": "Doctor\\Controllers\\DoctorController.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAcwJsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T03:56:31.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PATIENT.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Data\\PATIENT.cs",
-              "RelativeDocumentMoniker": "Doctor\\Models\\Data\\PATIENT.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Data\\PATIENT.cs",
-              "RelativeToolTip": "Doctor\\Models\\Data\\PATIENT.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAowD0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T03:58:24.143Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MEDICALRECORD.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Data\\MEDICALRECORD.cs",
-              "RelativeDocumentMoniker": "Doctor\\Models\\Data\\MEDICALRECORD.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Data\\MEDICALRECORD.cs",
-              "RelativeToolTip": "Doctor\\Models\\Data\\MEDICALRECORD.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAowAwAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T03:57:53.015Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Doctor\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Doctor\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAACEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-22T04:34:49.533Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "Doctor\\Controllers\\AuthenticationController.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "Doctor\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAswEQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T04:16:22.472Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "Authentication\\Controllers\\AuthenticationController.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "Authentication\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAAAJgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T04:36:16.082Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Admin\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "Admin\\Controllers\\AuthenticationController.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Admin\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "Admin\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T04:36:05.87Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Authentication\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Authentication\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-22T04:44:33.331Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "EmployeeSignIn.cshtml",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Views\\Authentication\\EmployeeSignIn.cshtml",
-              "RelativeDocumentMoniker": "Authentication\\Views\\Authentication\\EmployeeSignIn.cshtml",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Authentication\\Views\\Authentication\\EmployeeSignIn.cshtml",
-              "RelativeToolTip": "Authentication\\Views\\Authentication\\EmployeeSignIn.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-22T04:44:29.53Z",
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Authentication\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Authentication\\Controllers\\AuthenticationController.cs",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Authentication\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Authentication\\Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAkwGMAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T18:23:59.362Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "EMPLOYEE.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Data\\EMPLOYEE.cs",
-              "RelativeDocumentMoniker": "Doctor\\Models\\Data\\EMPLOYEE.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Data\\EMPLOYEE.cs",
-              "RelativeToolTip": "Doctor\\Models\\Data\\EMPLOYEE.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA3AAAAAAAAAA==",
+              "Title": "APPOINTMENT.cs",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Models\\Data\\APPOINTMENT.cs",
+              "RelativeDocumentMoniker": "Admin\\Models\\Data\\APPOINTMENT.cs",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Models\\Data\\APPOINTMENT.cs",
+              "RelativeToolTip": "Admin\\Models\\Data\\APPOINTMENT.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T03:58:29.763Z",
+              "WhenOpened": "2024-11-21T18:11:42.917Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Doctor\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Doctor\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "Title": "AdminDbContext.cs",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Models\\Data\\AdminDbContext.cs",
+              "RelativeDocumentMoniker": "Admin\\Models\\Data\\AdminDbContext.cs",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Models\\Data\\AdminDbContext.cs",
+              "RelativeToolTip": "Admin\\Models\\Data\\AdminDbContext.cs",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T04:34:28.307Z",
+              "WhenOpened": "2024-11-21T18:03:36.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Views\\EMPLOYEEs\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Admin\\Views\\EMPLOYEEs\\Delete.cshtml",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Views\\EMPLOYEEs\\Delete.cshtml",
+              "RelativeToolTip": "Admin\\Views\\EMPLOYEEs\\Delete.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T18:59:13.2Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "Prescriptions.cshtml",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Doctor\\Prescriptions.cshtml",
-              "RelativeDocumentMoniker": "Doctor\\Views\\Doctor\\Prescriptions.cshtml",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Doctor\\Prescriptions.cshtml",
-              "RelativeToolTip": "Doctor\\Views\\Doctor\\Prescriptions.cshtml",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAQwBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-22T04:22:06.459Z",
+              "Title": "EMPLOYEE.cs",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Authentication\\Models\\Data\\EMPLOYEE.cs",
+              "RelativeDocumentMoniker": "Authentication\\Models\\Data\\EMPLOYEE.cs",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Authentication\\Models\\Data\\EMPLOYEE.cs",
+              "RelativeToolTip": "Authentication\\Models\\Data\\EMPLOYEE.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T18:02:49.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EMPLOYEE.cs",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Models\\Data\\EMPLOYEE.cs",
+              "RelativeDocumentMoniker": "Admin\\Models\\Data\\EMPLOYEE.cs",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Models\\Data\\EMPLOYEE.cs",
+              "RelativeToolTip": "Admin\\Models\\Data\\EMPLOYEE.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAIA8wD0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T18:02:15.743Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "MedicalRecordDetails.cshtml",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Doctor\\MedicalRecordDetails.cshtml",
-              "RelativeDocumentMoniker": "Doctor\\Views\\Doctor\\MedicalRecordDetails.cshtml",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Views\\Doctor\\MedicalRecordDetails.cshtml",
-              "RelativeToolTip": "Doctor\\Views\\Doctor\\MedicalRecordDetails.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-22T04:21:38.031Z",
+              "Title": "EMPLOYEEACCOUNT.cs",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Models\\Data\\EMPLOYEEACCOUNT.cs",
+              "RelativeDocumentMoniker": "Admin\\Models\\Data\\EMPLOYEEACCOUNT.cs",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Models\\Data\\EMPLOYEEACCOUNT.cs",
+              "RelativeToolTip": "Admin\\Models\\Data\\EMPLOYEEACCOUNT.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T17:53:43.255Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Views\\EMPLOYEEs\\Details.cshtml",
+              "RelativeDocumentMoniker": "Admin\\Views\\EMPLOYEEs\\Details.cshtml",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Views\\EMPLOYEEs\\Details.cshtml",
+              "RelativeToolTip": "Admin\\Views\\EMPLOYEEs\\Details.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACcAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T16:50:23.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Bookmark",
@@ -327,45 +247,149 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Views\\EMPLOYEEs\\Index.cshtml",
+              "RelativeDocumentMoniker": "Admin\\Views\\EMPLOYEEs\\Index.cshtml",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Views\\EMPLOYEEs\\Index.cshtml",
+              "RelativeToolTip": "Admin\\Views\\EMPLOYEEs\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABsAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T16:42:02.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EMPLOYEEsController.cs",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Controllers\\EMPLOYEEsController.cs",
+              "RelativeDocumentMoniker": "Admin\\Controllers\\EMPLOYEEsController.cs",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Controllers\\EMPLOYEEsController.cs",
+              "RelativeToolTip": "Admin\\Controllers\\EMPLOYEEsController.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAwwJcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T16:38:57.787Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "PrescriptionViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Views\\PrescriptionViewModel.cs",
-              "RelativeDocumentMoniker": "Doctor\\Models\\Views\\PrescriptionViewModel.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Views\\PrescriptionViewModel.cs",
-              "RelativeToolTip": "Doctor\\Models\\Views\\PrescriptionViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T04:08:31.816Z",
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Views\\PATIENTs\\Details.cshtml",
+              "RelativeDocumentMoniker": "Admin\\Views\\PATIENTs\\Details.cshtml",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Views\\PATIENTs\\Details.cshtml",
+              "RelativeToolTip": "Admin\\Views\\PATIENTs\\Details.cshtml",
+              "ViewState": "AgIAABkAAAAAAAAAAADwvzMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T15:48:24.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Views\\PATIENTs\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Admin\\Views\\PATIENTs\\Edit.cshtml",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Views\\PATIENTs\\Edit.cshtml",
+              "RelativeToolTip": "Admin\\Views\\PATIENTs\\Edit.cshtml",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAkwHUAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T15:26:12.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Views\\PATIENTs\\Index.cshtml",
+              "RelativeDocumentMoniker": "Admin\\Views\\PATIENTs\\Index.cshtml",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Views\\PATIENTs\\Index.cshtml",
+              "RelativeToolTip": "Admin\\Views\\PATIENTs\\Index.cshtml",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAIwF8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T15:11:21.17Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "MEDICINE.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Data\\MEDICINE.cs",
-              "RelativeDocumentMoniker": "Doctor\\Models\\Data\\MEDICINE.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Data\\MEDICINE.cs",
-              "RelativeToolTip": "Doctor\\Models\\Data\\MEDICINE.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAowC4AAAAAAAAAAAAAAA==",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Admin\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Admin\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T15:08:47.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PATIENTsController.cs",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Controllers\\PATIENTsController.cs",
+              "RelativeDocumentMoniker": "Admin\\Controllers\\PATIENTsController.cs",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Controllers\\PATIENTsController.cs",
+              "RelativeToolTip": "Admin\\Controllers\\PATIENTsController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAwwFEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T03:58:18.206Z",
+              "WhenOpened": "2024-11-21T15:08:30.663Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "PRESCRIPTIONDETAIL.cs",
-              "DocumentMoniker": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Data\\PRESCRIPTIONDETAIL.cs",
-              "RelativeDocumentMoniker": "Doctor\\Models\\Data\\PRESCRIPTIONDETAIL.cs",
-              "ToolTip": "C:\\Users\\vinhnq\\Desktop\\VinmecHIS\\Doctor\\Models\\Data\\PRESCRIPTIONDETAIL.cs",
-              "RelativeToolTip": "Doctor\\Models\\Data\\PRESCRIPTIONDETAIL.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAowCAAAAAAAAAAAAAAAA==",
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Controllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "Admin\\Controllers\\AuthenticationController.cs",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Controllers\\AuthenticationController.cs",
+              "RelativeToolTip": "Admin\\Controllers\\AuthenticationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T03:58:01.648Z",
+              "WhenOpened": "2024-11-21T15:07:55.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Views\\EMPLOYEEs\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Admin\\Views\\EMPLOYEEs\\Edit.cshtml",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Views\\EMPLOYEEs\\Edit.cshtml",
+              "RelativeToolTip": "Admin\\Views\\EMPLOYEEs\\Edit.cshtml",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAIwDIAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T16:51:54.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Views\\PATIENTs\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Admin\\Views\\PATIENTs\\Delete.cshtml",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Views\\PATIENTs\\Delete.cshtml",
+              "RelativeToolTip": "Admin\\Views\\PATIENTs\\Delete.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T15:56:19.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\Study\\VinmecHIS\\Admin\\Views\\EMPLOYEEs\\Create.cshtml",
+              "RelativeDocumentMoniker": "Admin\\Views\\EMPLOYEEs\\Create.cshtml",
+              "ToolTip": "D:\\Study\\VinmecHIS\\Admin\\Views\\EMPLOYEEs\\Create.cshtml",
+              "RelativeToolTip": "Admin\\Views\\EMPLOYEEs\\Create.cshtml",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAIwE4AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T17:03:43.956Z",
               "EditorCaption": ""
             }
           ]

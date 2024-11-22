@@ -130,7 +130,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\EMPLOYEEsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PATIENTsController.cs" />
     <Compile Include="Filters\AuthenticateAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -172,6 +174,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Authentication\AuthenticationRequest.cshtml" />
+    <Content Include="Views\PATIENTs\Delete.cshtml" />
+    <Content Include="Views\PATIENTs\Details.cshtml" />
+    <Content Include="Views\PATIENTs\Edit.cshtml" />
+    <Content Include="Views\PATIENTs\Index.cshtml" />
+    <Content Include="Views\EMPLOYEEs\Create.cshtml" />
+    <Content Include="Views\EMPLOYEEs\Delete.cshtml" />
+    <Content Include="Views\EMPLOYEEs\Details.cshtml" />
+    <Content Include="Views\EMPLOYEEs\Edit.cshtml" />
+    <Content Include="Views\EMPLOYEEs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

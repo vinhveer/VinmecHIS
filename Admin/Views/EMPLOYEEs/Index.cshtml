@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Admin.Models.Data.EMPLOYEE>
+
+@{
+    ViewBag.Title = "Danh sách nhân viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int idx = ViewBag.STT ?? 0;
+    string gtinh = "";
+    int totalPages = ViewBag.TotalPages;
+    int currentPage = ViewBag.CurrentPage;
+}
+
+<h3 class="text-center mb-3 mt-3">Danh sách nhân viên</h3>
+
+<a>@Html.ActionLink("Thêm mới", "Create", "Employees", new { @class = "btn btn-primary" })</a>
+
+<table class="table table-striped align-middle text-center">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên đăng nhập</th>
+            <th>Họ và Tên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            @*<th>Email</th>
+            <th>Điện thoại</th>
+            <th>Địa chỉ</th>*@
+            <th>Chức vụ</th>
+            <th>Phòng ban</th>
+            <th>Phòng làm việc</th>
+            <th>Ngày tuyển dụng</th>
+            <th>Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(++idx)</td>
+                <td>@Html.DisplayFor(modelItem => item.EMPLOYEEACCOUNT.EMPLOYEE_USERNAME)</td>
+                <td class="text-truncate" style="max-width: 180px;">@item.FIRST_NAME @item.LAST_NAME</td>
+                <td>@item.DATE_OF_BIRTH.ToString("dd/MM/yyyy")</td>
+                <td>
+                    @if (item.GENDER == "M")
+                    {
+                        gtinh = "Nam";
+                    }
+                    else if (item.GENDER == "F")
+                    {
+                        gtinh = "Nữ";
+                    }
+                    else
+                    {
+                        gtinh = "Khác";
+                    }
+                    @gtinh
+                </td>
+                @*<td class="text-truncate" style="max-width: 140px;">@Html.DisplayFor(modelItem => item.EMPLOYEE_EMAIL)</td>*@
+                @*<td>@Html.DisplayFor(modelItem => item.EMPLOYEE_PHONE)</td>*@
+                @*<td class="text-truncate" style="max-width: 140px;">@Html.DisplayFor(modelItem => item.EMPLOYEE_ADDRESS)</td>*@
+                <td>@Html.DisplayFor(modelItem => item.ROLE_NAME)</td>
+                <td>@Html.DisplayFor(modelItem => item.DEPARTMENT)</td>
+                <td>@Html.DisplayFor(modelItem => item.EMPLOYEE_ROOM) </td>
+                <td>@item.HIRE_DATE.ToString("dd/MM/yyyy")</td>
+                <td class="p-2">
+                    <div class="d-flex justify-content-center">
+                        <a href="@Url.Action("Details", "Employees", new { id = item.EMPLOYEE_ID })"
+                           class="text-decoration-none me-3 text-secondary" title="Chi tiết" role="button">
+                            <i class="fas fa-info-circle fs-5" style="color: blue;"></i>
+                        </a>
+                        <a href="@Url.Action("Edit", "Employees", new { id = item.EMPLOYEE_ID })"
+                           class="text-decoration-none me-3 text-secondary" title="Sửa" role="button">
+                            <i class="fas fa-edit fs-5" style="color: green;"></i>
+                        </a>
+                        <a href="@Url.Action("Delete", "Employees", new { id = item.EMPLOYEE_ID })"
+                           class="text-decoration-none text-secondary" title="Xóa" role="button">
+                            <i class="fas fa-trash-alt fs-5" style="color: red;"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-center align-items-center mb-3">
+    <nav aria-label="Page navigation">
+        <ul class="pagination mb-0">
+            <li class="page-item @(ViewBag.CurrentPage == 1 ? "d-none" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1 })"><</a>
+            </li>
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                </li>
+            }
+            <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "d-none" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1})">></a>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,53 @@
+﻿@model Admin.Models.Data.EMPLOYEE
+
+@{
+    ViewBag.Title = "Chi Tiết Nhân Viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center mb-2">Thông Tin Chi Tiết Nhân Viên</h2>
+            <hr />
+
+            <div class="row mb-3 justify-content-center">
+                <div class="col-md-6">
+                    <p><strong>Tên đăng nhập:</strong> @Model.EMPLOYEEACCOUNT.EMPLOYEE_USERNAME</p>
+                    <p><strong>Họ và Tên:</strong> @Model.FIRST_NAME @Model.LAST_NAME</p>
+                    <p><strong>Ngày sinh:</strong> @Model.DATE_OF_BIRTH.ToString("dd/MM/yyyy")</p>
+                    <p>
+                        <strong>Giới tính:</strong>
+                        @if (Model.GENDER == "M")
+                        {
+                            @:Nam
+                        }
+                        else if (Model.GENDER == "F")
+                        {
+                            @:Nữ
+                        }
+                        else
+                        {
+                            @:Khác
+                        }
+                    </p>
+                    <p><strong>Email:</strong> @Model.EMPLOYEE_EMAIL</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Số điện thoại:</strong> @Model.EMPLOYEE_PHONE</p>
+                    <p><strong>Địa chỉ:</strong> @Model.EMPLOYEE_ADDRESS</p>
+                    <p><strong>Chức vụ:</strong> @Model.ROLE_NAME</p>
+                    <p><strong>Phòng ban:</strong> @Model.DEPARTMENT</p>
+                    <p><strong>Phòng làm việc:</strong> @Model.EMPLOYEE_ROOM</p>
+                    <p><strong>Ngày tuyển dụng:</strong> @Model.HIRE_DATE.ToString("dd/MM/yyyy")</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="javascript:history.back()" class="btn btn-primary">Quay lại</a>
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.EMPLOYEE_ID }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Xóa", "Delete", new { id = Model.EMPLOYEE_ID }, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+    </div>
+</div>
