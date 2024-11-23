@@ -18,7 +18,7 @@ namespace Patient.Controllers
             if (Session["PatientId"] != null)
             {
                 var patientId = Convert.ToInt64(Session["PatientId"]);
-                var medicalrecord = db.MEDICALRECORDs.Where(p => p.PATIENT_ID == patientId).Include(p => p.EMPLOYEE).ToList();
+                var medicalrecord = db.MEDICALRECORDs.Where(p => p.PATIENT_ID == patientId).Include(p => p.INVOICE).Include(p => p.INVOICE.EMPLOYEE).ToList();
                 return View(medicalrecord);
             }
             else
@@ -30,11 +30,13 @@ namespace Patient.Controllers
         public ActionResult Details(long id)
         {
             var medicalrecord = db.MEDICALRECORDs.FirstOrDefault(p => p.MEDICAL_RECORD_ID == id);
+            var prescription = db.PRESCRIPTIONs.FirstOrDefault(p => p.MEDICAL_RECORD_ID == id);
             var prescriptiondetails = db.PRESCRIPTIONDETAILs
                                 .Where(p => p.MEDICAL_RECORD_ID == id)
                                 .Include(p => p.MEDICINE)
                                 .ToList();
             ViewBag.medicalrecord = medicalrecord;
+            ViewBag.prescription = prescription;
             var employee = db.EMPLOYEEs.FirstOrDefault(e => e.EMPLOYEE_ID == medicalrecord.EMPLOYEE_ID);
             if (employee != null)
             {

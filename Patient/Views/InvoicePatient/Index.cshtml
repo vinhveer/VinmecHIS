@@ -11,9 +11,9 @@
             <tr>
                 <th scope="col">STT</th>
                 <th scope="col">Mã số hồ sơ</th>
-                <th scope="col">Tên bác sĩ</th>
-                <th scope="col">Ngày khám</th>
-                <th scope="col"></th>
+                <th scope="col">Lễ tân xác nhận</th>
+                <th scope="col">Ngày thanh toán</th>
+                <th scope="col">Tùy chọn</th>
             </tr>
         </thead>
         <tbody>
@@ -26,10 +26,10 @@
                         <th scope="row">@stt</th>
                         <th>@item.MEDICAL_RECORD_ID</th>
                         <th>@item.EMPLOYEE.FIRST_NAME @item.EMPLOYEE.LAST_NAME</th>
-                        <td>@item.EXAMINATION_DATE.ToString("dd/MM/yyyy")</td>
+                        <td>@item.INVOICE.PAYMENT_DATE.ToString("dd/MM/yyyy")</td>
                         <td>
                             <a href="@Url.Action("Details", "InvoicePatient", new { id = item.MEDICAL_RECORD_ID})" class="">
-                                Xem chi tiết
+                                Xem đơn thuốc
                             </a>
                         </td>
                     </tr>
