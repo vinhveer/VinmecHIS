@@ -1,4 +1,4 @@
-﻿using Doctor.Filters;
+using Doctor.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;

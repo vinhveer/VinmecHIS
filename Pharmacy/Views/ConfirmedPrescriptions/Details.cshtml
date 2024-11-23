@@ -1,0 +1,45 @@
+﻿@model Pharmacy.Models.Data.PrecsriptionViewModel
+
+@{
+    ViewBag.Title = "Chi tiết đơn thuốc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form  action="/ConfirmedPrescriptions/ConfirmAndRedirectToPdf?id=@ViewBag.MedicalRecordId" method="post">
+ 
+    <h2>Chi tiết đơn thuốc</h2>
+
+    <div>
+        <strong>Tên bệnh nhân:</strong> @Model.PatientName
+    </div>
+    <div>
+        <strong>Mã hồ sơ bệnh án:</strong> @ViewBag.MedicalRecordId
+    </div>
+    <div>
+        <strong>Ngày kê đơn:</strong> @Model.PrescriptionDate
+    </div>
+
+    <h3>Danh sách thuốc</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tên thuốc</th>
+                <th>Liều dùng</th>
+                <th>Số lượng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var medicine in Model.Medicines)
+            {
+                <tr>
+                    <td>@medicine.MedicineName</td>
+                    <td>@medicine.Dosage</td>
+                    <td>@medicine.Quantity</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <input type="checkbox" asp-for="IsConfirmed" /> Đã cấp thuốc
+    </div>
+    <button type="submit" class="btn btn-primary mt-3 p-2">Xác nhận</button>
+</form>

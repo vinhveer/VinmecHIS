@@ -1,4 +1,4 @@
-﻿using Patient.Models.Data;
+using Patient.Models.Data;
 using System;
 using System.Security.Cryptography;
 using System.Text;

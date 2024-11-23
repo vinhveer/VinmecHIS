@@ -1,4 +1,4 @@
-﻿using Doctor.Models.Data;
+using Doctor.Models.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;

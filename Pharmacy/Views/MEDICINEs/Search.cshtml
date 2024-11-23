@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Pharmacy.Models.Data.MEDICINE>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">TÌM KIẾM THUỐC</h2>
+
+<!-- Form tìm kiếm -->
+@using (Html.BeginForm("Search", "MEDICINEs", FormMethod.Get))
+{
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-12">
+            <div class="d-flex align-items-center justify-content-center">
+                <label for="searchString" class="mr-2">Tên thuốc:</label>
+                <input type="text" name="searchString" id="searchString" class="form-control w-50 mx-3"
+                       placeholder="Nhập tên thuốc" value="@ViewBag.SearchString" />
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="d-flex align-items-center justify-content-center">
+                <label for="minStock" class="mr-2">Số lượng từ:</label>
+                <input type="number" name="minStock" id="minStock" class="form-control w-25 mx-3"
+                       placeholder="Nhập số tối thiểu" value="@ViewBag.MinStock" />
+                <label for="maxStock" class="ml-3 mr-2">Đến:</label>
+                <input type="number" name="maxStock" id="maxStock" class="form-control w-25 mx-3"
+                       placeholder="Nhập số tối đa" value="@ViewBag.MaxStock" />
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-secondary">Tìm kiếm</button>
+    </div>
+
+}
+
+@if (!Model.Any())
+{
+    <p class="text-warning text-center mt-3">Không tìm thấy kết quả nào.</p>
+}
+else
+{
+    <!-- Bảng hiển thị kết quả -->
+    <table class="table table-bordered table-hover mt-3">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nhà cung cấp</th>
+                <th>Tên thuốc</th>
+                <th>Đơn vị</th>
+                <th>Số lượng</th>
+                <th>Ngày hết hạn</th>
+                <th>Giá</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                // Kiểm tra số lượng thuốc và áp dụng màu đỏ nếu số lượng nhỏ hơn 100
+                var stockClass = item.STOCK_QUANTITY < 100 ? "font-weight-bold bg-danger text-white" : "";
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.SUPPLIER.SUPPLIER_NAME)</td>
+                    <td>@Html.DisplayFor(modelItem => item.MEDICINE_NAME)</td>
+                    <td>@Html.DisplayFor(modelItem => item.UNIT)</td>
+                    <td class="@stockClass">@Html.DisplayFor(modelItem => item.STOCK_QUANTITY)</td>
+                    <td>@item.EXPIRATION_DATE.ToString("dd/MM/yyyy")</td>
+                    <td>@Html.DisplayFor(modelItem => item.PRICE)</td>
+                    <td>
+                        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MEDICINE_ID }, new { @class = "btn btn-sm btn-warning" }) |
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.MEDICINE_ID }, new { @class = "btn btn-sm btn-info" }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.MEDICINE_ID }, new { @class = "btn btn-sm btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

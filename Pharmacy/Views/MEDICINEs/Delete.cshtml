@@ -1,0 +1,72 @@
+﻿@model Pharmacy.Models.Data.MEDICINE
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>XÓA THUỐC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nhà cung cấp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SUPPLIER.SUPPLIER_NAME)
+        </dd>
+
+        <dt>
+            Tên thuốc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEDICINE_NAME)
+        </dd>
+
+        <dt>
+            Đơn vị
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UNIT)
+        </dd>
+
+        <dt>
+            Số lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STOCK_QUANTITY)
+        </dd>
+
+        <dt>
+            Ngày hết hạn
+        </dt>
+
+        <dd>
+            @Model.EXPIRATION_DATE.ToString("dd/MM/yyyy")
+        </dd>
+
+        <dt>
+            Giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRICE)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>
