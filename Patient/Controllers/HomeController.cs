@@ -18,21 +18,5 @@ namespace Patient.Controllers
 
             return View();
         }
-
-        public ActionResult About()
-        {
-            var employees = _db.EMPLOYEEs.ToList();
-            ViewBag.Message = "Your application description page.";
-
-            return View(employees);
-        }
-
-        public ActionResult Contact()
-        {
-
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
