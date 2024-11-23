@@ -1,0 +1,122 @@
+﻿@model IEnumerable<Pharmacy.Models.Data.MEDICINE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Index", "MEDICINEs", FormMethod.Get))
+{
+    <h2 class="custom-header text-center">DANH SÁCH THUỐC</h2>
+    <p>
+        @Html.ActionLink("Tạo mới", "Create", null, new { @class = "btn btn-secondary custom-button" })
+    </p>
+
+    <table class="table custom-table">
+        <thead>
+            <tr>
+                <th>Nhà cung cấp</th>
+                <th>
+                    <div class="d-flex flex-column align-items-start">
+                        <span>Tên thuốc</span>
+                        @Html.DropDownList(
+                            "NameSort",
+                            new SelectList(new[]
+                            {
+                                new { Text = "Chọn...", Value = "" },
+                                new { Text = "A-Z", Value = "NameAsc" },
+                                new { Text = "Z-A", Value = "NameDesc" }
+                            }, "Value", "Text", ViewBag.CurrentSort),
+                            "Sắp xếp...",
+                            new { @class = "form-control form-control-sm" })
+                    </div>
+                </th>
+                <th>Đơn vị</th>
+                <th>
+                    <div class="d-flex flex-column align-items-start">
+                        <span>Số lượng</span>
+                        @Html.DropDownList(
+                            "StockSort",
+                            new SelectList(new[]
+                            {
+                                new { Text = "Chọn...", Value = "" },
+                                new { Text = "Tăng dần", Value = "StockAsc" },
+                                new { Text = "Giảm dần", Value = "StockDesc" }
+                            }, "Value", "Text", ViewBag.CurrentSort),
+                            "Sắp xếp...",
+                            new { @class = "form-control form-control-sm" })
+                    </div>
+                </th>
+                <th>Ngày hết hạn</th>
+                <th>Giá</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (item.STOCK_QUANTITY < 100)
+                {
+                    <tr class="highlight">
+                        <td class="highlight mb-2">@Html.DisplayFor(modelItem => item.SUPPLIER.SUPPLIER_NAME)</td>
+                        <td class="highlight">@Html.DisplayFor(modelItem => item.MEDICINE_NAME)</td>
+                        <td class="highlight">@Html.DisplayFor(modelItem => item.UNIT)</td>
+                        <td class="highlight">@Html.DisplayFor(modelItem => item.STOCK_QUANTITY)</td>
+                        <td class="highlight">@item.EXPIRATION_DATE.ToString("dd/MM/yyyy")</td>
+                        <td class="highlight">@Html.DisplayFor(modelItem => item.PRICE)</td>
+                        <td class="highlight">
+                            @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MEDICINE_ID }, new { @class = "btn btn-sm btn-warning" }) |
+                            @Html.ActionLink("Chi tiết", "Details", new { id = item.MEDICINE_ID }, new { @class = "btn btn-sm btn-info" }) |
+                            @Html.ActionLink("Xóa", "Delete", new { id = item.MEDICINE_ID }, new { @class = "btn btn-sm btn-danger" })
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr class="">
+                        <td>@Html.DisplayFor(modelItem => item.SUPPLIER.SUPPLIER_NAME)</td>
+                        <td>@Html.DisplayFor(modelItem => item.MEDICINE_NAME)</td>
+                        <td>@Html.DisplayFor(modelItem => item.UNIT)</td>
+                        <td>@Html.DisplayFor(modelItem => item.STOCK_QUANTITY)</td>
+                        <td>@item.EXPIRATION_DATE.ToString("dd/MM/yyyy")</td>
+                        <td>@Html.DisplayFor(modelItem => item.PRICE)</td>
+                        <td>
+                            @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MEDICINE_ID }, new { @class = "btn btn-sm btn-warning" }) |
+                            @Html.ActionLink("Chi tiết", "Details", new { id = item.MEDICINE_ID }, new { @class = "btn btn-sm btn-info" }) |
+                            @Html.ActionLink("Xóa", "Delete", new { id = item.MEDICINE_ID }, new { @class = "btn btn-sm btn-danger" })
+                        </td>
+                    </tr>
+
+                }
+
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-secondary my-3">Áp dụng</button>
+
+
+    <!-- Phân trang -->
+    <div class="pagination-container d-flex justify-content-center">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    if (i == ViewBag.CurrentPage)
+                    {
+                        <li class="page-item active">
+                            <span class="page-link">@i</span>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@Url.Action("Index", new { page = i, NameSort = ViewBag.NameSort, StockSort = ViewBag.StockSort, searchString = ViewBag.CurrentFilter })">@i</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </nav>
+    </div>
+}

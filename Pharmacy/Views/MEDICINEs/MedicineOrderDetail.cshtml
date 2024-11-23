@@ -1,0 +1,33 @@
+﻿@model Pharmacy.Controllers.MEDICINEsController.Temp
+
+@{
+    ViewBag.Title = "MedicineOrderDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form action="" method="post">
+    <h2>Chi tiết đơn đặt hàng</h2>
+
+    <div>
+        <strong>Nhà cung cấp</strong> @Model.SuplierName
+    </div>
+    <div>
+        <strong>Đơn vị:</strong> @Model.Unit
+        <div>
+            <strong>Số lượng:</strong>@Model.Stock
+        </div>
+        <div>
+            <strong>Tên thuốc:</strong>@Model.medicineName
+        </div>
+        <div>
+            <strong>Ngày hết hạn:</strong>@Model.ExprirationDate
+        </div>
+        <div>
+            <strong>Giá:</strong>@Model.Price
+        </div>
+        <div>
+           <strong>Trạng thái: </strong> Đã nhận hàng
+        </div>
+        <a href="https://localhost:44394/MEDICINEs/OrderMedicine" class="btn btn-primary mt-3 p-2">Xác nhận</a>
+    </div>
+</form>
+

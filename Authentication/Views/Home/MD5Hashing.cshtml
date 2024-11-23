@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "MD5 Hashing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="text-center mb-4">MD5 Hashing</h3>
+
+                    @using (Html.BeginForm("MD5Hashing", "Home", FormMethod.Post))
+                    {
+                        <div class="mb-3">
+                            <label class="form-label">Nhập văn bản</label>
+                            <input type="text" name="input" class="form-control" required />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mb-3">Hash</button>
+
+                        if (ViewBag.HashedInput != null)
+                        {
+                            <div class="mb-3">
+                                <label class="form-label">Kết quả MD5</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="@ViewBag.HashedInput" readonly id="hashedResult" />
+                                    <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard()">
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+
+@section Scripts {
+    <script>
+        function copyToClipboard() {
+            var copyText = document.getElementById("hashedResult");
+            copyText.select();
+            document.execCommand("copy");
+            alert("Đã copy vào clipboard!");
+        }
+    </script>
+}

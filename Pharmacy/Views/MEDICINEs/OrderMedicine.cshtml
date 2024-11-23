@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Pharmacy.Models.Data.OrderView>
+
+@{
+    ViewBag.Title = "OrderMedicine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OrderMedicine</h2>
+
+<div class="col-md-4 mb-3 ms-auto">
+    <h2>@ViewBag.orderList</h2>
+    <a href="/MEDICINEs/Order" class="btn btn-secondary">Tạo đơn đặt hàng</a>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Dược sĩ
+        </th>
+        <th>
+            Tên thuốc
+        </th>
+        <th>
+            Nhà cung cấp
+        </th>
+        <th>
+            Ngày đặt
+        </th>
+        <th>
+            Trạng thái
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="cursor: pointer;" onclick="location.href='@Url.Action("MedicineOrderDetail", "MEDICINEs", new { medicineOrderConfirmID = item.MEDICINE_ORDER_ID} )'">
+            <td>
+                @($"{item.EmployeeName}")
+            </td>
+            <td>
+                @item.MEDICINE_NAME
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suplier_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.REGISTRATION_DATE)
+            </td>
+            <td>
+                Đã nhận đơn hàng
+            </td>
+        </tr>
+    }
+
+
+</table>
+

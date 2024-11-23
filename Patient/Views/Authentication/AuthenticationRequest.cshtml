@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Authentication Request";
+}
+
+<h2>Authentication Request</h2>
+
+<div>
+    <p><strong>Decrypted Patient ID:</strong> @ViewBag.PatientId</p>
+    <p><strong>Token:</strong> @ViewBag.Token</p>
+</div>
+
+@if (ViewBag.PatientId != null && ViewBag.Token != null)
+{
+    <p style="color: green;">Thông tin xác thực đã được xử lý thành công!</p>
+}
+else
+{
+    <p style="color: red;">Thông tin xác thực không hợp lệ.</p>
+}
