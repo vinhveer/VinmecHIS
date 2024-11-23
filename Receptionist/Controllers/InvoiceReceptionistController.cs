@@ -13,8 +13,7 @@ namespace Receptionist.Controllers
 
         public ActionResult Index()
         {
-            var patientId = Convert.ToInt64(Session["EmployeeId"]);
-            var medicalrecord = db.MEDICALRECORDs.Where(p => p.PATIENT_ID == patientId).Include(p => p.INVOICE).Include(p => p.INVOICE.EMPLOYEE).ToList();
+            var medicalrecord = db.MEDICALRECORDs.Include(p => p.INVOICE).Include(p => p.INVOICE.EMPLOYEE).ToList();
             return View(medicalrecord);
         }
 
