@@ -63,8 +63,8 @@ namespace Doctor.Controllers
             // Xóa tất cả session
             Session.Clear();
 
-            // Chuyển hướng đến trang đăng nhập
-            return RedirectToAction("Login", "Account");
+            // Chuyển hướng đến một URL tuyệt đối
+            return Redirect("https://localhost:44371/");
         }
 
 

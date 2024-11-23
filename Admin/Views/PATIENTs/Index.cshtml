@@ -9,19 +9,27 @@
     int currentPage = ViewBag.CurrentPage;
 }
 
-<h3 class="text-center mb-3 mt-3">Danh sách bệnh nhân</h3>
-<table class="table table-striped align-middle text-center">
+<h3 class="mb-3">Danh sách tài khoản bệnh nhân</h3>
+
+<div class="mb-3 position-relative" style="max-width: 300px;">
+    <input type="text" id="searchInput" class="form-control pe-5" placeholder="Nhập từ khóa tìm kiếm...">
+    <button id="clearSearch" class="btn btn-sm position-absolute" style="right: 5px; top: 50%; transform: translateY(-50%); display: none;">
+        <i class="fas fa-times"></i>
+    </button>
+</div>
+
+<!-- Thêm div thông báo không tìm thấy kết quả -->
+<div id="noResults" class="alert alert-info" role="alert" style="display: none;">
+    Không tìm thấy kết quả phù hợp!
+</div>
+
+<table class="table table-striped align-middle">
     <thead>
         <tr>
             <th>STT</th>
-            <th>Tên đăng nhập</th>
-            <th>Họ và Tên</th>
+            <th>Họ và tên</th>
             <th>Ngày sinh</th>
             <th>Giới tính</th>
-            <th>Email</th>
-            <th>Điện thoại</th>
-            <th>Địa chỉ</th>
-            <th>Liên hệ khẩn cấp</th>
             <th>Ngày đăng ký</th>
             <th>Chức năng</th>
         </tr>
@@ -31,7 +39,6 @@
         {
             <tr>
                 <td>@(++idx)</td>
-                <td>@Html.DisplayFor(modelItem => item.PATIENTACCOUNT.PATIENT_USERNAME)</td>
                 <td class="text-truncate" style="max-width: 180px;">@item.FIRST_NAME @item.LAST_NAME</td>
                 <td>@item.DATE_OF_BIRTH.ToString("dd/MM/yyyy")</td>
                 <td>
@@ -49,13 +56,9 @@
                     }
                     @gtinh
                 </td>
-                <td class="text-truncate" style="max-width: 140px;">@Html.DisplayFor(modelItem => item.PATIENT_EMAIL)</td>
-                <td>@Html.DisplayFor(modelItem => item.PATIENT_PHONE)</td>
-                <td class="text-truncate" style="max-width: 180px;">@Html.DisplayFor(modelItem => item.PATIENT_ADDRESS)</td>
-                <td>@Html.DisplayFor(modelItem => item.EMERGENCY_CONTACT)</td>
                 <td>@item.REGISTRATION_DATE.ToString("dd/MM/yyyy")</td>
                 <td class="p-2">
-                    <div class="d-flex justify-content-center">
+                    <div class="">
                         <a href="@Url.Action("Details", "Patients", new { id = item.PATIENT_ID })"
                            class="text-decoration-none me-3 text-secondary" title="Chi tiết" role="button">
                             <i class="fas fa-info-circle fs-5" style="color: blue;"></i>
@@ -93,3 +96,109 @@
         </ul>
     </nav>
 </div>
+
+@section Styles {
+    <style>
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px;
+            border-radius: 2px;
+        }
+
+        #clearSearch {
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+
+            #clearSearch:hover {
+                color: #dc3545;
+            }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var searchTimeout;
+            var originalRows = $("table tbody tr").clone(true);
+
+            // Hàm highlight text
+            function highlightText(element, searchText) {
+                if (!searchText) return element.text();
+
+                var text = element.text();
+                var regex = new RegExp('(' + searchText + ')', 'gi');
+                return text.replace(regex, '<span class="highlight">$1</span>');
+            }
+
+            // Hàm xóa highlight
+            function removeHighlight() {
+                $("table tbody tr td").each(function () {
+                    var text = $(this).text();
+                    $(this).html(text);
+                });
+            }
+
+            // Hàm thực hiện tìm kiếm
+            function performSearch() {
+                var value = $("#searchInput").val().toLowerCase();
+                var hasResults = false;
+
+                removeHighlight();
+
+                if (value === "") {
+                    $("table tbody").empty().append(originalRows.clone(true));
+                    $("#noResults").hide();
+                    $("#clearSearch").hide();
+                    return;
+                }
+
+                $("#clearSearch").show();
+
+                $("table tbody tr").each(function () {
+                    var row = $(this);
+                    var matchFound = false;
+
+                    // Tìm trong tất cả các cột (trừ cột STT và cột chức năng)
+                    row.find("td:not(:first-child):not(:last-child)").each(function () {
+                        var cell = $(this);
+                        var cellText = cell.text().toLowerCase();
+
+                        if (cellText.indexOf(value) > -1) {
+                            matchFound = true;
+                            cell.html(highlightText(cell, value));
+                        }
+                    });
+
+                    row.toggle(matchFound);
+                    hasResults = hasResults || matchFound;
+                });
+
+                // Hiển thị thông báo không tìm thấy kết quả
+                $("#noResults").toggle(!hasResults);
+
+                // Cập nhật lại STT cho các dòng đang hiển thị
+                var visibleIndex = 0;
+                $("table tbody tr:visible").each(function () {
+                    $(this).find("td:first").text(++visibleIndex);
+                });
+            }
+
+            // Xử lý sự kiện nhập tìm kiếm với độ trễ
+            $("#searchInput").on("keyup", function () {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(performSearch, 300); // Độ trễ 300ms
+            });
+
+            // Xử lý nút clear
+            $("#clearSearch").on("click", function () {
+                $("#searchInput").val("").focus();
+                removeHighlight();
+                $("table tbody").empty().append(originalRows.clone(true));
+                $("#noResults").hide();
+                $(this).hide();
+            });
+        });
+    </script>
+}

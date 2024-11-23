@@ -160,3 +160,7 @@ C:\Users\Truong Thanh Hieu\Documents\VinmectUD\VinmecHIS\Doctor\bin\EntityFramew
 C:\Users\Truong Thanh Hieu\Documents\VinmectUD\VinmecHIS\Doctor\bin\EntityFramework.SqlServer.dll
 C:\Users\Truong Thanh Hieu\Documents\VinmectUD\VinmecHIS\Doctor\bin\EntityFramework.xml
 C:\Users\Truong Thanh Hieu\Documents\VinmectUD\VinmecHIS\Doctor\bin\EntityFramework.SqlServer.xml
+C:\Users\vinhnq\Desktop\VinmecHIS\Doctor\bin\EntityFramework.dll
+C:\Users\vinhnq\Desktop\VinmecHIS\Doctor\bin\EntityFramework.SqlServer.dll
+C:\Users\vinhnq\Desktop\VinmecHIS\Doctor\bin\EntityFramework.xml
+C:\Users\vinhnq\Desktop\VinmecHIS\Doctor\bin\EntityFramework.SqlServer.xml

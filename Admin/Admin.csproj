@@ -130,13 +130,26 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
-    <Compile Include="Controllers\EMPLOYEEsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PATIENTsController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Filters\AuthenticateAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Data\AdminDbContext.cs" />
+    <Compile Include="Models\Data\APPOINTMENT.cs" />
+    <Compile Include="Models\Data\EMPLOYEE.cs" />
+    <Compile Include="Models\Data\EMPLOYEEACCOUNT.cs" />
+    <Compile Include="Models\Data\INVOICE.cs" />
+    <Compile Include="Models\Data\MEDICALRECORD.cs" />
+    <Compile Include="Models\Data\MEDICINE.cs" />
+    <Compile Include="Models\Data\MEDICINEORDER.cs" />
+    <Compile Include="Models\Data\MEDICINEORDERDETAIL.cs" />
+    <Compile Include="Models\Data\PATIENT.cs" />
+    <Compile Include="Models\Data\PATIENTACCOUNT.cs" />
+    <Compile Include="Models\Data\PRESCRIPTION.cs" />
+    <Compile Include="Models\Data\PRESCRIPTIONDETAIL.cs" />
+    <Compile Include="Models\Data\SUPPLIER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,19 +169,16 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Authentication\AuthenticationRequest.cshtml" />
-    <Content Include="Views\PATIENTs\Delete.cshtml" />
-    <Content Include="Views\PATIENTs\Details.cshtml" />
-    <Content Include="Views\PATIENTs\Edit.cshtml" />
-    <Content Include="Views\PATIENTs\Index.cshtml" />
-    <Content Include="Views\EMPLOYEEs\Create.cshtml" />
-    <Content Include="Views\EMPLOYEEs\Delete.cshtml" />
-    <Content Include="Views\EMPLOYEEs\Details.cshtml" />
-    <Content Include="Views\EMPLOYEEs\Edit.cshtml" />
-    <Content Include="Views\EMPLOYEEs\Index.cshtml" />
+    <Content Include="Views\Patients\Delete.cshtml" />
+    <Content Include="Views\Patients\Details.cshtml" />
+    <Content Include="Views\Patients\Edit.cshtml" />
+    <Content Include="Views\Patients\Index.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

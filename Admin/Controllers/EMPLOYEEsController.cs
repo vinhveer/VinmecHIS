@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Admin.Filters;
+using Admin.Models.Data;
+using System;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Admin.Models.Data;
 
 namespace Admin.Controllers
 {
-    public class EMPLOYEEsController : Controller
+    [Authenticate]
+    public class EmployeesController : Controller
     {
         private AdminDbContext db = new AdminDbContext();
 

@@ -5,16 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
-    <div class="row justify-content-center">
+<a href="javascript:history.back()" class="btn btn-outline-secondary mb-3"> <i class="bi bi-arrow-left"></i> Quay lại</a>
+
+    <div class="row">
         <div class="col-md-8">
-            <h2 class="text-center mb-2">NHẬP THÔNG TIN NHÂN VIÊN</h2>
+            <h3 class="mb-4">Nhập thông tin nhân viên</h3>
 
             @using (Html.BeginForm("Create", "Employees", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
 
-        <div class="form-horizontal p-4 border rounded bg-light">
+        <div class="form-horizontal">
 
             @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
 
@@ -109,7 +110,7 @@
             </div>
 
             <div class="form-group row">
-                <div class="col-md-9 offset-md-3">
+                <div class="col-md-9">
                     <input type="submit" value="Thêm mới" class="btn btn-primary" />
                 </div>
             </div>
@@ -118,8 +119,6 @@
             }
         </div>
     </div>
-</div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

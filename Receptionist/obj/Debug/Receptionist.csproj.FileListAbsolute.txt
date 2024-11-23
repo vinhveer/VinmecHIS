@@ -160,3 +160,7 @@ C:\Users\Truong Thanh Hieu\Documents\VinmectUD\VinmecHIS\Receptionist\obj\Debug\
 C:\Users\Truong Thanh Hieu\Documents\VinmectUD\VinmecHIS\Receptionist\obj\Debug\Receptio.CB130099.Up2Date
 C:\Users\Truong Thanh Hieu\Documents\VinmectUD\VinmecHIS\Receptionist\obj\Debug\Receptionist.dll
 C:\Users\Truong Thanh Hieu\Documents\VinmectUD\VinmecHIS\Receptionist\obj\Debug\Receptionist.pdb
+C:\Users\vinhnq\Desktop\VinmecHIS\Receptionist\bin\EntityFramework.dll
+C:\Users\vinhnq\Desktop\VinmecHIS\Receptionist\bin\EntityFramework.SqlServer.dll
+C:\Users\vinhnq\Desktop\VinmecHIS\Receptionist\bin\EntityFramework.xml
+C:\Users\vinhnq\Desktop\VinmecHIS\Receptionist\bin\EntityFramework.SqlServer.xml

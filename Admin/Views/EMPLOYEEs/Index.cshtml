@@ -9,25 +9,32 @@
     int currentPage = ViewBag.CurrentPage;
 }
 
-<h3 class="text-center mb-3 mt-3">Danh sách nhân viên</h3>
+<h3 class="mb-3 mt-3">Danh sách nhân viên</h3>
 
-<a>@Html.ActionLink("Thêm mới", "Create", "Employees", new { @class = "btn btn-primary" })</a>
+<a>@Html.ActionLink("Thêm mới", "Create", "Employees", new { @class = "btn btn-primary mb-3" })</a>
 
-<table class="table table-striped align-middle text-center">
+<div class="mb-3 position-relative" style="max-width: 300px;">
+    <input type="text" id="searchInput" class="form-control pe-5" placeholder="Nhập từ khóa tìm kiếm...">
+    <button id="clearSearch" class="btn btn-sm position-absolute" style="right: 5px; top: 50%; transform: translateY(-50%); display: none;">
+        <i class="fas fa-times"></i>
+    </button>
+</div>
+
+<!-- Thêm div thông báo không tìm thấy kết quả -->
+<div id="noResults" class="alert alert-info" role="alert" style="display: none;">
+    Không tìm thấy kết quả phù hợp!
+</div>
+
+<table class="table table-striped align-middle">
     <thead>
         <tr>
             <th>STT</th>
             <th>Tên đăng nhập</th>
-            <th>Họ và Tên</th>
+            <th>Họ và tên</th>
             <th>Ngày sinh</th>
             <th>Giới tính</th>
-            @*<th>Email</th>
-            <th>Điện thoại</th>
-            <th>Địa chỉ</th>*@
-            <th>Chức vụ</th>
-            <th>Phòng ban</th>
-            <th>Phòng làm việc</th>
             <th>Ngày tuyển dụng</th>
+            <th>Phòng ban</th>
             <th>Chức năng</th>
         </tr>
     </thead>
@@ -36,7 +43,7 @@
         {
             <tr>
                 <td>@(++idx)</td>
-                <td>@Html.DisplayFor(modelItem => item.EMPLOYEEACCOUNT.EMPLOYEE_USERNAME)</td>
+                <td>@item.EMPLOYEEACCOUNT.EMPLOYEE_USERNAME</td>
                 <td class="text-truncate" style="max-width: 180px;">@item.FIRST_NAME @item.LAST_NAME</td>
                 <td>@item.DATE_OF_BIRTH.ToString("dd/MM/yyyy")</td>
                 <td>
@@ -54,15 +61,10 @@
                     }
                     @gtinh
                 </td>
-                @*<td class="text-truncate" style="max-width: 140px;">@Html.DisplayFor(modelItem => item.EMPLOYEE_EMAIL)</td>*@
-                @*<td>@Html.DisplayFor(modelItem => item.EMPLOYEE_PHONE)</td>*@
-                @*<td class="text-truncate" style="max-width: 140px;">@Html.DisplayFor(modelItem => item.EMPLOYEE_ADDRESS)</td>*@
-                <td>@Html.DisplayFor(modelItem => item.ROLE_NAME)</td>
-                <td>@Html.DisplayFor(modelItem => item.DEPARTMENT)</td>
-                <td>@Html.DisplayFor(modelItem => item.EMPLOYEE_ROOM) </td>
                 <td>@item.HIRE_DATE.ToString("dd/MM/yyyy")</td>
+                <td>@item.DEPARTMENT</td>
                 <td class="p-2">
-                    <div class="d-flex justify-content-center">
+                    <div>
                         <a href="@Url.Action("Details", "Employees", new { id = item.EMPLOYEE_ID })"
                            class="text-decoration-none me-3 text-secondary" title="Chi tiết" role="button">
                             <i class="fas fa-info-circle fs-5" style="color: blue;"></i>
@@ -95,8 +97,106 @@
                 </li>
             }
             <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "d-none" : "")">
-                <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1})">></a>
+                <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1 })">></a>
             </li>
         </ul>
     </nav>
 </div>
+
+@section Styles {
+    <style>
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px;
+            border-radius: 2px;
+        }
+
+        #clearSearch {
+            cursor: pointer;
+            border: none;
+            background: transparent;
+        }
+
+            #clearSearch:hover {
+                color: #dc3545;
+            }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var searchTimeout;
+            var originalRows = $("table tbody tr").clone(true);
+
+            function highlightText(element, searchText) {
+                if (!searchText) return element.text();
+
+                var text = element.text();
+                var regex = new RegExp('(' + searchText + ')', 'gi');
+                return text.replace(regex, '<span class="highlight">$1</span>');
+            }
+
+            function removeHighlight() {
+                $("table tbody tr td").each(function () {
+                    var text = $(this).text();
+                    $(this).html(text);
+                });
+            }
+
+            function performSearch() {
+                var value = $("#searchInput").val().toLowerCase();
+                var hasResults = false;
+
+                removeHighlight();
+
+                if (value === "") {
+                    $("table tbody").empty().append(originalRows.clone(true));
+                    $("#noResults").hide();
+                    $("#clearSearch").hide();
+                    return;
+                }
+
+                $("#clearSearch").show();
+
+                $("table tbody tr").each(function () {
+                    var row = $(this);
+                    var matchFound = false;
+
+                    row.find("td:not(:first-child):not(:last-child)").each(function () {
+                        var cell = $(this);
+                        var cellText = cell.text().toLowerCase();
+
+                        if (cellText.indexOf(value) > -1) {
+                            matchFound = true;
+                            cell.html(highlightText(cell, value));
+                        }
+                    });
+
+                    row.toggle(matchFound);
+                    hasResults = hasResults || matchFound;
+                });
+
+                $("#noResults").toggle(!hasResults);
+
+                var visibleIndex = 0;
+                $("table tbody tr:visible").each(function () {
+                    $(this).find("td:first").text(++visibleIndex);
+                });
+            }
+
+            $("#searchInput").on("keyup", function () {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(performSearch, 300);
+            });
+
+            $("#clearSearch").on("click", function () {
+                $("#searchInput").val("").focus();
+                removeHighlight();
+                $("table tbody").empty().append(originalRows.clone(true));
+                $("#noResults").hide();
+                $(this).hide();
+            });
+        });
+    </script>
+}

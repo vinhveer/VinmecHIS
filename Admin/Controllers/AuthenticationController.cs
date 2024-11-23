@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Admin.Models.Data;
+using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web.Mvc;
@@ -7,6 +8,8 @@ namespace Admin.Controllers
 {
     public class AuthenticationController : Controller
     {
+        private AdminDbContext _db = new AdminDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -38,6 +41,7 @@ namespace Admin.Controllers
 
                 // Lưu thông tin
                 Session["EmployeeId"] = decryptedEmployeeId;
+                Session["EmployeeName"] = _db.EMPLOYEEs.Find(int.Parse(decryptedEmployeeId)).FIRST_NAME;
                 ViewBag.Token = decodedToken;
 
                 return View();
@@ -47,6 +51,16 @@ namespace Admin.Controllers
                 // Log lỗi nếu cần
                 return Content($"Lỗi xác thực: {ex.Message}");
             }
+        }
+
+        // GET: Logout
+        public ActionResult Logout()
+        {
+            // Xóa tất cả session
+            Session.Clear();
+
+            // Chuyển hướng đến một URL tuyệt đối
+            return Redirect("https://localhost:44371/");
         }
 
         private string Decrypt(string cipherText)

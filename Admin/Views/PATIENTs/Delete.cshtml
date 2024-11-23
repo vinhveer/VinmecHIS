@@ -5,52 +5,49 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container mt-3">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <h2 class="text-center text-danger mb-3">XÁC NHẬN XÓA BỆNH NHÂN</h2>
+<a href="javascript:history.back()" class="btn btn-outline-secondary"> <i class="bi bi-arrow-left"></i> Quay lại</a>
+<div class="row">
 
-            @using (Html.BeginForm("Delete", "Patients", FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()
+    <h3 class="text-danger mb-3 mt-3">Bạn có chắc chắn xoá bệnh nhân này không</h3>
 
-                <div class="form-horizontal p-4 border rounded bg-light">
-                    <div class="row mb-3">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-8">
-                            <p><strong>Tên đăng nhập:</strong> @Model.PATIENTACCOUNT.PATIENT_USERNAME</p>
-                            <p><strong>Họ:</strong> @Model.FIRST_NAME</p>
-                            <p><strong>Tên:</strong> @Model.LAST_NAME</p>
-                            <p><strong>Ngày sinh:</strong> @Model.DATE_OF_BIRTH.ToString("dd/MM/yyyy")</p>
-                            <p>
-                                <strong>Giới tính:</strong>
-                                @if (Model.GENDER == "M")
-                                {
-                                    @:Nam
-                                }
-                                else if (Model.GENDER == "F")
-                                {
-                                    @:Nữ
-                                }
-                                else
-                                {
-                                    @:Khác
-                                }
-                            </p>
-                            <p><strong>Email:</strong> @Model.PATIENT_EMAIL</p>
-                            <p><strong>Số điện thoại:</strong> @Model.PATIENT_PHONE</p>
-                            <p><strong>Địa chỉ:</strong> @Model.PATIENT_ADDRESS</p>
-                            <p><strong>Liên hệ khẩn cấp:</strong> @Model.EMERGENCY_CONTACT</p>
-                            <p><strong>Ngày đăng ký:</strong> @Model.REGISTRATION_DATE.ToString("dd/MM/yyyy")</p>
-                        </div>
-                    </div>
+    @using (Html.BeginForm("Delete", "Patients", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
 
-                    <div class="form-group text-center">
-                        <input type="submit" value="Xác nhận xóa" class="btn btn-danger me-2" />
-                        <a href="javascript:history.back()" class="btn btn-primary">Quay lại</a>
-                    </div>
-                </div>
-            }
+        <dl class="inline-dl">
+            <dt>Tên đăng nhập</dt>
+            <dd>@Model.PATIENTACCOUNT.PATIENT_USERNAME</dd>
+
+            <dt>Họ và tên</dt>
+            <dd>@Model.LAST_NAME @Model.FIRST_NAME</dd>
+
+            <dt>Ngày sinh</dt>
+            <dd>@Model.DATE_OF_BIRTH.ToString("dd/MM/yyyy")</dd>
+
+            <dt>Giới tính</dt>
+            <dd>
+                @if (Model.GENDER == "M")
+                {
+                    @:Nam
+                }
+                else if (Model.GENDER == "F")
+                {
+                    @:Nữ
+                }
+                else
+                {
+                    @:Khác
+                }
+            </dd>
+
+            <dt>Ngày đăng ký</dt>
+            <dd>@Model.REGISTRATION_DATE.ToString("dd/MM/yyyy")</dd>
+        </dl>
+
+
+
+        <div class="form-group">
+            <input type="submit" value="Xác nhận xóa" class="btn btn-danger me-2" />
         </div>
-    </div>
+    }
 </div>

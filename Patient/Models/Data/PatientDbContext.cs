@@ -8,7 +8,7 @@ namespace Patient.Models.Data
     public partial class PatientDbContext : DbContext
     {
         public PatientDbContext()
-            : base("name=PatientDbContext1")
+            : base("name=PatientDbContext")
         {
         }
 

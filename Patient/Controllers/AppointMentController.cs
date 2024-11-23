@@ -92,7 +92,8 @@ namespace Patient.Controllers
         {
             return View();
         }
-        public ActionResult BookingApointmnet()
+
+        public ActionResult BookingApointMent()
         {   if(Session["PatientId"] != null)
             {
                 var specialitys = _db.EMPLOYEEs
@@ -129,11 +130,13 @@ namespace Patient.Controllers
                 return Redirect(redirectUrl);
             }   
         }
+
         public class Temp
         {
             public string Specialty { get; set; }
             public string AppointmentDate { get; set; }
         }
+
         [HttpPost]
         public ActionResult BookingApointMent(string specialty,string appointmentDate)
         {           

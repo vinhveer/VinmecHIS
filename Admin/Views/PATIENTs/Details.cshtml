@@ -1,51 +1,61 @@
 ﻿@model Admin.Models.Data.PATIENT
 
 @{
-    ViewBag.Title = "Chi Tiết Bệnh Nhân";
+    ViewBag.Title = $"{Model.FIRST_NAME} {Model.LAST_NAME} - Chi Tiết Bệnh Nhân";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container mt-3">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h2 class="text-center mb-2">Thông Tin Chi Tiết Bệnh Nhân</h2>
-            <hr />
+<a href="javascript:history.back()" class="btn btn-outline-secondary"> <i class="bi bi-arrow-left"></i> Quay lại</a>
+@Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.PATIENT_ID }, new { @class = "btn btn-warning" })
+@Html.ActionLink("Xóa", "Delete", new { id = Model.PATIENT_ID }, new { @class = "btn btn-danger" })
+<div class="container mt-5 card card-body shadow-sm border-0">
+    <h3 class="text-primary mb-3">@Model.FIRST_NAME @Model.LAST_NAME</h3>
+    <div class="row">
+        <!-- Cột trái -->
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-5">Tên đăng nhập:</dt>
+                <dd class="col-sm-7">@Model.PATIENTACCOUNT.PATIENT_USERNAME</dd>
 
-            <div class="row mb-3 justify-content-center">
-                <div class="col-md-6">
-                    <p><strong>Tên đăng nhập:</strong> @Model.PATIENTACCOUNT.PATIENT_USERNAME</p>
-                    <p><strong>Họ và Tên:</strong> @Model.FIRST_NAME @Model.LAST_NAME</p>
-                    <p><strong>Ngày sinh:</strong> @Model.DATE_OF_BIRTH.ToString("dd/MM/yyyy")</p>
-                    <p>
-                        <strong>Giới tính:</strong>
-                        @if (Model.GENDER == "M")
-                        {
-                            @:Nam
-                        }
-                        else if (Model.GENDER == "F")
-                        {
-                            @:Nữ
-                        }
-                        else
-                        {
-                            @:Khác
-                        }
-                    </p>
-                    <p><strong>Email:</strong> @Model.PATIENT_EMAIL</p>
-                </div>
-                <div class="col-md-6">
-                    <p><strong>Số điện thoại:</strong> @Model.PATIENT_PHONE</p>
-                    <p><strong>Địa chỉ:</strong> @Model.PATIENT_ADDRESS</p>
-                    <p><strong>Liên hệ khẩn cấp:</strong> @Model.EMERGENCY_CONTACT</p>
-                    <p><strong>Ngày đăng ký:</strong> @Model.REGISTRATION_DATE.ToString("dd/MM/yyyy")</p>
-                </div>
-            </div>
+                <dt class="col-sm-5">Ngày sinh:</dt>
+                <dd class="col-sm-7">@Model.DATE_OF_BIRTH.ToString("dd/MM/yyyy")</dd>
 
-            <div class="text-center">
-                <a href="javascript:history.back()" class="btn btn-primary">Quay lại</a>
-                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.PATIENT_ID }, new { @class = "btn btn-warning" })
-                @Html.ActionLink("Xóa", "Delete", new { id = Model.PATIENT_ID }, new { @class = "btn btn-danger" })
-            </div>
+                <dt class="col-sm-5">Giới tính:</dt>
+                <dd class="col-sm-7">
+                    @if (Model.GENDER == "M")
+                    {
+                        @:Nam
+                    }
+                    else if (Model.GENDER == "F")
+                    {
+                        @:Nữ
+                    }
+                    else
+                    {
+                        @:Khác
+                    }
+                </dd>
+
+                <dt class="col-sm-5">Email:</dt>
+                <dd class="col-sm-7">@Model.PATIENT_EMAIL</dd>
+            </dl>
+        </div>
+
+        <!-- Cột phải -->
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-5">Số điện thoại:</dt>
+                <dd class="col-sm-7">@Model.PATIENT_PHONE</dd>
+
+                <dt class="col-sm-5">Địa chỉ:</dt>
+                <dd class="col-sm-7">@Model.PATIENT_ADDRESS</dd>
+
+                <dt class="col-sm-5">Liên hệ khẩn cấp:</dt>
+                <dd class="col-sm-7">@Model.EMERGENCY_CONTACT</dd>
+
+                <dt class="col-sm-5">Ngày đăng ký:</dt>
+                <dd class="col-sm-7">@Model.REGISTRATION_DATE.ToString("dd/MM/yyyy")</dd>
+            </dl>
         </div>
     </div>
 </div>

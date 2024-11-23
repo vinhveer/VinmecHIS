@@ -10,7 +10,7 @@
     <p><strong>Token:</strong> @ViewBag.Token</p>
 </div>
 
-@if (ViewBag.EmployeeId != null && ViewBag.Token != null)
+@if (ViewBag.EmployeeId != null && ViewBag.Token != null) {
     ViewBag.Title = "Xử lý đăng nhập";
 }
 @if (Session["EmployeeId"] != null && ViewBag.Token != null)

@@ -1,44 +1,51 @@
-﻿
-<!DOCTYPE html>
-<html data-bs-theme="light">
-<!-- Default is light -->
+﻿<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    <!-- Use the latest FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="~/Content/Site.css">
-    <link rel="stylesheet" href="~/Content/BookingAppointment.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        .active {
-            font-weight: 600;
-        }
-
-        .form-label {
-            font-weight: 600;
-        }
-    </style>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm bg-body-secondary shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
+            @Html.ActionLink("AdminPortal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav justify-content-end flex-grow-1 me-4 nav-underline">
-                    <li class="nav-item">
-                        @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Lịch khám", "Index", "AppointMent", new { area = "" }, new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Đặt lịch", "BookingApointmnet", "AppointMent", new { area = "" }, new { @class = "nav-link" })
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Đặt lịch khám", "BookingApointMent", "AppointMent", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Hoá đơn", "Index", "InvoicePatient", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+
+                <ul class="navbar-nav me-auto">
+                    @if (Session["EmployeeId"] != null && Session["EmployeeName"] != null)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Xin chào, @Session["EmployeeName"]!
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li>
+                                    @Html.ActionLink("Đăng xuất", "Logout", "Authentication", new { area = "" }, new { @class = "dropdown-item" })
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    <!-- Nút chuyển đổi chế độ sáng/tối -->
+                    <li class="nav-item ms-2">
+                        <button class="btn btn-secondary" id="theme-toggle">
+                            <i class="bi bi-moon" id="theme-icon"></i>
+                        </button>
                     </li>
                 </ul>
-                <!-- Toggle Switch for Dark Mode -->
             </div>
         </div>
     </nav>
@@ -46,13 +53,61 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Developed by Truong Thanh Hieu</p>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-            crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</body>
 
+    <!-- Thêm jQuery trước Popper.js và Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js" integrity="sha512-QeAsLWBnJd9ru0EPiKaW2MAAfhJHEhrvcREeCx5jT+hpBB8/OnV6q8+VggGXnydeDWpm92HV/CRyMi5uh0CxRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        // Xử lý chuyển đổi theme
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlTag = document.documentElement;
+
+        // Hàm lưu trạng thái theme
+        function saveTheme(theme) {
+            localStorage.setItem('theme', theme);
+        }
+
+        // Hàm lấy trạng thái theme đã lưu
+        function getSavedTheme() {
+            return localStorage.getItem('theme') || 'light';
+        }
+
+        // Hàm áp dụng theme
+        function applyTheme(theme) {
+            htmlTag.setAttribute('data-bs-theme', theme);
+
+            if (theme === 'dark') {
+                themeIcon.classList.remove('bi-moon');
+                themeIcon.classList.add('bi-sun');
+            } else {
+                themeIcon.classList.remove('bi-sun');
+                themeIcon.classList.add('bi-moon');
+            }
+        }
+
+        // Khởi tạo theme từ localStorage
+        applyTheme(getSavedTheme());
+
+        // Sự kiện click chuyển đổi theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlTag.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            applyTheme(newTheme);
+            saveTheme(newTheme);
+        });
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
 </html>

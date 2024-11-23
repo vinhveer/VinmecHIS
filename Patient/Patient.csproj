@@ -130,8 +130,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AppointMentController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
-    <Compile Include="Controllers\ExampleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoicePatientController.cs" />
+    <Compile Include="Filters\AuthenticateAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -206,10 +207,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Authentication\AuthenticationRequest.cshtml" />
-    <Content Include="Views\Example\Index.cshtml" />
     <Content Include="Views\AppointMent\Index.cshtml" />
-    <Content Include="Views\AppointMent\BookingApointmnet.cshtml" />
+    <Content Include="Views\AppointMent\BookingApointMent.cshtml" />
     <Content Include="Views\AppointMent\AvailableAppointments.cshtml" />
+    <Content Include="Views\InvoicePatient\Details.cshtml" />
+    <Content Include="Views\InvoicePatient\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

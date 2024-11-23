@@ -1,22 +1,19 @@
-﻿
-using Receptionist.Models.Data;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data.Entity;
-using System.EnterpriseServices;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using Receptionist.Models.Data;
 
 namespace Receptionist.Controllers
 {
     public class InvoiceReceptionistController : Controller
     {
         // GET: InvoiceReceptionist
-        private receptionistDbContext db = new receptionistDbContext();
+        private readonly ReceiptionistDbContext db = new ReceiptionistDbContext();
+
         public ActionResult Index()
         {
-            var patientId = Convert.ToInt64(Session["PatientId"]);
+            var patientId = Convert.ToInt64(Session["EmployeeId"]);
             var medicalrecord = db.MEDICALRECORDs.Include(p => p.PATIENT).ToList();
             return View(medicalrecord);
         }
