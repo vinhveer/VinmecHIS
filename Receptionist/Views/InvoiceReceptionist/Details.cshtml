@@ -7,21 +7,18 @@
 <div class="container py-5">
     <h3>Chi tiết hóa đơn</h3>
     <div class="border border-3 p-5 mt-5 d-flex flex-column w-75">
+        <h4>Đơn thuốc</h4>
         <div class="mb-3">
             <label for="formGroupExampleInput2" class="form-label">Tên bác sĩ:</label>
             <input type="text" class="form-control" id="formGroupExampleInput2" value="@ViewBag.EmployeeFirstName @ViewBag.EmployeeLastName" disabled>
         </div>
         <div class="mb-3">
-            <label for="formGroupExampleInput2" class="form-label">Tên bệnh nhân:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" value="@ViewBag.patientFirstName @ViewBag.patientLastName" disabled>
+            <label for="formGroupExampleInput4" class="form-label">Ngày kê đơn:</label>
+            <input type="date" class="form-control" id="formGroupExampleInput4" value="@ViewBag.prescription.PRESCRIPTION_DATE.ToString("yyyy-MM-dd")" disabled>
         </div>
         <div class="mb-3">
-            <label for="formGroupExampleInput4" class="form-label">Ngày khám:</label>
-            <input type="date" class="form-control" id="formGroupExampleInput4" value="@ViewBag.medicalrecord.EXAMINATION_DATE.ToString("yyyy-MM-dd")" disabled>
-        </div>
-        <div class="mb-3">
-            <label for="formGroupExampleInput4" class="form-label">Mã hồ sơ:</label>
-            <input type="text" class="form-control" id="formGroupExampleInput4" value="@ViewBag.medicalrecord.MEDICAL_RECORD_ID" disabled>
+            <label for="formGroupExampleInput8" class="form-label">Ghi chú:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput8" value="@ViewBag.prescription.NOTES" disabled>
         </div>
         <div class="mb-3">
             <label for="formGroupExampleInput8" class="form-label">Viện phí:</label>
