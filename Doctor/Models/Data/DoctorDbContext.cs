@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace Doctor.Models.Data
 {
-    public partial class DoctorDbContext : DbContext
+    public partial class DoctorDBContext : DbContext
     {
-        public DoctorDbContext()
-            : base("name=DoctorDbContext")
+        public DoctorDBContext()
+            : base("name=DoctorDBContext")
         {
         }
 
@@ -25,7 +25,6 @@ namespace Doctor.Models.Data
         public virtual DbSet<PRESCRIPTION> PRESCRIPTIONs { get; set; }
         public virtual DbSet<PRESCRIPTIONDETAIL> PRESCRIPTIONDETAILs { get; set; }
         public virtual DbSet<SUPPLIER> SUPPLIERs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
