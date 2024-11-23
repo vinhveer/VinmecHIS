@@ -1,33 +1,281 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
-
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+    <!-- Custom Indicators -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
     </div>
-</main>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/Image/banner1.png" class="d-block w-100" alt="Slide 1">
+        </div>
+        <div class="carousel-item">
+            <img src="~/Image/banner2.png" class="d-block w-100" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+            <img src="~/Image/banner3.png" class="d-block w-100" alt="Slide 3">
+        </div>
+        <div class="carousel-item">
+            <img src="~/Image/banner4.jpg" class="d-block w-100" alt="Slide 4">
+        </div>
+        <div class="carousel-item">
+            <img src="~/Image/banner5.png" class="d-block w-100" alt="Slide 5">
+        </div>
+        <div class="carousel-item">
+            <img src="~/Image/banner6.png" class="d-block w-100" alt="Slide 6">
+        </div>
+        <div class="text-banner">
+            <h1>Chăm sóc bằng tài năng, y đức và sự thấu cảm</h1>
+            <p>Vinmec cam kết về trách nhiệm xã hội và đóng góp tích cực vào sự phát triển bền vững của cộng đồng</p>
+        </div>
+        <div class="carousel-viewmore">
+            <a href="#" class="viewmore-button">Xem thêm</a>
+        </div>
+        <div class="cta-banner row">
+            <a class="col-4 cta-item">
+                <div class="cta-icon">
+                    <img loading="lazy" src="~/Image/call.svg" />
+                </div>
+                <div class="cta-info">
+                    <div class="cta-name">Gọi tổng đài</div>
+                    <div class="cta-desc">Hỏi về phương pháp điều trị và phương pháp của chúng tôi</div>
+                </div>
+            </a>
+            <a class="col-4 cta-item" href="@Url.Action("BookingApointMent", "AppointMent")">
+                <div class="cta-icon">
+                    <img loading="lazy" src="~/Image/appoinment.svg" />
+                </div>
+                <div class="cta-info">
+                    <div class="cta-name">Đặt lịch hẹn</div>
+                    <div class="cta-desc">Đặt lịch hẹn với bệnh nhân của chúng tôi</div>
+                </div>
+            </a>
+            <a class="col-4 cta-item">
+                <div class="cta-icon">
+                    <img loading="lazy" src="~/Image/doctor.svg" />
+                </div>
+                <div class="cta-info">
+                    <div class="cta-name">Tìm bác sĩ</div>
+                    <div class="cta-desc">Chọn theo tên, chuyên môn và nhiều hơn</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="container">
+    <h2 class="sect-head">Tại sao nên chọn Vinmec?</h2>
+    <div class="row">
+        <div class="col-5">
+            <img class="nurse-img" loading="lazy" src="~/Image/ss.png" />
+        </div>
+        <div class="col-7">
+            <div class="list-whyus row">
+                <div class="col-6 item-whyus">
+                    <div class="item-icon">
+                        <img loading="lazy" src="~/Image/whyus1.svg" alt="Chuyên gia hàng đầu" />
+                    </div>
+                    <h3 class="item-title">Chuyên gia hàng đầu</h3>
+                    <div class="item-desc">
+                        Vinmec quy tụ đội ngũ chuyên gia, bác sĩ, dược sĩ và điều dưỡng có trình độ chuyên môn cao, tay nghề giỏi, tận tâm và chuyên nghiệp. Luôn đặt người bệnh làm trung tâm, Vinmec cam kết đem đến dịch vụ chăm sóc sức khỏe tốt cho khách hàng.
+                    </div>
+                </div>
+                <div class="col-6 item-whyus">
+                    <div class="item-icon">
+                        <img loading="lazy" src="~/Image/whyus2.svg" alt="Chuyên gia hàng đầu" />
+                    </div>
+                    <h3 class="item-title">Chất lượng quốc tế</h3>
+                    <div class="item-desc">
+                        Hệ thống Y tế Vinmec được quản lý và vận hành dưới sự giám sát của những nhà quản lý y tế giàu kinh nghiệm, cùng với sự hỗ trợ của phương tiện kỹ thuật hiện đại, nhằm đảm bảo cung cấp dịch vụ chăm sóc sức khỏe toàn diện và hiệu quả.
+                    </div>
+                </div>
+                <div class="col-6 item-whyus">
+                    <div class="item-icon">
+                        <img loading="lazy" src="~/Image/whyus3.svg" alt="Chuyên gia hàng đầu" />
+                    </div>
+                    <h3 class="item-title">Công nghệ tiên tiến</h3>
+                    <div class="item-desc">
+                        Vinmec cung cấp cơ sở vật chất hạng nhất và dịch vụ 5 sao bằng cách sử dụng các công nghệ tiên tiến được quản lý bởi các bác sĩ lâm sàng lành nghề để đảm bảo dịch vụ chăm sóc sức khỏe toàn diện và hiệu quả cao.
+                    </div>
+                </div>
+                <div class="col-6 item-whyus">
+                    <div class="item-icon">
+                        <img loading="lazy" src="~/Image/whyus1.svg" alt="Chuyên gia hàng đầu" />
+                    </div>
+                    <h3 class="item-title">Nghiên cứu & Đổi mới</h3>
+                    <div class="item-desc">
+                        Vinmec liên tục thúc đẩy y học hàn lâm dựa trên nghiên cứu có phương pháp và sự phát triển y tế được chia sẻ từ quan hệ đối tác toàn cầu với các hệ thống chăm sóc sức khỏe hàng đầu thế giới nhằm cung cấp các phương pháp điều trị mang tính cách mạng và sáng tạo cho tiêu chuẩn chăm sóc bệnh nhân tốt nhất.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS để đoạn text đứng yên trong khung carousel -->
+<style>
+    /* Đảm bảo phần text nằm trong carousel */
+    .carousel-inner {
+        position: relative; /* Đặt position relative cho carousel-inner để các phần tử absolute bên trong tính toán vị trí tương đối */
+    }
+    .text-banner {
+       position: absolute;
+       top: 40px; /* Cách top một chút */
+       left: 10%; /* Cách trái một chút */
+        max-width: 500px;
+    }
+    /* Style cho nút Xem thêm */
+    .carousel-viewmore {
+        position: absolute;
+        top: 240px; /* Đặt nút dưới dòng chữ thứ hai */
+        left: 12%;
+        z-index: 10;
+    }
+
+    .viewmore-button {
+        padding: 12px 40px;
+        background: #51be9d;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .viewmore-button:hover {
+       background: #45a88c; /* Thay đổi màu khi hover */
+    }
+
+    .cta-banner {
+        position: absolute;
+        max-width: 850px;
+        top: 340px; /* Đặt nút dưới dòng chữ thứ hai */
+        left: 12%;
+        z-index: 10;
+        background: #fff;
+        color: #bbbbbb;
+        padding: 28px;
+        border-radius: 10px;
+        box-shadow: -5px 8px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-item {
+        padding: 0 15px 0 0;
+        border-right: 1px solid #e5e5e5;
+        text-decoration: none;
+        display: flex;
+    }
+
+    .cta-item:last-child {
+        border-right: none;
+    }
+
+    .cta-item:not(:first-child) {
+        padding-left: 15px;
+    }
+
+    .cta-icon {
+        width: 35px;
+        height: 35px;
+        aspect-ratio: 1;
+        margin-right: 8px;
+        flex-shrink: 0;
+    }
+
+    .cta-icon img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .cta-name {
+        font-size: 16px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+    .cta-desc {
+        font-size: 14px;
+        color: #a7a7a7;
+    }
+
+    .sect-head {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        font-size: 32px;
+        line-height: 1.2;
+        position: relative;
+    }
+
+    .sect-head::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 135px;
+        height: 4px;
+        background: #6fbc9f;
+    }
+
+    .nurse-img {
+        float: right;
+        width: 90%;
+
+    }
+
+    .list-whyus {
+        row-gap: 30px;
+        padding-left: 80px;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .item-whyus {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .item-icon {
+        width: 60px;
+        margin-right: 12px;
+        margin-bottom: 16px;
+    }
+
+    .item-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #3274ba;
+        margin-bottom: 10px;
+        line-height: 1.2;
+    }
+
+    .item-title::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .item-desc {
+        font-size: 16px;
+        color: #333;
+    }
+
+</style>
