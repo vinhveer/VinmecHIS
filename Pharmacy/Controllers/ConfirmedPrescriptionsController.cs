@@ -11,14 +11,11 @@ using System.Xml.Linq;
 using System.Drawing;
 using PdfSharpCore.Drawing;
 using PdfSharpCore.Pdf;
-
-
-
-// Để tùy chỉnh thuộc tính, ví dụ căn chỉnh văn bản
-
+using Pharmacy.Filters;
 
 namespace Pharmacy.Controllers
 {
+    [Authenticate]
     public class ConfirmedPrescriptionsController : Controller
     {
         private readonly PharmacyDBContext _db = new PharmacyDBContext();

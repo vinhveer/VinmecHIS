@@ -9,7 +9,8 @@ namespace Patient.Controllers
 {
     public class AuthenticationController : Controller
     {
-       
+        private readonly PatientDbContext _db = new PatientDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -46,6 +47,10 @@ namespace Patient.Controllers
 
                 // Lưu thông tin
                 Session["PatientId"] = decryptedPatientId;
+
+                long patientId = long.Parse(decryptedPatientId);
+
+                Session["PatientName"] = _db.PATIENTs.Find(patientId).FIRST_NAME;
                 ViewBag.PatientId = decryptedPatientId;
                 ViewBag.Token = decodedToken;
 
@@ -56,6 +61,16 @@ namespace Patient.Controllers
                 // Log lỗi nếu cần
                 return Content($"Lỗi xác thực: {ex.Message}");
             }
+        }
+
+        // GET: Logout
+        public ActionResult Logout()
+        {
+            // Xóa tất cả session
+            Session.Clear();
+
+            // Chuyển hướng đến một URL tuyệt đối
+            return Redirect("https://localhost:44371/");
         }
 
         private string Decrypt(string cipherText)

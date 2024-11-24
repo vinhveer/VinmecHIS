@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
@@ -37,35 +37,6 @@
         </div>
         <div class="carousel-viewmore">
             <a href="#" class="viewmore-button">Xem thêm</a>
-        </div>
-        <div class="cta-banner row">
-            <a class="col-4 cta-item">
-                <div class="cta-icon">
-                    <img loading="lazy" src="~/Image/call.svg" />
-                </div>
-                <div class="cta-info">
-                    <div class="cta-name">Gọi tổng đài</div>
-                    <div class="cta-desc">Hỏi về phương pháp điều trị và phương pháp của chúng tôi</div>
-                </div>
-            </a>
-            <a class="col-4 cta-item" href="@Url.Action("BookingApointMent", "AppointMent")">
-                <div class="cta-icon">
-                    <img loading="lazy" src="~/Image/appoinment.svg" />
-                </div>
-                <div class="cta-info">
-                    <div class="cta-name">Đặt lịch hẹn</div>
-                    <div class="cta-desc">Đặt lịch hẹn với bệnh nhân của chúng tôi</div>
-                </div>
-            </a>
-            <a class="col-4 cta-item">
-                <div class="cta-icon">
-                    <img loading="lazy" src="~/Image/doctor.svg" />
-                </div>
-                <div class="cta-info">
-                    <div class="cta-name">Tìm bác sĩ</div>
-                    <div class="cta-desc">Chọn theo tên, chuyên môn và nhiều hơn</div>
-                </div>
-            </a>
         </div>
     </div>
 
@@ -137,14 +108,14 @@
     .text-banner {
        position: absolute;
        top: 40px; /* Cách top một chút */
-       left: 10%; /* Cách trái một chút */
+       left: 2%; /* Cách trái một chút */
         max-width: 500px;
     }
     /* Style cho nút Xem thêm */
     .carousel-viewmore {
         position: absolute;
         top: 240px; /* Đặt nút dưới dòng chữ thứ hai */
-        left: 12%;
+        left: 2%;
         z-index: 10;
     }
 

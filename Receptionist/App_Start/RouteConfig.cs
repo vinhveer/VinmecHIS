@@ -16,7 +16,7 @@ namespace Receptionist
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "InvoiceReceptionist", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

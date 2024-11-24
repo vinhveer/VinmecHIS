@@ -155,6 +155,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\logo.svg" />
     <Content Include="Items\logo.svg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

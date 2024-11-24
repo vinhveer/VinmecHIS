@@ -10,6 +10,7 @@ namespace Receptionist.Models.Data
     public partial class INVOICE
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long MEDICAL_RECORD_ID { get; set; }
 
         public long EMPLOYEE_ID { get; set; }

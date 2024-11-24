@@ -4,9 +4,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Doctor.Filters;
 using Doctor.Models.Data;
+
 namespace Doctor.Controllers
 {
+    [Authenticate]
     public class AppointMentController : Controller
     {
         // GET: AppointMent
@@ -30,6 +33,7 @@ namespace Doctor.Controllers
                                     select new AppointmentViewModel
                                     {
                                         AppointmentId = appointment.APPOINTMENT_ID,
+                                        PatientId = patient.PATIENT_ID,
                                         PatientName = patient.FIRST_NAME + " " + patient.LAST_NAME,
                                         PatientGender = patient.GENDER,
                                         AppointmentDate = appointment.APPOINTMENT_TIME,

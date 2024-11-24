@@ -1,160 +1,116 @@
 ﻿@model IEnumerable<Doctor.Models.Views.MedicalRecordViewModel>
 @{
     ViewBag.Title = "Hồ sơ bệnh án";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="text-primary">@ViewBag.Title</h2>
+<h2>@ViewBag.Title</h2>
 
 @if (TempData["ErrorMessage"] != null)
 {
-    <div class="alert alert-danger">
-        <strong>Lỗi!</strong> @TempData["ErrorMessage"]
-    </div>
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
 }
 @if (TempData["SuccessMessage"] != null)
 {
-    <div class="alert alert-success">
-        <strong>Thành công!</strong> @TempData["SuccessMessage"]
-    </div>
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
 }
 
-<div class="well mb-4">
-    <h4>Tìm Kiếm Hồ Sơ Bệnh Án</h4>
-    <div class="row">
-        <div class="col-md-6">
-            <input type="text" id="searchInput" class="form-control" placeholder="Nhập để tìm kiếm theo ID, tên bệnh nhân hoặc chẩn đoán..." />
-        </div>
-        <div class="col-md-6">
-            @using (Html.BeginForm("MedicalRecordByPatientId", "Doctor", FormMethod.Get, new { @class = "form-inline" }))
-            {
-                <div class="form-group me-2">
-                    <input type="number" name="patientId" id="patientId" class="form-control" placeholder="Nhập ID bệnh nhân" required />
-                </div>
-                <button type="submit" class="btn btn-primary">
-                    <i class="glyphicon glyphicon-search"></i> Tìm
-                </button>
-            }
-        </div>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <input type="text" id="searchInput" class="form-control"
+            placeholder="Tìm theo ID, tên bệnh nhân, chẩn đoán..." />
+    </div>
+    <div class="col-md-6">
+        @using (Html.BeginForm("MedicalRecordByPatientId", "Doctor", FormMethod.Get, new { @class = "d-flex" }))
+        {
+            <form onsubmit="handleSubmit(event)">
+                <input type="number" name="patientId" class="form-control me-2"
+                    placeholder="Nhập ID bệnh nhân (Enter để truy cập)" required />
+            </form>
+        }
     </div>
 </div>
 
-<table class="table table-hover table-striped" id="medicalRecordsTable">
-    <thead class="thead-dark">
+<table class="table table-hover align-middle">
+    <thead>
         <tr>
-            <th>ID Hồ Sơ</th>
-            <th>Bệnh Nhân</th>
-            <th>Ngày Khám</th>
-            <th>Chẩn Đoán</th>
-            <th class="text-center">Thao Tác</th>
+            <th scope="col">#</th>
+            <th scope="col">Họ và tên bệnh nhân</th>
+            <th scope="col">Ngày khám</th>
+            <th scope="col">Chẩn đoán</th>
+            <th scope="col" class="text-end"></th>
         </tr>
     </thead>
     <tbody>
-        @if (Model.Any())
+        @foreach (var record in Model)
         {
-            foreach (var record in Model)
-            {
-                <tr class="searchable-row">
-                    <td>@record.MEDICAL_RECORD_ID</td>
-                    <td>@record.PatientName</td>
-                    <td>@record.EXAMINATION_DATE.ToString("dd/MM/yyyy")</td>
-                    <td>@record.DIAGNOSIS</td>
-                    <td class="text-center">
-                        @Html.ActionLink("Xem Chi Tiết", "MedicalRecordDetails", "Doctor", new { id = record.MEDICAL_RECORD_ID }, new { @class = "btn btn-info btn-sm" })
-                        @Html.ActionLink("Tạo Đơn Thuốc", "CreatePrescription", "Doctor", new { medicalRecordId = record.MEDICAL_RECORD_ID }, new { @class = "btn btn-success btn-sm" })
-                    </td>
-                </tr>
-            }
+            <tr class="searchable-row">
+                <td>@record.MEDICAL_RECORD_ID</td>
+                <td>@record.PatientName</td>
+                <td>@record.EXAMINATION_DATE.ToString("dd/MM/yyyy")</td>
+                <td class="text-truncate">@record.DIAGNOSIS</td>
+                <td class="text-end">
+                    <a href="@Url.Action("MedicalRecordDetails", "Doctor", new { medicalRecordId = record.MEDICAL_RECORD_ID })"
+                        class="btn btn-outline-primary btn-sm me-2">
+                        <i class="bi bi-eye"></i> Xem chi tiết hồ sơ
+                    </a>
+                    <a href="@Url.Action("Prescriptions", "Doctor", new { medicalRecordId = record.MEDICAL_RECORD_ID })"
+                        class="btn btn-outline-success btn-sm">
+                        <i class="bi bi-file-earmark-plus"></i> Xem đơn thuốc
+                    </a>
+                </td>
+            </tr>
         }
-        else
+        @if (!Model.Any())
         {
             <tr>
-                <td colspan="5" class="text-center text-muted">Không có hồ sơ bệnh án nào được tìm thấy.</td>
+                <td colspan="5" class="text-center text-muted">
+                    <i class="bi bi-inbox fs-4 d-block mb-2"></i>
+                    Không có hồ sơ bệnh án
+                </td>
             </tr>
         }
     </tbody>
 </table>
 
-<div id="noResults" class="alert alert-info" style="display: none;">
-    Không tìm thấy kết quả phù hợp.
+<div id="noResults" class="alert alert-info d-none">
+    <i class="bi bi-search me-2"></i>
+    Không tìm thấy kết quả phù hợp
 </div>
 
 @section scripts {
     <script>
         $(document).ready(function () {
-            $("#searchInput").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                var hasResults = false;
+            let searchTimeout;
+            const searchInput = $("#searchInput");
 
-                $(".searchable-row").each(function () {
-                    var rowText = $(this).text().toLowerCase();
-                    var matched = rowText.indexOf(value) > -1;
-                    $(this).toggle(matched);
-                    if (matched) hasResults = true;
-                });
-
-                // Hiển thị thông báo không có kết quả
-                $("#noResults").toggle(!hasResults);
-            });
-
-            // Thêm chức năng clear search
-            $("#searchInput").on("search", function () {
-                if ($(this).val() === "") {
-                    $(".searchable-row").show();
-                    $("#noResults").hide();
-                }
-            });
-
-            // Highlight kết quả tìm kiếm
-            function highlightResults(searchText) {
-                if (!searchText) {
-                    $(".searchable-row td").each(function () {
-                        $(this).html($(this).text());
-                    });
-                    return;
-                }
-
-                var regex = new RegExp(searchText, 'gi');
-                $(".searchable-row:visible td").each(function () {
-                    var text = $(this).text();
-                    $(this).html(text.replace(regex, function (matched) {
-                        return "<mark>" + matched + "</mark>";
-                    }));
-                });
-            }
-
-            // Thêm debounce để tối ưu hiệu suất
-            var searchTimeout;
-            $("#searchInput").on("input", function () {
-                var value = $(this).val();
+            searchInput.on("input", function () {
                 clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(function () {
-                    highlightResults(value);
+                searchTimeout = setTimeout(() => {
+                    const value = this.value.toLowerCase();
+                    let hasResults = false;
+
+                    $(".searchable-row").each(function () {
+                        const visible = $(this).text().toLowerCase().includes(value);
+                        $(this).toggle(visible);
+                        if (visible) hasResults = true;
+                    });
+
+                    $("#noResults").toggleClass("d-none", hasResults);
+
+                    if (value) {
+                        const regex = new RegExp(`(${value})`, 'gi');
+                        $(".searchable-row:visible td").each(function () {
+                            const text = $(this).text();
+                            $(this).html(text.replace(regex, '<mark class="bg-warning">$1</mark>'));
+                        });
+                    } else {
+                        $(".searchable-row td").each(function () {
+                            $(this).html($(this).text());
+                        });
+                    }
                 }, 300);
             });
         });
     </script>
-
-    <style>
-        mark {
-            background-color: yellow;
-            padding: 0;
-        }
-
-        .well {
-            padding: 15px;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-
-        #searchInput {
-            margin-bottom: 10px;
-        }
-
-        .btn {
-            margin: 2px;
-        }
-    </style>
 }

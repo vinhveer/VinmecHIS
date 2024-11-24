@@ -10,6 +10,7 @@ namespace Receptionist.Models.Data
     public partial class EMPLOYEEACCOUNT
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long EMPLOYEE_ID { get; set; }
 
         [Required]

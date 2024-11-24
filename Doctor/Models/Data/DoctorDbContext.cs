@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace Doctor.Models.Data
 {
-    public partial class DoctorDBContext : DbContext
+    public partial class DoctorDbContext : DbContext
     {
-        public DoctorDBContext()
+        public DoctorDbContext()
             : base("name=DoctorDBContext")
         {
         }

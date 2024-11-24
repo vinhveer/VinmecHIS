@@ -132,7 +132,6 @@
     <Compile Include="Controllers\AppointMentController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\AuthenticateAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -153,7 +152,9 @@
     <Compile Include="Models\Data\PRESCRIPTIONDETAIL.cs" />
     <Compile Include="Models\Data\SUPPLIER.cs" />
     <Compile Include="Models\Data\sysdiagram.cs" />
+    <Compile Include="Models\Views\MedicalRecordDetailsModel.cs" />
     <Compile Include="Models\Views\MedicalRecordViewModel.cs" />
+    <Compile Include="Models\Views\PrescriptionDetailInput.cs" />
     <Compile Include="Models\Views\PrescriptionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -205,9 +206,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Authentication\AuthenticationRequest.cshtml" />
     <Content Include="Views\AppointMent\Index.cshtml" />
     <Content Include="Views\Doctor\CreateMedicalRecord.cshtml" />

@@ -1,13 +1,18 @@
-﻿using System;
+﻿using Doctor.Filters;
+using Doctor.Models.Data;
+using Doctor.Models.Views;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using Doctor.Models.Data;
-using Doctor.Models.Views;
 
 namespace Doctor.Controllers
 {
+    [Authenticate]
     public class DoctorController : Controller
     {
         private readonly DoctorDbContext _db = new DoctorDbContext();
@@ -18,14 +23,31 @@ namespace Doctor.Controllers
         }
 
         // GET: Tạo hồ sơ bệnh án
-        public ActionResult CreateMedicalRecord()
+        public ActionResult CreateMedicalRecord(string patientId)
         {
             try
             {
-                var employee_id = Session["EmployeeId"]; // Lấy ID từ session đăng nhập
-                
+                var employee_id = Session["EmployeeId"];
+                ViewBag.patient_id = patientId;
                 ViewBag.employee_id = employee_id;
                 ViewBag.examination_date = DateTime.Now;
+
+                if (!long.TryParse(patientId, out long long_patient_id))
+                {
+                    TempData["ErrorMessage"] = "ID bệnh nhân không hợp lệ.";
+                    return RedirectToAction("Index");
+                }
+
+                if (!long.TryParse(Session["EmployeeId"].ToString(), out long long_employee_id))
+                {
+                    TempData["ErrorMessage"] = "ID nhân viên không hợp lệ.";
+                    return RedirectToAction("Index");
+                }
+
+
+                ViewBag.patient_name = _db.PATIENTs.Find(long_patient_id).LAST_NAME + " " + _db.PATIENTs.Find(long_patient_id).FIRST_NAME;
+                ViewBag.doctor_name = _db.EMPLOYEEs.Find(long_employee_id).LAST_NAME + " " + _db.EMPLOYEEs.Find(long_employee_id).FIRST_NAME;
+
                 return View();
             }
             catch (Exception ex)
@@ -97,34 +119,46 @@ namespace Doctor.Controllers
         }
 
         // GET: Xem chi tiết hồ sơ bệnh án
-        public async Task<ActionResult> MedicalRecordDetails(long? id)
+        // Controller
+        public async Task<ActionResult> MedicalRecordDetails(long? medicalRecordId)
         {
-            try
+            // Kiểm tra giá trị null hoặc không hợp lệ
+            if (medicalRecordId == null || medicalRecordId <= 0)
             {
-                if (id == null)
-                {
-                    TempData["ErrorMessage"] = "Vui lòng chọn hồ sơ bệnh án.";
-                    return RedirectToAction("Index");
-                }
-
-                var medicalRecord = await _db.MEDICALRECORDs
-                    .Include(m => m.PATIENT)
-                    .Include(m => m.EMPLOYEE)
-                    .FirstOrDefaultAsync(m => m.MEDICAL_RECORD_ID == id);
-
-                if (medicalRecord == null)
-                {
-                    TempData["ErrorMessage"] = "Không tìm thấy hồ sơ bệnh án.";
-                    return RedirectToAction("Index");
-                }
-
-                return View(medicalRecord);
-            }
-            catch (Exception ex)
-            {
-                TempData["ErrorMessage"] = "Có lỗi xảy ra: " + ex.Message;
                 return RedirectToAction("Index");
             }
+
+            // Truy vấn hồ sơ bệnh án
+            var medicalRecord = await _db.MEDICALRECORDs
+                .Include(m => m.PATIENT)
+                .Include(m => m.EMPLOYEE)
+                .Where(m => m.MEDICAL_RECORD_ID == medicalRecordId)
+                .Select(m => new MedicalRecordDetailsModel
+                {
+                    MEDICAL_RECORD_ID = m.MEDICAL_RECORD_ID,
+                    PatientName = (m.PATIENT == null
+                                    ? "Không có thông tin"
+                                    : (m.PATIENT.LAST_NAME + " " + m.PATIENT.FIRST_NAME).Trim()),
+                    DoctorName = (m.EMPLOYEE == null
+                                    ? "Không có thông tin"
+                                    : (m.EMPLOYEE.LAST_NAME + " " + m.EMPLOYEE.FIRST_NAME).Trim()),
+                    EXAMINATION_DATE = m.EXAMINATION_DATE,
+                    DIAGNOSIS = m.DIAGNOSIS,
+                    TREATMENT = m.TREATMENT,
+                    ADDITIONAL_NOTES = m.ADDITIONAL_NOTES,
+                    HOSPITAL_FEES = m.HOSPITAL_FEES
+                })
+                .FirstOrDefaultAsync();
+
+            // Nếu không tìm thấy hồ sơ
+            if (medicalRecord == null)
+            {
+                TempData["Error"] = "Không tìm thấy hồ sơ bệnh án.";
+                return RedirectToAction("Index");
+            }
+
+            // Trả về View với dữ liệu hồ sơ
+            return View(medicalRecord);
         }
 
         public async Task<ActionResult> Index()
@@ -155,91 +189,148 @@ namespace Doctor.Controllers
             }
         }
 
-        // GET: Tạo đơn thuốc
+        // GET: Hiển thị giao diện tạo đơn thuốc
         public async Task<ActionResult> CreatePrescription(long? medicalRecordId)
+        {
+            if (medicalRecordId == null)
+            {
+                TempData["ErrorMessage"] = "Vui lòng chọn hồ sơ bệnh án.";
+                return RedirectToAction("Index");
+            }
+
+            var medicalRecord = await _db.MEDICALRECORDs
+                .Include(m => m.PATIENT) // Bao gồm thông tin bệnh nhân
+                .FirstOrDefaultAsync(m => m.MEDICAL_RECORD_ID == medicalRecordId);
+
+            if (medicalRecord == null)
+            {
+                TempData["ErrorMessage"] = "Không tìm thấy hồ sơ bệnh án.";
+                return RedirectToAction("Index");
+            }
+
+            // Truyền các thông tin cần thiết vào ViewBag
+            ViewBag.MedicalRecord = medicalRecord;
+            ViewBag.PatientName = medicalRecord.PATIENT.LAST_NAME + medicalRecord.PATIENT.FIRST_NAME;
+            ViewBag.ExaminationDate = medicalRecord.EXAMINATION_DATE.ToString("dd/MM/yyyy");
+
+            // Trả về view cho phép tạo đơn thuốc
+            return View();
+        }
+
+
+        // GET: Lấy danh sách thuốc (API hỗ trợ tìm kiếm)
+        public async Task<ActionResult> SearchMedicines(string keyword = "")
+        {
+            var medicines = await _db.MEDICINEs
+                .Where(m => string.IsNullOrEmpty(keyword) || m.MEDICINE_NAME.Contains(keyword))
+                .OrderBy(m => m.MEDICINE_NAME)
+                .Select(m => new
+                {
+                    m.MEDICINE_ID,
+                    m.MEDICINE_NAME
+                })
+                .ToListAsync();
+
+            return Json(medicines, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> CreatePrescription(string selectedMedicinesJson, long medicalRecordId)
+        {
+            if (string.IsNullOrWhiteSpace(selectedMedicinesJson))
+            {
+                TempData["ErrorMessage"] = "Danh sách thuốc không được để trống.";
+                return RedirectToAction("CreatePrescription", new { medicalRecordId });
+            }
+
+            try
+            {
+                // Deserialize JSON thành danh sách PrescriptionDetailInput
+                var selectedMedicines = JsonConvert.DeserializeObject<List<PrescriptionDetailInput>>(selectedMedicinesJson);
+                if (selectedMedicines == null || !selectedMedicines.Any())
+                {
+                    TempData["ErrorMessage"] = "Danh sách thuốc không hợp lệ.";
+                    return RedirectToAction("CreatePrescription", new { medicalRecordId });
+                }
+
+                foreach (var medicineInput in selectedMedicines)
+                {
+                    // Kiểm tra thuốc có tồn tại không
+                    var existingMedicine = await _db.MEDICINEs.FindAsync(medicineInput.MedicineId);
+                    if (existingMedicine == null)
+                    {
+                        TempData["ErrorMessage"] = $"Thuốc với ID {medicineInput.MedicineId} không tồn tại.";
+                        return RedirectToAction("CreatePrescription", new { medicalRecordId });
+                    }
+
+                    // Kiểm tra trùng lặp
+                    var existingPrescription = await _db.PRESCRIPTIONDETAILs
+                        .FirstOrDefaultAsync(p => p.MEDICAL_RECORD_ID == medicalRecordId && p.MEDICINE_ID == medicineInput.MedicineId);
+                    if (existingPrescription != null)
+                    {
+                        TempData["ErrorMessage"] = $"Thuốc {existingMedicine.MEDICINE_NAME} đã có trong đơn thuốc.";
+                        return RedirectToAction("CreatePrescription", new { medicalRecordId });
+                    }
+
+                    // Thêm thuốc vào đơn thuốc
+                    var prescription = new PRESCRIPTIONDETAIL
+                    {
+                        MEDICAL_RECORD_ID = medicalRecordId,
+                        MEDICINE_ID = medicineInput.MedicineId,
+                        PRESCRIBED_QUANTITY = medicineInput.PrescribedQuantity,
+                        DOSAGE = medicineInput.Dosage
+                    };
+                    _db.PRESCRIPTIONDETAILs.Add(prescription);
+                }
+
+                // Lưu thay đổi
+                await _db.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Đơn thuốc đã được thêm thành công!";
+                return RedirectToAction("MedicalRecordDetails", new { id = medicalRecordId });
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Có lỗi xảy ra: " + ex.Message;
+                return RedirectToAction("CreatePrescription", new { medicalRecordId });
+            }
+        }
+
+        // GET: Danh sách đơn thuốc
+        public async Task<ActionResult> Prescriptions(int? medicalRecordId)
         {
             try
             {
                 if (medicalRecordId == null)
                 {
-                    TempData["ErrorMessage"] = "Vui lòng chọn hồ sơ bệnh án.";
+                    TempData["ErrorMessage"] = "ID hồ sơ bệnh án không hợp lệ.";
                     return RedirectToAction("Index");
                 }
 
-                var medicalRecord = await _db.MEDICALRECORDs
-                    .Include(m => m.PATIENT)
-                    .FirstOrDefaultAsync(m => m.MEDICAL_RECORD_ID == medicalRecordId);
-
-                if (medicalRecord == null)
-                {
-                    TempData["ErrorMessage"] = "Không tìm thấy hồ sơ bệnh án.";
-                    return RedirectToAction("Index");
-                }
-
-                ViewBag.MedicalRecord = medicalRecord;
-                ViewBag.Medicines = new SelectList(await _db.MEDICINEs.OrderBy(m => m.MEDICINE_NAME).ToListAsync(),
-                                                "MEDICINE_ID", "MEDICINE_NAME");
-
-                return View(new PRESCRIPTIONDETAIL { MEDICAL_RECORD_ID = medicalRecordId.Value });
-            }
-            catch (Exception ex)
-            {
-                TempData["ErrorMessage"] = "Có lỗi xảy ra: " + ex.Message;
-                return RedirectToAction("Index");
-            }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreatePrescription(PRESCRIPTIONDETAIL prescriptionDetail)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    _db.PRESCRIPTIONDETAILs.Add(prescriptionDetail);
-                    await _db.SaveChangesAsync();
-                    TempData["SuccessMessage"] = "Đơn thuốc đã được thêm thành công!";
-                    return RedirectToAction("MedicalRecordDetails", new { id = prescriptionDetail.MEDICAL_RECORD_ID });
-                }
-
-                // Nếu ModelState không hợp lệ, load lại dữ liệu cho view
-                var medicalRecord = await _db.MEDICALRECORDs
-                    .Include(m => m.PATIENT)
-                    .FirstOrDefaultAsync(m => m.MEDICAL_RECORD_ID == prescriptionDetail.MEDICAL_RECORD_ID);
-
-                ViewBag.MedicalRecord = medicalRecord;
-                ViewBag.Medicines = new SelectList(_db.MEDICINEs.OrderBy(m => m.MEDICINE_NAME),
-                                                "MEDICINE_ID", "MEDICINE_NAME");
-                return View(prescriptionDetail);
-            }
-            catch (Exception ex)
-            {
-                TempData["ErrorMessage"] = "Có lỗi xảy ra: " + ex.Message;
-                return RedirectToAction("Index");
-            }
-        }
-
-        // GET: Danh sách đơn thuốc
-        public async Task<ActionResult> Prescriptions()
-        {
-            try
-            {
                 var prescriptions = await _db.PRESCRIPTIONDETAILs
-                    .Include(p => p.MEDICINE)
-                    .Include(p => p.PRESCRIPTION.MEDICALRECORD.PATIENT)
-                    .Select(p => new PrescriptionViewModel  // Tạo ViewModel để hiển thị
-                    {
-                        MedicalRecordId = p.MEDICAL_RECORD_ID,
-                        PrescribedQuantity = p.PRESCRIBED_QUANTITY,
-                        Dosage = p.DOSAGE,
-                        MedicineName = p.MEDICINE.MEDICINE_NAME,
-                        PatientName = p.PRESCRIPTION.MEDICALRECORD.PATIENT.LAST_NAME,
-                        ExaminationDate = p.PRESCRIPTION.MEDICALRECORD.EXAMINATION_DATE
-                    })
-                    .OrderByDescending(p => p.ExaminationDate)
-                    .ToListAsync();
+                            .Include(p => p.MEDICINE) // Thuốc
+                            .Include(p => p.PRESCRIPTION) // Đơn thuốc
+                            .Include(p => p.PRESCRIPTION.MEDICALRECORD.PATIENT) // Bệnh nhân
+                            .Where(p => p.MEDICAL_RECORD_ID == medicalRecordId)
+                            .Select(p => new PrescriptionViewModel
+                            {
+                                MedicalRecordId = p.MEDICAL_RECORD_ID,
+                                PrescribedQuantity = p.PRESCRIBED_QUANTITY,
+                                Dosage = p.DOSAGE,
+                                MedicineName = p.MEDICINE.MEDICINE_NAME,
+                                PatientName = (p.PRESCRIPTION.MEDICALRECORD.PATIENT.LAST_NAME + " " + p.PRESCRIPTION.MEDICALRECORD.PATIENT.FIRST_NAME).Trim(),
+                                ExaminationDate = p.PRESCRIPTION.MEDICALRECORD.EXAMINATION_DATE
+                            })
+                            .OrderByDescending(p => p.ExaminationDate)
+                            .ToListAsync();
 
+                if (!prescriptions.Any())
+                {
+                    TempData["ErrorMessage"] = "Không tìm thấy đơn thuốc cho hồ sơ bệnh án này.";
+                    return RedirectToAction("Index");
+                }
+
+                ViewBag.MedicalRecordId = medicalRecordId; // Để chuyển tiếp dữ liệu vào view
                 return View(prescriptions);
             }
             catch (Exception ex)

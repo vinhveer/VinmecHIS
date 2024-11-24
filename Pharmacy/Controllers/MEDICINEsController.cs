@@ -10,11 +10,13 @@ using System.Web;
 using System.Web.Mvc;
 using iText.Layout.Borders;
 using Org.BouncyCastle.Crypto.Digests;
+using Pharmacy.Filters;
 using Pharmacy.Models.Data;
 using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace Pharmacy.Controllers
 {
+    [Authenticate]
     public class MEDICINEsController : Controller
     {
         private PharmacyDBContext db = new PharmacyDBContext();

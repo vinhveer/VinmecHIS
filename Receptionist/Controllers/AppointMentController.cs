@@ -1,20 +1,20 @@
-﻿using System;
+﻿using Receptionist.Models.Data;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Mvc.Filters;
 using System.Diagnostics;
-using Receptionist.Models.Data;
-using System.Runtime.Serialization;
-using System.Web.UI;
+using System.Linq;
+using System.Web.Mvc;
+using Receptionist.Models.Views;
+using Receptionist.Filters;
+
 namespace Receptionist.Controllers
 {
+    [Authenticate]
     public class AppointMentController : Controller
     {
         // GET: AppointMent
         private readonly ReceiptionistDbContext _db = new ReceiptionistDbContext();
-        public ActionResult Index(int page=1)
+        public ActionResult Index(int page = 1)
         {
             if (Session["EmployeeId"] != null)
             {
@@ -57,7 +57,7 @@ namespace Receptionist.Controllers
                 string redirectUrl = $"https://localhost:44371/Authentication/EmployeeSignIn";
                 return Redirect(redirectUrl);
             }
-           
+
         }
         public ActionResult BookingApointmnet()
         {
@@ -100,10 +100,10 @@ namespace Receptionist.Controllers
         [HttpPost]
         public ActionResult BookingApointMent(string lastname, string phone, string address, string firstname, string dob, string email, string emergency_contact, string specialty, bool? genderMale, bool? genderFemale, string appointmentDate)
         {
-            
-            
+
+
             string gender = "";
-            if (genderFemale==true)
+            if (genderFemale == true)
             {
                 gender = "F";
             }
@@ -112,7 +112,7 @@ namespace Receptionist.Controllers
                 gender = "M";
             }
             Debug.WriteLine("DOB:" + DateTime.Parse(dob));
-            Debug.WriteLine("RD:" +DateTime.Now);
+            Debug.WriteLine("RD:" + DateTime.Now);
             var bookingModel = new AppointmentBookingModel
             {
                 Specialty = specialty,
@@ -125,19 +125,19 @@ namespace Receptionist.Controllers
                 PATIENT_ADDRESS = address,
                 EMERGENCY_CONTACT = emergency_contact,
                 REGISTRATION_DATE = DateTime.Now,
-                GENDER= gender,
+                GENDER = gender,
             };
 
             // Chuyển hướng đến phương thức GET khác để hiển thị thông tin
             return RedirectToAction("AvailableAppointments", bookingModel);
         }
-   
+
         public ActionResult AvailableAppointments(AppointmentBookingModel bookingModel)
         {
             if (string.IsNullOrEmpty(bookingModel.AppointmentDate) ||
                 string.IsNullOrEmpty(bookingModel.Specialty))
             {
-                
+
                 // Chuyển hướng về trang trước đó hoặc một trang khác
                 return RedirectToAction("BookingApointmnet", "Appointment");
             }
@@ -195,7 +195,7 @@ namespace Receptionist.Controllers
                     EmployeeId = employee.EMPLOYEE_ID,
                     EmployeeName = $"{employee.FIRST_NAME} {employee.LAST_NAME}",
                     FreeHours = freeHours,
-                    EmployeeRoom=employee.EMPLOYEE_ROOM,
+                    EmployeeRoom = employee.EMPLOYEE_ROOM,
                 });
             }
             // Trả về view với danh sách bác sĩ và giờ trống
@@ -369,7 +369,7 @@ namespace Receptionist.Controllers
         [HttpPost]
         public ActionResult Delete(FormCollection form)
         {
-            
+
             try
             {
                 if (form["AppointmentId"] != null)

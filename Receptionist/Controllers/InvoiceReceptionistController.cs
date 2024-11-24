@@ -3,9 +3,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Receptionist.Models.Data;
+using Receptionist.Filters;
 
 namespace Receptionist.Controllers
 {
+    [Authenticate]
     public class InvoiceReceptionistController : Controller
     {
         // GET: InvoiceReceptionist

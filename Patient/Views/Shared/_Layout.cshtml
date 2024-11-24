@@ -15,7 +15,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="~/Image/logo.svg" alt="" width="80">
+                <img src="~/Image/logo.svg" alt="" width="50">
             </a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -24,16 +24,16 @@
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Đặt lịch khám", "BookingApointMent", "AppointMent", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Lịch khám", "Index", "AppointMent", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Hoá đơn", "Index", "InvoicePatient", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
 
                 <ul class="navbar-nav me-auto">
-                    @if (Session["EmployeeId"] != null && Session["EmployeeName"] != null)
+                    @if (Session["PatientId"] != null && Session["PatientName"] != null)
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Xin chào, @Session["EmployeeName"]!
+                                Xin chào, @Session["PatientName"]!
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li>

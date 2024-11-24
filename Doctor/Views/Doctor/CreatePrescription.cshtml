@@ -1,73 +1,153 @@
-﻿@model Doctor.Models.Data.PRESCRIPTIONDETAIL
-
+﻿@model List<Doctor.Models.Data.PRESCRIPTIONDETAIL>
 @{
-    ViewBag.Title = "Tạo Đơn Thuốc";
+    ViewBag.Title = "Tạo đơn thuốc";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="text-primary">@ViewBag.Title</h2>
+<h3 class="mb-4">@ViewBag.Title</h3>
 
 @if (TempData["ErrorMessage"] != null)
 {
-    <div class="alert alert-danger">
-        <strong>Lỗi!</strong> @TempData["ErrorMessage"]
-    </div>
+    <div class="alert alert-danger">Lỗi! @TempData["ErrorMessage"]</div>
 }
 
 @if (TempData["SuccessMessage"] != null)
 {
-    <div class="alert alert-success">
-        <strong>Thành công!</strong> @TempData["SuccessMessage"]
-    </div>
+    <div class="alert alert-success">Thành công! @TempData["SuccessMessage"]</div>
 }
 
-<div class="well">
-    <h4>Thông Tin Hồ Sơ Bệnh Án</h4>
-    <p><b>Bệnh Nhân:</b> @ViewBag.MedicalRecord.PATIENT?.NAME</p>
-    <p><b>Chẩn Đoán:</b> @ViewBag.MedicalRecord.DIAGNOSIS</p>
-    <p><b>Ngày Khám:</b> @ViewBag.MedicalRecord.EXAMINATION_DATE.ToString("dd/MM/yyyy")</p>
+<div class="card mb-4">
+    <div class="card-header bg-light fw-bold">
+        <i class="bi bi-person me-2"></i>Thông tin bệnh nhân
+    </div>
+    <div class="card-body">
+        <div class="row mb-2">
+            <div class="col-4 text-muted">Mã hồ sơ</div>
+            <div class="col-8">@ViewBag.MedicalRecord.MEDICAL_RECORD_ID</div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-4 text-muted">Tên bệnh nhân</div>
+            <div class="col-8">@ViewBag.PatientName</div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-4 text-muted">Ngày khám</div>
+            <div class="col-8">@ViewBag.ExaminationDate</div>
+        </div>
+    </div>
 </div>
+
+<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#medicineModal">Tra cứu và thêm thuốc</button>
+
+<table class="table mt-3" id="selectedMedicinesTable">
+    <thead>
+        <tr>
+            <th>Tên thuốc</th>
+            <th>Số lượng</th>
+            <th>Liều lượng</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
 
 @using (Html.BeginForm("CreatePrescription", "Doctor", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
+    @Html.Hidden("medicalRecordId", (long)ViewBag.MedicalRecord.MEDICAL_RECORD_ID)
 
-    @Html.HiddenFor(model => model.MEDICAL_RECORD_ID)
+    <input type="hidden" id="selectedMedicinesJson" name="selectedMedicinesJson" value="">
 
-    <div class="form-horizontal">
-        <div class="form-group">
-            @Html.LabelFor(model => model.MEDICINE_ID, "Thuốc:", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.MEDICINE_ID, (SelectList)ViewBag.Medicines, "Chọn thuốc", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.MEDICINE_ID, "", new { @class = "text-danger" })
+    <button type="submit" class="btn btn-success">Lưu đơn thuốc</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
+}
+
+<!-- Modal -->
+<div class="modal fade" id="medicineModal" tabindex="-1" aria-labelledby="medicineModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="medicineModalLabel">Chọn thuốc</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PRESCRIBED_QUANTITY, "Số Lượng:", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.PRESCRIBED_QUANTITY, new { @class = "form-control", type = "number", min = 1, placeholder = "Nhập số lượng thuốc" })
-                @Html.ValidationMessageFor(model => model.PRESCRIBED_QUANTITY, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DOSAGE, "Liều Lượng:", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.DOSAGE, new { @class = "form-control", rows = 3, placeholder = "Nhập liều lượng và hướng dẫn" })
-                @Html.ValidationMessageFor(model => model.DOSAGE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-primary">
-                    <i class="glyphicon glyphicon-save"></i> Lưu Đơn Thuốc
-                </button>
-                <a href="@Url.Action("MedicalRecordDetails", "Doctor", new { id = ViewBag.MedicalRecord.MEDICAL_RECORD_ID })" class="btn btn-default">
-                    <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
-                </a>
+            <div class="modal-body">
+                <input type="text" id="searchMedicineInput" class="form-control" placeholder="Tìm kiếm thuốc">
+                <table class="table align-middle mt-3" id="medicineTable">
+                    <thead>
+                        <tr>
+                            <th>Chọn</th>
+                            <th>Tên thuốc</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- AJAX thêm thuốc -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Tìm kiếm thuốc
+            $('#searchMedicineInput').on('input', function () {
+                const keyword = $(this).val();
+                $.get('/Doctor/SearchMedicines', { keyword: keyword }, function (data) {
+                    const tableBody = $('#medicineTable tbody');
+                    tableBody.empty();
+                    data.forEach(medicine => {
+                        tableBody.append(`
+                                    <tr>
+                                        <td><input type="checkbox" class="medicine-checkbox" data-id="${medicine.MEDICINE_ID}" data-name="${medicine.MEDICINE_NAME}"></td>
+                                        <td>${medicine.MEDICINE_NAME}</td>
+                                    </tr>
+                                `);
+                    });
+                });
+            });
+
+            // Chọn thuốc
+            $(document).on('change', '.medicine-checkbox', function () {
+                const id = $(this).data('id');
+                const name = $(this).data('name');
+                if ($(this).is(':checked')) {
+                    $('#selectedMedicinesTable tbody').append(`
+                                <tr data-id="${id}">
+                                    <td>${name}</td>
+                                    <td><input type="number" class="form-control quantity-input" data-id="${id}" min="1"></td>
+                                    <td><input type="text" class="form-control dosage-input" data-id="${id}"></td>
+                                    <td><button type="button" class="btn btn-danger remove-medicine">Xóa</button></td>
+                                </tr>
+                            `);
+                } else {
+                    $(`#selectedMedicinesTable tbody tr[data-id="${id}"]`).remove();
+                }
+            });
+
+            // Xóa thuốc khỏi danh sách
+            $(document).on('click', '.remove-medicine', function () {
+                $(this).closest('tr').remove();
+            });
+
+            // Cập nhật JSON trước khi submit
+            $('form').on('submit', function (e) {
+                const selectedMedicines = [];
+                $('#selectedMedicinesTable tbody tr').each(function () {
+                    const id = $(this).data('id');
+                    const quantity = $(this).find('.quantity-input').val();
+                    const dosage = $(this).find('.dosage-input').val();
+                    if (id && quantity && dosage) {
+                        selectedMedicines.push({
+                            MedicineId: id,
+                            PrescribedQuantity: quantity,
+                            Dosage: dosage
+                        });
+                    }
+                });
+                $('#selectedMedicinesJson').val(JSON.stringify(selectedMedicines));
+            });
+        });
+    </script>
 }

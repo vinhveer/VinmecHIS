@@ -1,3 +1,28 @@
 # Ignore Visual Studio temporary files, build results, and
 # folder configuration files
 .vs/
+
+Admin/.vs/
+Admin/obj/
+Admin/bin/
+
+Authentications/.vs/
+Authentications/obj/
+Authentications/bin/
+
+Doctors/.vs/
+Doctors/obj/
+Doctors/bin/
+
+Patients/.vs/
+Patients/obj/
+Patients/bin/
+
+Pharmacists/.vs/
+Pharmacists/obj/
+Pharmacists/bin/
+
+Receptionists/.vs/
+Receptionists/obj/
+Receptionists/bin/
+

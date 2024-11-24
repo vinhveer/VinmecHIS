@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="text-primary">Tạo hồ sơ bệnh án</h2>
+<h3>Tạo hồ sơ bệnh án</h3>
 
 @if (TempData["ErrorMessage"] != null)
 {
     <div class="alert alert-danger">
-        @TempData["ErrorMessage"]   
+        @TempData["ErrorMessage"]
     </div>
 }
 
@@ -20,6 +20,16 @@
         @TempData["SuccessMessage"]
     </div>
 }
+
+<!-- Hiển thị thông tin bệnh nhân -->
+<dl class="row mt-3 mb-3">
+    <dt class="col-md-3 fw-bold">Dành cho bệnh nhân</dt>
+    <dd class="col-md-9">@ViewBag.patient_name</dd>
+    <dt class="col-md-3 fw-bold">Bác sĩ khám</dt>
+    <dd class="col-md-9">@ViewBag.doctor_name</dd>
+    <dt class="col-md-3 fw-bold">Thời gian khám</dt>
+    <dd class="col-md-9">@ViewBag.examination_date</dd>
+</dl>
 
 @using (Html.BeginForm())
 {
@@ -36,8 +46,8 @@
         </div>
 
         <!-- Ngày hẹn tái khám -->
-        <div class="form-group">
-            @Html.LabelFor(model => model.FOLLOW_UP_DATE, "Ngày tái khám", new { @class = "control-label col-md-2" })
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.FOLLOW_UP_DATE, "Ngày tái khám", new { @class = "form-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FOLLOW_UP_DATE, new { htmlAttributes = new { @class = "form-control", type = "date" } })
                 @Html.ValidationMessageFor(model => model.FOLLOW_UP_DATE, "", new { @class = "text-danger" })
@@ -45,8 +55,8 @@
         </div>
 
         <!-- Chẩn đoán -->
-        <div class="form-group">
-            @Html.LabelFor(model => model.DIAGNOSIS, "Chẩn đoán", new { @class = "control-label col-md-2" })
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.DIAGNOSIS, "Chẩn đoán", new { @class = "form-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.DIAGNOSIS, new { @class = "form-control", rows = 3 })
                 @Html.ValidationMessageFor(model => model.DIAGNOSIS, "", new { @class = "text-danger" })
@@ -54,8 +64,8 @@
         </div>
 
         <!-- Điều trị -->
-        <div class="form-group">
-            @Html.LabelFor(model => model.TREATMENT, "Điều trị", new { @class = "control-label col-md-2" })
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.TREATMENT, "Điều trị", new { @class = "form-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.TREATMENT, new { @class = "form-control", rows = 3 })
                 @Html.ValidationMessageFor(model => model.TREATMENT, "", new { @class = "text-danger" })
@@ -63,8 +73,8 @@
         </div>
 
         <!-- Ghi chú thêm -->
-        <div class="form-group">
-            @Html.LabelFor(model => model.ADDITIONAL_NOTES, "Ghi chú thêm", new { @class = "control-label col-md-2" })
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.ADDITIONAL_NOTES, "Ghi chú thêm", new { @class = "form-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.ADDITIONAL_NOTES, new { @class = "form-control", rows = 3 })
                 @Html.ValidationMessageFor(model => model.ADDITIONAL_NOTES, "", new { @class = "text-danger" })
@@ -72,8 +82,8 @@
         </div>
 
         <!-- Chi phí bệnh viện -->
-        <div class="form-group">
-            @Html.LabelFor(model => model.HOSPITAL_FEES, "Chi phí", new { @class = "control-label col-md-2" })
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.HOSPITAL_FEES, "Chi phí", new { @class = "form-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.HOSPITAL_FEES, new { htmlAttributes = new { @class = "form-control", type = "number", step = "0.01" } })
                 @Html.ValidationMessageFor(model => model.HOSPITAL_FEES, "", new { @class = "text-danger" })
@@ -84,7 +94,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <button type="submit" class="btn btn-success">
-                    <i class="fa fa-save"></i> Tạo hồ sơ
+                    <i class="fa fa-save"></i> Lưu hồ sơ
                 </button>
             </div>
         </div>

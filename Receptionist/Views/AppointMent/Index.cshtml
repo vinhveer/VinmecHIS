@@ -1,67 +1,82 @@
-﻿
-@model IEnumerable<Receptionist.Models.Data.AppointmentViewModel>
+﻿@model IEnumerable<Receptionist.Models.Views.AppointmentViewModel>
 @{
     ViewBag.Title = "Cuộc hẹn khám";
     int idx = ViewBag.STT;
 }
 
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="m-0">Danh sách lịch khám</h2>
+    <a href="@Url.Action("BookingApointMent", "Appointment")" class="btn btn-primary">
+        <i class="fas fa-plus me-2"></i>Đặt lịch mới
+    </a>
+</div>
 
-<div class="container p-3 my-5 bg-light border">
-    <h2 class="text-center mb-4">Danh Sách Lịch Khám Của Bệnh nhân</h2>
-    <!-- tây bồ -->
-    <table id="schedule" class="table table-striped nowrap" style="width:100%">
-        <!-- header của bảng -->
-        <thead>
+<div class="table-responsive">
+    <table id="schedule" class="table table-hover table-striped align-middle">
+        <thead class="table-light">
             <tr>
-                <th>STT</th>
-                <th>Bệnh Nhân</th>
+                <th class="text-center" style="width: 60px">STT</th>
+                <th>Tên bệnh nhân</th>
                 <th>Giới tính</th>
-                <th>Bác Sĩ</th>
-                <th>Chuyên Khoa</th>
-                <th>Ngày Giờ</th>
-                <th>Phòng Khám</th>
-                <th>Hành động</th>
+                <th>Tên bác sĩ</th>
+                <th>Chuyên khoa</th>
+                <th>Ngày giờ</th>
+                <th>Phòng khám</th>
+                <th></th>
             </tr>
         </thead>
-
-        <!-- body của bảng -->
         <tbody>
-            @foreach (var appointment in Model)
+            @if (!Model.Any())
             {
                 <tr>
-                    <td>
-                        @idx
-                        @{
-                            idx++;
-                        }
-
-                    </td>
-                    <td>@appointment.PatientName</td>
-                    <td>@(appointment.PatientGender == "M" ? "Nam" : "Nữ")</td>
-                    <td>@appointment.EmployeeName</td>
-                    <td>@appointment.Speciality</td>
-                    <td>@appointment.AppointmentDate.ToString("dd-MM-yyyy HH:mm")</td>
-                    <td>@appointment.Room</td>
-                    <td class="p-0 text-center align-middle">
-                        <div class="d-flex justify-content-center align-items-center h-100">
-                            <form action="@Url.Action("Delete", "Appointment")" method="post" style="margin: 0;">
-                                @Html.AntiForgeryToken()
-                                <input type="hidden" name="AppointmentId" value="@appointment.AppointmentId" />
-                                <button type="submit" class="btn btn-link p-0 text-decoration-none text-danger" title="Xóa">
-                                    <i class="fas fa-trash-alt fs-5"></i>
-                                </button>
-                            </form>
+                    <td colspan="8" class="text-center py-4">
+                        <div class="text-muted">
+                            <i class="fas fa-calendar-times fs-4 mb-2"></i>
+                            <p class="mb-0">Không có lịch khám</p>
                         </div>
                     </td>
                 </tr>
             }
+            else
+            {
+                foreach (var appointment in Model)
+                {
+                    <tr>
+                        <td class="text-center">@(idx++)</td>
+                        <td>@appointment.PatientName</td>
+                        <td>@appointment.PatientGender</td>
+                        <td>@appointment.EmployeeName</td>
+                        <td>@appointment.Speciality</td>
+                        <td>@appointment.AppointmentDate.ToString("dd-MM-yyyy HH:mm")</td>
+                        <td>@appointment.Room</td>
+                        <td class="text-center">
+                            <form action="@Url.Action("Delete", "Appointment")" method="post" class="d-inline-block"
+                                  onsubmit="return confirm('Bạn có chắc chắn muốn xóa lịch khám này?');">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="AppointmentId" value="@appointment.AppointmentId" />
+                                <button type="submit" class="btn btn-sm btn-outline-danger" title="Xóa lịch khám"
+                                        data-bs-toggle="tooltip">
+                                    <i class="fas fa-trash-alt"></i> Huỷ lịch khám
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
-    <div class="d-flex align-items-center justify-content-center  mb-3">
+</div>
+
+@if (ViewBag.TotalPages > 1)
+{
+    <div class="d-flex justify-content-center mt-4">
         <nav aria-label="Page navigation">
             <ul class="pagination mb-0">
-                <li class="page-item @(ViewBag.CurrentPage == 1 ? "d-none" : "")">
-                    <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1 })"><</a>
+                <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1 })"
+                       aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
                 </li>
                 @for (int j = 1; j <= ViewBag.TotalPages; j++)
                 {
@@ -69,10 +84,38 @@
                         <a class="page-link" href="@Url.Action("Index", new { page = j })">@j</a>
                     </li>
                 }
-                <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "d-none" : "")">
-                    <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1 })">></a>
+                <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1 })"
+                       aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
                 </li>
             </ul>
         </nav>
     </div>
-</div>
+}
+
+@section Scripts {
+    <script>
+        // Khởi tạo tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+
+        // Khởi tạo DataTable
+        $(document).ready(function () {
+            $('#schedule').DataTable({
+                responsive: true,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json'
+                },
+                "pageLength": 10,
+                "order": [[0, "asc"]],
+                "columnDefs": [
+                    { "orderable": false, "targets": 7 }
+                ]
+            });
+        });
+    </script>
+}

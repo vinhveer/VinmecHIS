@@ -3,53 +3,74 @@
     ViewBag.Title = "Cuộc hẹn khám";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int idx = ViewBag.STT;
-    string gender = "";
 }
-<div class="container p-3 my-5 bg-light border">
-    <h2 class="text-center mb-4">Danh Sách Lịch Khám Của Bác Sĩ</h2>
-    <!-- tây bồ -->
-    <table id="schedule" class="table table-striped nowrap" style="width:100%">
-        <!-- header của bảng -->
-        <thead>
+
+<h3 class="mb-4">Danh sách lịch khám sắp tới</h3>
+
+<div class="table-responsive">
+    <table id="schedule" class="table table-hover align-middle" style="width:100%">
+        <thead class="table-light">
             <tr>
                 <th>STT</th>
                 <th>Bệnh nhân</th>
                 <th>Giới tính</th>
-                <th>Ngày Giờ</th>
-                <th>Phòng Khám</th>
-               
+                <th>Ngày giờ</th>
+                <th>Phòng khám</th>
+                <th></th>
             </tr>
         </thead>
-
-        <!-- body của bảng -->
         <tbody>
-            @foreach (var appointment in Model)
+            @if (!Model.Any())
             {
                 <tr>
-                    <td>
-                        @idx
-                        @{
-                            idx++;
-                        }
-
+                    <td colspan="5" class="text-center py-5">
+                        <div class="text-muted">
+                            <i class="fas fa-calendar-times fs-1 mb-3 d-block"></i>
+                            <p class="mb-0">Không có lịch khám nào</p>
+                        </div>
                     </td>
-                    <td>@appointment.PatientName</td>
-                    <td>
-                        @(
-                            appointment.PatientGender == "M" ? "Nam" : "Nữ"
-                        )
-                    </td>
-                    <td>@appointment.AppointmentDate.ToString("dd-MM-yyyy HH:mm")</td>
-                    <td>@appointment.Room</td>
                 </tr>
+            }
+            else
+            {
+                foreach (var appointment in Model)
+                {
+        <tr>
+            <td>@(idx++)</td>
+            <td class="text-start fw-medium">@appointment.PatientName</td>
+            <td>@(appointment.PatientGender == "M" ? "Nam" : "Nữ")</td>
+            <td>
+                <i class="far fa-clock me-1 text-muted"></i>
+                @appointment.AppointmentDate.ToString("dd-MM-yyyy HH:mm")
+            </td>
+            <td>@appointment.Room</td>
+            <td>
+                @Html.ActionLink(
+                    "Thêm hồ sơ bệnh án",               // Nội dung nút
+                    "CreateMedicalRecord",                     // Tên action
+                    "Doctor",                // Tên controller
+                    new { patientId = appointment.PatientId }, // RouteValues
+                    new { @class = "btn btn-primary btn-sm" }  // HTML attributes
+                )
+            </td>
+
+        </tr>
+                }
             }
         </tbody>
     </table>
-    <div class="d-flex align-items-center justify-content-center  mb-3">
+</div>
+
+@if (ViewBag.TotalPages > 1)
+{
+    <div class="d-flex justify-content-center mt-4">
         <nav aria-label="Page navigation">
-            <ul class="pagination mb-0">
-                <li class="page-item @(ViewBag.CurrentPage == 1 ? "d-none" : "")">
-                    <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1 })"><</a>
+            <ul class="pagination pagination-rounded mb-0">
+                <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1 })"
+                        aria-label="Previous">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
                 </li>
                 @for (int j = 1; j <= ViewBag.TotalPages; j++)
                 {
@@ -57,13 +78,52 @@
                         <a class="page-link" href="@Url.Action("Index", new { page = j })">@j</a>
                     </li>
                 }
-                <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "d-none" : "")">
-                    <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1 })">></a>
+                <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1 })"
+                        aria-label="Next">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
                 </li>
             </ul>
         </nav>
     </div>
+}
 
-</div>
+@section Styles {
+    <style>
+        .bg-pink {
+            background-color: #FF69B4;
+        }
 
+        .pagination-rounded .page-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 3px;
+        }
+    </style>
+}
 
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#schedule').DataTable({
+                responsive: true,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/vi.json'
+                },
+                pageLength: 10,
+                order: [[0, "asc"]],
+                dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                initComplete: function () {
+                    $('.dataTables_wrapper .row').addClass('g-3');
+                }
+            });
+        });
+    </script>
+}

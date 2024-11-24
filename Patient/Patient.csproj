@@ -211,7 +211,6 @@
     <Content Include="Views\AppointMent\AvailableAppointments.cshtml" />
     <Content Include="Views\InvoicePatient\Details.cshtml" />
     <Content Include="Views\InvoicePatient\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
