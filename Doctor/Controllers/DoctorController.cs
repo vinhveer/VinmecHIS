@@ -57,27 +57,32 @@ namespace Doctor.Controllers
             }
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateMedicalRecord([Bind(Include = "PATIENT_ID,EMPLOYEE_ID,EXAMINATION_DATE,DIAGNOSIS,TREATMENT,FOLLOW_UP_DATE,ADDITIONAL_NOTES,HOSPITAL_FEES")] MEDICALRECORD medicalRecord)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    _db.MEDICALRECORDs.Add(medicalRecord);
-                    await _db.SaveChangesAsync();
-                    TempData["SuccessMessage"] = "Hồ sơ bệnh án đã được tạo thành công!";
-                    return RedirectToAction("MedicalRecordDetails", new { id = medicalRecord.MEDICAL_RECORD_ID });
-                }
-                return View(medicalRecord);
-            }
-            catch (Exception ex)
-            {
-                TempData["ErrorMessage"] = "Có lỗi xảy ra khi tạo hồ sơ: " + ex.Message;
-                return View(medicalRecord);
-            }
-        }
+         [HttpPost]
+         public async Task<ActionResult> CreateMedicalRecord([Bind(Include = "PATIENT_ID,EMPLOYEE_ID,EXAMINATION_DATE,DIAGNOSIS,TREATMENT,FOLLOW_UP_DATE,ADDITIONAL_NOTES,HOSPITAL_FEES")] MEDICALRECORD medicalRecord,string patientId,string ED)
+         {
+            
+             medicalRecord.EMPLOYEE_ID = Convert.ToInt64(Session["EmployeeId"]);
+             medicalRecord.EXAMINATION_DATE=DateTime.Parse(ED);
+             medicalRecord.PATIENT_ID = Convert.ToInt64(patientId);
+        
+             try
+             {
+                 if (ModelState.IsValid)
+                 {
+                     _db.MEDICALRECORDs.Add(medicalRecord);
+                     await _db.SaveChangesAsync();
+                     TempData["SuccessMessage"] = "Hồ sơ bệnh án đã được tạo thành công!";
+                     return RedirectToAction("MedicalRecordDetails", new { id = medicalRecord.MEDICAL_RECORD_ID });
+                 }
+                 return View(medicalRecord);
+             }
+             catch (Exception ex)
+             {
+                 TempData["ErrorMessage"] = "Có lỗi xảy ra khi tạo hồ sơ: " + ex.Message;
+                 return View(medicalRecord);
+             }
+            
+         }
 
         // GET: Tìm hồ sơ bệnh án theo ID bệnh nhân
         public async Task<ActionResult> MedicalRecordByPatientId(long? patientId)
