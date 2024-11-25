@@ -1,8 +1,5 @@
 # VinmecHIS
-
 Dưới đây là hướng dẫn chi tiết từng bước để bạn có thể clone và chạy dự án **VinmecHIS**.
-
----
 
 ## **1. Clone Repository**
 Để bắt đầu, bạn cần tải mã nguồn dự án về máy. Mở terminal hoặc command prompt, sau đó chạy lệnh sau:
@@ -17,22 +14,19 @@ Sau khi hoàn tất, chuyển vào thư mục chứa mã nguồn dự án:
 cd VinmecHIS
 ```
 
----
-
 ## **2. Cài đặt Database**
 
 ### **2.1 Xóa database cũ**
+https://github.com/user-attachments/assets/058c3deb-2139-4a6b-b11f-54e19bff2c03
 Nếu bạn đã có phiên bản cũ của cơ sở dữ liệu, hãy xóa nó trước khi thực hiện backup database mới. 
 
 - Mở **SQL Server Management Studio (SSMS)** hoặc công cụ quản lý database bạn đang sử dụng.
 - Tìm database cũ liên quan đến dự án này.
 - Nhấp chuột phải vào database, chọn **Delete**, đảm bảo không còn tồn tại database cũ trong hệ thống.
 
-https://github.com/user-attachments/assets/058c3deb-2139-4a6b-b11f-54e19bff2c03
-
----
-
 ### **2.2 Restore database mới**
+https://github.com/user-attachments/assets/83b647f8-3d21-4764-908e-6290a6ba4d9a
+#### Các bước
 1. Mở **SQL Server Management Studio** hoặc công cụ quản lý database.
 2. Chuột phải vào **Databases** trong **Object Explorer**, chọn **Restore Database...**.
 3. Chọn file backup của database được cung cấp:
@@ -40,12 +34,8 @@ https://github.com/user-attachments/assets/058c3deb-2139-4a6b-b11f-54e19bff2c03
    - Nhấn **Device**, chọn file `.bak` từ thư mục lưu trữ.
 
 4. Chọn **OK** để thực hiện quá trình restore.
-
-https://github.com/user-attachments/assets/83b647f8-3d21-4764-908e-6290a6ba4d9a
-
 5. Sau khi hoàn tất, kiểm tra database đã được restore thành công trong danh sách **Databases**.
-
----
+6. Chạy Scripts data_vinmec.sql để insert dữ liệu. Có một số lỗi vì data này chưa sạch sẽ.
 
 ## **3. Cấu hình Connection String**
 
@@ -60,13 +50,6 @@ Mỗi project trong solution có một file cấu hình riêng (thường là `w
        <add name="DefaultConnection" connectionString="Server=YOUR_SERVER;Database=YOUR_DATABASE;User Id=YOUR_USER;Password=YOUR_PASSWORD;" providerName="System.Data.SqlClient" />
    </connectionStrings>
    ```
-
-4. Thay thế các giá trị sau:
-   - `YOUR_SERVER`: Tên server SQL của bạn (ví dụ: `localhost` hoặc `127.0.0.1`).
-   - `YOUR_DATABASE`: Tên database mà bạn vừa restore.
-   - `YOUR_USER`: Tài khoản SQL của bạn (ví dụ: `sa`).
-   - `YOUR_PASSWORD`: Mật khẩu của tài khoản SQL.
-
 5. Lưu thay đổi trong tất cả các file `web.config`.
 
 ---
@@ -78,5 +61,6 @@ Mỗi project trong solution có một file cấu hình riêng (thường là `w
 2. Đảm bảo không có lỗi xảy ra trong quá trình build.
 
 ### **4.2 Chạy dự án**
-1. Nhấn **Ctrl + F5** hoặc chọn **Start Without Debugging** để chạy dự án.
-2. Dự án sẽ mở trên trình duyệt, hiển thị giao diện chính.
+https://github.com/user-attachments/assets/6e17101a-ae3a-4944-a961-3b1f2ea787d8
+
+
