@@ -18,6 +18,7 @@ cd VinmecHIS
 
 ### **2.1 Xóa database cũ**
 https://github.com/user-attachments/assets/058c3deb-2139-4a6b-b11f-54e19bff2c03
+
 Nếu bạn đã có phiên bản cũ của cơ sở dữ liệu, hãy xóa nó trước khi thực hiện backup database mới. 
 
 - Mở **SQL Server Management Studio (SSMS)** hoặc công cụ quản lý database bạn đang sử dụng.
