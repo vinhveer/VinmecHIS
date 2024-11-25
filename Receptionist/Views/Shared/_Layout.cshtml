@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            @Html.ActionLink("ReceptionistPortal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("ReceptionistPortal", "Index", "InvoiceReceptionist", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -107,6 +107,6 @@
     </script>
 
     @RenderSection("scripts", required: false)
-    @RenderSection("Styles", required: false)
+    @RenderSection("Style", required: false)
 </body>
 </html>

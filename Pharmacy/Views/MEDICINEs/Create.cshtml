@@ -1,82 +1,95 @@
 ﻿@model Pharmacy.Models.Data.MEDICINE
-
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4 class="text-center mt-2">TẠO MỚI THUỐC</h4>
-        @*<hr />*@
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group row mt-4">
-            <div>
-                @Html.LabelFor(model => model.SUPPLIER_ID, "Nhà cung cấp", htmlAttributes: new { @class = "control-label col-md-2" })
-            </div>
-            <div class="col-md-10">
-                @Html.DropDownList("SUPPLIER_ID", (SelectList)ViewBag.SUPPLIER_ID, "Chọn nhà cung cấp", new { @class = "form-control" })
-                @*@Html.DropDownList("SUPPLIER_ID", null, htmlAttributes: new { @class = "form-control" })*@
-                @Html.ValidationMessageFor(model => model.SUPPLIER_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <div class="col-md-6">
+                <h3 class="card-title mb-3">
+                    Thêm thuốc mới
+                </h3>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.MEDICINE_NAME, "Tên thuốc", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MEDICINE_NAME, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MEDICINE_NAME, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.UNIT, "Đơn vị", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UNIT, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UNIT, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.SUPPLIER_ID, "Nhà cung cấp", new { @class = "form-label" })
+                    @Html.DropDownList("SUPPLIER_ID", (SelectList)ViewBag.SUPPLIER_ID, "Chọn nhà cung cấp", new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.SUPPLIER_ID, "", new { @class = "text-danger" })
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.STOCK_QUANTITY, "Số lượng", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.STOCK_QUANTITY, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.STOCK_QUANTITY, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.MEDICINE_NAME, "Tên thuốc", new { @class = "form-label" })
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-capsule"></i>
+                        </span>
+                        @Html.EditorFor(model => model.MEDICINE_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.MEDICINE_NAME, "", new { @class = "text-danger" })
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.EXPIRATION_DATE, "Ngày hết hạn", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.EXPIRATION_DATE, new
-                {
-                    @class = "form-control",
-                    @Value = Model?.EXPIRATION_DATE.ToString("dd/MM/yyyy") ?? ""
-                })
-                @Html.ValidationMessageFor(model => model.EXPIRATION_DATE, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.UNIT, "Đơn vị", new { @class = "form-label" })
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-box"></i>
+                        </span>
+                        @Html.EditorFor(model => model.UNIT, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.UNIT, "", new { @class = "text-danger" })
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PRICE, "Giá", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PRICE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PRICE, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.STOCK_QUANTITY, "Số lượng", new { @class = "form-label" })
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-123"></i>
+                        </span>
+                        @Html.EditorFor(model => model.STOCK_QUANTITY, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.STOCK_QUANTITY, "", new { @class = "text-danger" })
+                </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default btn-outline border border-dark mt-3" />
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.EXPIRATION_DATE, "Ngày hết hạn", new { @class = "form-label" })
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-calendar"></i>
+                        </span>
+                        @Html.TextBoxFor(model => model.EXPIRATION_DATE, new
+                        {
+                            @class = "form-control",
+                            @Value = Model?.EXPIRATION_DATE.ToString("dd/MM/yyyy") ?? "",
+                            type = "date"
+                        })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.EXPIRATION_DATE, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.PRICE, "Giá", new { @class = "form-label" })
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-currency-dollar"></i>
+                        </span>
+                        @Html.EditorFor(model => model.PRICE, new { htmlAttributes = new { @class = "form-control", type = "number", step = "1000" } })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.PRICE, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mt-4">
+                    <a href="@Url.Action("Index")" class="btn btn-secondary me-2">
+                        <i class="bi bi-arrow-left me-1"></i>
+                        Quay lại
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-lg me-1"></i>
+                        Thêm thuốc
+                    </button>
+                </div>
             </div>
-        </div>
-    </div>
 }
-
-<div class="my-2">
-    @Html.ActionLink("Quay lại", "Index")
-</div>

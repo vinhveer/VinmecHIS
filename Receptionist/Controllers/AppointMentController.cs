@@ -37,7 +37,7 @@ namespace Receptionist.Controllers
                                         AppointmentDate = appointment.APPOINTMENT_TIME,
                                         Room = employee.EMPLOYEE_ROOM,
                                     }).ToList();
-                int pageSize = 2;
+                int pageSize = 10;
                 var currentAppointments = appointments.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
                 // Cập nhật các giá trị phân trang cho ViewBag

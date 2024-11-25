@@ -1,65 +1,90 @@
 ﻿@model Pharmacy.Models.Data.MEDICINE
-
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div>
-    <h4>CHI TIẾT THÔNG TIN THUỐC</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Nhà cung cấp
-        </dt>
+<div class="mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-white py-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0 text-primary">
+                    <i class="bi bi-info-circle me-2"></i>
+                    Chi tiết thông tin thuốc
+                </h5>
+                <div>
+                    <a href="@Url.Action("Edit", new { id = Model.MEDICINE_ID })" class="btn btn-outline-primary btn-sm me-2">
+                        <i class="bi bi-pencil-square me-1"></i>Chỉnh sửa
+                    </a>
+                    <a href="@Url.Action("Index")" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-arrow-left me-1"></i>Quay lại
+                    </a>
+                </div>
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.SUPPLIER.SUPPLIER_NAME)
-        </dd>
+        <div class="card-body p-4">
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-building me-2 text-primary"></i>
+                            <span class="text-muted">Nhà cung cấp</span>
+                        </div>
+                        <div class="fw-medium">@Html.DisplayFor(model => model.SUPPLIER.SUPPLIER_NAME)</div>
+                    </div>
+                </div>
 
-        <dt>
-            Tên thuốc
-        </dt>
+                <div class="col-12 col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-capsule me-2 text-primary"></i>
+                            <span class="text-muted">Tên thuốc</span>
+                        </div>
+                        <div class="fw-medium">@Html.DisplayFor(model => model.MEDICINE_NAME)</div>
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.MEDICINE_NAME)
-        </dd>
+                <div class="col-12 col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-box me-2 text-primary"></i>
+                            <span class="text-muted">Đơn vị</span>
+                        </div>
+                        <div class="fw-medium">@Html.DisplayFor(model => model.UNIT)</div>
+                    </div>
+                </div>
 
-        <dt>
-            Đơn vị
-        </dt>
+                <div class="col-12 col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-123 me-2 text-primary"></i>
+                            <span class="text-muted">Số lượng</span>
+                        </div>
+                        <div class="fw-medium">@Html.DisplayFor(model => model.STOCK_QUANTITY)</div>
+                    </div>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.UNIT)
-        </dd>
+                <div class="col-12 col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-calendar me-2 text-primary"></i>
+                            <span class="text-muted">Ngày hết hạn</span>
+                        </div>
+                        <div class="fw-medium">@Model.EXPIRATION_DATE.ToString("dd/MM/yyyy")</div>
+                    </div>
+                </div>
 
-        <dt>
-            Số lượng
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.STOCK_QUANTITY)
-        </dd>
-
-        <dt>
-            Ngày hết hạn
-        </dt>
-
-        <dd>
-            @Model.EXPIRATION_DATE.ToString("dd/MM/yyyy")
-        </dd>
-
-        <dt>
-            Giá
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PRICE)
-        </dd>
-
-    </dl>
+                <div class="col-12 col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-currency-dollar me-2 text-primary"></i>
+                            <span class="text-muted">Giá</span>
+                        </div>
+                        <div class="fw-medium">@Html.DisplayFor(model => model.PRICE)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MEDICINE_ID }) |
-    @Html.ActionLink("Quay lại", "Index")
-</p>

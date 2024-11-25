@@ -9,6 +9,7 @@ namespace Doctor.Models.Views
     {
         public long MedicineId { get; set; } // ID thuốc
         public int PrescribedQuantity { get; set; } // Số lượng thuốc được kê
+        public string Note { get; set; } // Ghi chú
         public string Dosage { get; set; } // Liều lượng
     }
 }

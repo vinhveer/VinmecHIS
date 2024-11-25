@@ -4,33 +4,58 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container-fluid p-3 my-5 bg-light border">
-    <h2 class="text-center mb-4 mt-3">Danh Sách Đơn Thuốc</h2>
+    <h2 class="mb-4 mt-3">Danh sách đơn thuốc</h2>
 
     @using (Html.BeginForm("SearchPrescription", "ConfirmedPrescriptions", FormMethod.Get, new { @class = "mb-4" }))
     {
-        <div class="row mt-4 d-flex justify-content-center  align-items-center">
+            <div class="row g-3 align-items-end">
+                <!-- Search inputs -->
+                <div class="col-md-4">
+                    <label for="prescrID" class="form-label">Mã đơn thuốc</label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-prescription"></i>
+                        </span>
+                        <input type="text"
+                               class="form-control"
+                               id="prescrID"
+                               name="prescrID"
+                               value="@Request.QueryString["prescrID"]"
+                               placeholder="Nhập mã đơn thuốc">
+                    </div>
+                </div>
 
-            <div class="col-md-4 mb-3">
-                <label for="prescrID" class="form-label">Mã đơn thuốc</label>
-                <input type="text" class="form-control" id="prescrID" name="prescrID" value="@Request.QueryString["prescrID"]" placeholder="Nhập mã đơn thuốc">
+                <div class="col-md-4">
+                    <label for="patientName" class="form-label">Họ tên</label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person"></i>
+                        </span>
+                        <input type="text"
+                               class="form-control"
+                               id="patientName"
+                               name="patientName"
+                               value="@Request.QueryString["patientName"]"
+                               placeholder="Nhập họ tên bệnh nhân">
+                    </div>
+                </div>
+
+                <!-- Action buttons -->
+                <div class="col-md-4">
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-search me-1"></i>
+                            Tìm kiếm
+                        </button>
+                        <a href="/ConfirmedPrescriptions/Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-clockwise me-1"></i>
+                            Nhập mới
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4 mb-3">
-                <label for="patientName" class="form-label">Họ tên</label>
-                <input type="text" class="form-control" id="patientName" name="patientName" value="@Request.QueryString["patientName"]" placeholder="Nhập họ tên bệnh nhân">
-            </div>
-
-
-            <div class="col-md-4 mb-3 ms-auto">
-                <button type="submit" class="btn btn-primary me-2">Tìm kiếm</button>
-                <a href="/ConfirmedPrescriptions/Index" class="btn btn-secondary">Nhập mới</a>
-            </div>
-        </div>
-
 
     }
-
-
 
     <table id="schedule" class="table table-striped nowrap" style="width:100%">
 
@@ -38,7 +63,6 @@
             <tr>
                 <th>Mã số đơn thuốc </th>
                 <th>Họ tên bệnh nhân</th>
-
                 <th>Ngày khám</th>
             </tr>
         </thead>
@@ -70,5 +94,3 @@
             </ul>
         </div>
     }
-</div>
-

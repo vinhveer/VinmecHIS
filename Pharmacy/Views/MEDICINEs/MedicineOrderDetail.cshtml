@@ -4,30 +4,44 @@
     ViewBag.Title = "MedicineOrderDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<form action="" method="post">
-    <h2>Chi tiết đơn đặt hàng</h2>
 
-    <div>
-        <strong>Nhà cung cấp</strong> @Model.SuplierName
-    </div>
-    <div>
-        <strong>Đơn vị:</strong> @Model.Unit
-        <div>
-            <strong>Số lượng:</strong>@Model.Stock
-        </div>
-        <div>
-            <strong>Tên thuốc:</strong>@Model.medicineName
-        </div>
-        <div>
-            <strong>Ngày hết hạn:</strong>@Model.ExprirationDate
-        </div>
-        <div>
-            <strong>Giá:</strong>@Model.Price
-        </div>
-        <div>
-           <strong>Trạng thái: </strong> Đã nhận hàng
-        </div>
-        <a href="https://localhost:44394/MEDICINEs/OrderMedicine" class="btn btn-primary mt-3 p-2">Xác nhận</a>
+<h2 class="mb-4">Chi tiết đơn đặt hàng</h2>
+
+<form action="" method="post">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th scope="row" class="text-start">Tên thuốc</th>
+                <td>@Model.medicineName</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-start">Nhà cung cấp</th>
+                <td>@Model.SuplierName</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-start">Đơn vị</th>
+                <td>@Model.Unit</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-start">Số lượng</th>
+                <td>@Model.Stock</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-start">Ngày hết hạn</th>
+                <td>@Model.ExprirationDate</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-start">Giá</th>
+                <td>@Model.Price</td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-start">Trạng thái</th>
+                <td>Đã nhận hàng</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="mt-4">
+        <a href="https://localhost:44394/MEDICINEs/OrderMedicine" class="btn btn-primary">Xác nhận</a>
     </div>
 </form>
-

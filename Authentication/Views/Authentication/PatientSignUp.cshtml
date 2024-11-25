@@ -21,7 +21,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                         </div>
                     }
-                    @using (Html.BeginForm("PatientSignUp", "Authentication", FormMethod.Post))
+                    @using (Html.BeginForm("PatientSignUp", "Authentication", FormMethod.Post, new { id = "myForm" }))
                     {
                         <div class="mb-3">
                             <label class="form-label">Tên đăng nhập</label>
@@ -45,11 +45,11 @@
                         <div class="mb-3">
                             <label class="form-label">Giới tính</label>
                             <div>
-                                <input type="radio" id="male" name="gender" value="0" class="form-check-input" required />
+                                <input type="radio" id="male" name="gender" value="M" class="form-check-input" required />
                                 <label class="form-check-label" for="male">Nam</label>
                             </div>
                             <div>
-                                <input type="radio" id="female" name="gender" value="1" class="form-check-input" required />
+                                <input type="radio" id="female" name="gender" value="F" class="form-check-input" required />
                                 <label class="form-check-label" for="female">Nữ</label>
                             </div>
                         </div>
@@ -61,9 +61,8 @@
 
                         <div class="mb-3">
                             <label class="form-label">Số điện thoại</label>
-                            <input type="tel" name="phonenumber" class="form-control" required />
+                            <input type="tel" name="phonenumber" id="phonenumber" class="form-control" required />
                         </div>
-
                         <div class="mb-3">
                             <label class="form-label">Địa chỉ</label>
                             <input type="text" name="address" class="form-control" required />
@@ -75,19 +74,21 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Mật khẩu</label>
-                            <input type="password" name="password" class="form-control" required />
+                            <input type="password" name="password" id="password" class="form-control" required />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Nhập lại mật khẩu</label>
-                            <input type="password" name="confirmpassword" class="form-control" required />
+                            <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" required />
                         </div>
-                        <button type="submit" class="btn btn-primary w-100 mb-3">Đăng ký</button>
+                        <div id="error-message-password" style="color: red; display: none;">
+                            Mật khẩu nhập lại không chính xác!
+                        </div>
+                        <button type="submit" id="btnSubmit" class="btn btn-primary w-100 mb-3">Đăng ký</button>
                         <div class="text-center">
                             <p class="mb-2">
                                 Bạn đã có tài khoản?
                                 <a href="@Url.Action("PatientSignIn", "Authentication")">Đăng nhập ngay</a>
                             </p>
-                            <a href="@Url.Action("ForgotPassword", "Authentication")">Quên mật khẩu?</a>
                         </div>
                     }
                 </div>
@@ -95,3 +96,44 @@
         </div>
     </div>
 </div>
+<script>
+    console.log("OK");
+
+    // Lấy các phần tử cần thao tác
+    const buttonSubmit = document.getElementById("btnSubmit");
+    const phoneInput = document.getElementById("phonenumber");
+    const errorPhoneMessage = document.getElementById("error-message-phone");
+    const form = document.getElementById("myForm");
+    const passwordInput = document.getElementById("password");
+    const confirmPasswordInput = document.getElementById("confirmpassword");
+    const errorPasswordMessage = document.getElementById("error-message-password");
+    // Ràng buộc số điện thoại tối đa 5 ký tự
+    phoneInput.addEventListener("input", function () {
+        if (phoneInput.value.length > 5) {
+            phoneInput.value = phoneInput.value.slice(0, 5); // Cắt chuỗi
+            errorPhoneMessage.style.display = "block"; // Hiển thị thông báo lỗi
+        } else {
+            errorPhoneMessage.style.display = "none"; // Ẩn thông báo lỗi
+        }
+    });
+
+    confirmPasswordInput.addEventListener("change", function () {
+        const password = passwordInput.value; // Lấy giá trị từ ô nhập mật khẩu
+        const passwordConfirm = confirmPasswordInput.value; // Lấy giá trị từ ô nhập lại mật khẩu
+        // So sánh hai giá trị
+        if (password !== passwordConfirm) {
+            errorPasswordMessage.style.display = "block";
+            if (buttonSubmit) {
+                buttonSubmit.addEventListener("click", function (event) {
+                    event.preventDefault(); // Ngăn chặn hành vi gửi form mặc định
+                    //validatePasswords();
+                });
+            }
+        } else {
+            errorPasswordMessage.style.display = "none";
+            form.submit();
+
+        }
+    });
+    // Kiểm tra mật khẩu khi nhấn nút gửi
+</script>

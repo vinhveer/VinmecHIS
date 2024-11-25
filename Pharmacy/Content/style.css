@@ -1,14 +1,1 @@
-﻿body {
-    margin: 0px;
-    padding: 0;
-    box-sizing: border-box;
-}
-.highlight {
-    border-collapse: collapse;
-    background-color: #e56c6c !important; /* Nền nhạt */
-    font-weight: bold; /* Chữ đậm */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bóng tạo cảm giác nhô lên */
-    transform: translateY(-3px);
-
-}
-    
+﻿

@@ -8,9 +8,10 @@
 
 @using (Html.BeginForm("Index", "MEDICINEs", FormMethod.Get))
 {
-    <h2 class="custom-header text-center">DANH SÁCH THUỐC</h2>
+    <h3 class="mb-4">Danh sách thuốc</h3>
     <p>
-        @Html.ActionLink("Tạo mới", "Create", null, new { @class = "btn btn-secondary custom-button" })
+        @Html.ActionLink("Tạo mới", "Create", null, new { @class = "btn btn-success custom-button" })
+        <button type="submit" class="btn btn-secondary ms-3">Áp dụng bộ lọc</button>
     </p>
 
     <table class="table custom-table">
@@ -18,7 +19,6 @@
             <tr>
                 <th>Nhà cung cấp</th>
                 <th>
-                    <div class="d-flex flex-column align-items-start">
                         <span>Tên thuốc</span>
                         @Html.DropDownList(
                             "NameSort",
@@ -30,7 +30,6 @@
                             }, "Value", "Text", ViewBag.CurrentSort),
                             "Sắp xếp...",
                             new { @class = "form-control form-control-sm" })
-                    </div>
                 </th>
                 <th>Đơn vị</th>
                 <th>
@@ -93,9 +92,6 @@
             }
         </tbody>
     </table>
-
-    <button type="submit" class="btn btn-secondary my-3">Áp dụng</button>
-
 
     <!-- Phân trang -->
     <div class="pagination-container d-flex justify-content-center">

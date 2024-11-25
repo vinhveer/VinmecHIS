@@ -8,6 +8,7 @@ using Authentication.Helper;
 using System.Diagnostics;
 using System.Web;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 
 namespace Authentication.Controllers
 {
@@ -63,77 +64,74 @@ namespace Authentication.Controllers
         {
             return View();
         }
-        //[HttpPost]
-        //public ActionResult PatientSignUp(string username, string firstname, string lastname, string gender, DateTime dateofbirth, string address, string password, string email, string phonenumber)
-        //{
-        //    if (_db.PATIENTACCOUNTs.Any(p => p.PATIENT_USERNAME == username))
-        //    {
-        //        ViewBag.Error = "Tên đăng nhập đã tồn tại.";
-        //        return View();
-        //    }
 
+        [HttpPost]
         public ActionResult PatientSignUp(string username, string firstname, string lastname,
-            string gender, DateTime dateofbirth, string address, string password,
-            string email, string phonenumber)
+            string gender, string dateofbirth, string address, string password,
+            string email, string phonenumber, string emergencycontact)
         {
-            // Kiểm tra trùng username
-            if (_db.PATIENTACCOUNTs.Any(p => p.PATIENT_USERNAME == username))
+            try
             {
-                ViewBag.Error = "Tên đăng nhập đã tồn tại.";
+                if (_db.PATIENTACCOUNTs.Any(p => p.PATIENT_USERNAME == username))
+                {
+                    ViewBag.Error = "Tên đăng nhập đã tồn tại.";
+                    return View();
+                }
+                var dob = DateTime.Parse(dateofbirth);
+                Debug.WriteLine($"Parsed Date of Birth: {dob}");
+                Debug.WriteLine($"Type of Date of Birth: {dob.GetType()}");
+
+                // Lưu bệnh nhân
+                var newPatient = new PATIENT
+                {
+                    FIRST_NAME = firstname,
+                    LAST_NAME = lastname,
+                    DATE_OF_BIRTH = dob,
+                    GENDER = gender,
+                    PATIENT_EMAIL = email,
+                    PATIENT_PHONE = phonenumber,
+                    PATIENT_ADDRESS = address,
+                    EMERGENCY_CONTACT = emergencycontact,
+                    REGISTRATION_DATE = DateTime.Now,
+                };
+
+                _db.PATIENTs.Add(newPatient);
+                _db.SaveChanges();
+
+
+                // Tạo tài khoản
+                var newAccount = new PATIENTACCOUNT
+                {
+                    PATIENT_ID = newPatient.PATIENT_ID,
+                    PATIENT_USERNAME = username,
+                    PATIENT_PASSWORD = MD5Helper.Hash(password)
+                };
+
+                _db.PATIENTACCOUNTs.Add(newAccount);
+                _db.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                // Ghi log lỗi chi tiết
+                Debug.WriteLine($"DbUpdateException: {ex.Message}");
+                if (ex.InnerException != null)
+                {
+                    Debug.WriteLine($"Inner Exception: {ex.InnerException.Message}");
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        Debug.WriteLine($"Inner Inner Exception: {ex.InnerException.InnerException.Message}");
+                    }
+                }
+                ViewBag.Error = "Đã xảy ra lỗi khi lưu dữ liệu. Vui lòng kiểm tra thông tin nhập.";
                 return View();
             }
-
-        //    var newPatient = new PATIENT
-        //    {
-        //        FIRST_NAME_ = firstname,
-        //        LAST_NAME_ = lastname,
-        //        DATE_OF_BIRTH_ = dateofbirth,
-        //        C_GENDER_ = gender,
-        //        PATIENT_EMAIL = email,
-        //        PATIENT_PHONE = phonenumber,
-        //        PATIENT_ADDRESS = address,
-        //    };
-            // Tạo bệnh nhân mới
-            var newPatient = new PATIENT
+            catch (Exception ex)
             {
-                FIRST_NAME = firstname,
-                LAST_NAME = lastname,
-                DATE_OF_BIRTH = dateofbirth,
-                GENDER = gender,
-                PATIENT_EMAIL = email,
-                PATIENT_PHONE = phonenumber,
-                PATIENT_ADDRESS = address,
-            };
-
-        //    _db.PATIENTs.Add(newPatient);
-        //    _db.SaveChanges();
-            // Lưu bệnh nhân
-            _db.PATIENTs.Add(newPatient);
-            _db.SaveChanges();
-
-        //    long newPatientId = newPatient.PATIENT_ID;
-
-        //    var newAccount = new PATIENTACCOUNT
-        //    {
-        //        PATIENT_ID = newPatientId,
-        //        PATIENT_USERNAME = username,
-        //        PATIENT_PASSWORD = MD5Helper.Hash(password) 
-        //    };
-            // Tạo tài khoản
-            var newAccount = new PATIENTACCOUNT
-            {
-                PATIENT_ID = newPatient.PATIENT_ID,
-                PATIENT_USERNAME = username,
-                PATIENT_PASSWORD = MD5Helper.Hash(password)
-            };
-
-        //    _db.PATIENTACCOUNTs.Add(newAccount);
-        //    _db.SaveChanges(); 
-        //    return RedirectToAction("PatientSignIn");
-        //}
-            _db.PATIENTACCOUNTs.Add(newAccount);
-            _db.SaveChanges();
-
+                // Bắt các lỗi khác
+                Debug.WriteLine($"Exception: {ex.Message}");
+                ViewBag.Error = "Đã xảy ra lỗi không xác định. Vui lòng thử lại.";
+                return View();
+            }
             return RedirectToAction("PatientSignIn");
         }
 

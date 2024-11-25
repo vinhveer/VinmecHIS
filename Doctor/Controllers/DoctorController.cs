@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,11 +17,6 @@ namespace Doctor.Controllers
     public class DoctorController : Controller
     {
         private readonly DoctorDbContext _db = new DoctorDbContext();
-
-        public DoctorController()
-        {
-            _db = new DoctorDbContext();
-        }
 
         // GET: Tạo hồ sơ bệnh án
         public ActionResult CreateMedicalRecord(string patientId)
@@ -58,9 +54,12 @@ namespace Doctor.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateMedicalRecord([Bind(Include = "PATIENT_ID,EMPLOYEE_ID,EXAMINATION_DATE,DIAGNOSIS,TREATMENT,FOLLOW_UP_DATE,ADDITIONAL_NOTES,HOSPITAL_FEES")] MEDICALRECORD medicalRecord)
+        public async Task<ActionResult> CreateMedicalRecord([Bind(Include = "PATIENT_ID,EMPLOYEE_ID,EXAMINATION_DATE,DIAGNOSIS,TREATMENT,FOLLOW_UP_DATE,ADDITIONAL_NOTES,HOSPITAL_FEES")] MEDICALRECORD medicalRecord, string patientId, string ED)
         {
+            medicalRecord.EMPLOYEE_ID = Convert.ToInt64(Session["EmployeeId"]);
+            medicalRecord.EXAMINATION_DATE = DateTime.Parse(ED);
+            medicalRecord.PATIENT_ID = Convert.ToInt64(patientId);
+
             try
             {
                 if (ModelState.IsValid)
@@ -77,6 +76,7 @@ namespace Doctor.Controllers
                 TempData["ErrorMessage"] = "Có lỗi xảy ra khi tạo hồ sơ: " + ex.Message;
                 return View(medicalRecord);
             }
+
         }
 
         // GET: Tìm hồ sơ bệnh án theo ID bệnh nhân
@@ -234,9 +234,10 @@ namespace Doctor.Controllers
             return Json(medicines, JsonRequestBehavior.AllowGet);
         }
 
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreatePrescription(string selectedMedicinesJson, long medicalRecordId)
+        public async Task<ActionResult> CreatePrescription(string selectedMedicinesJson, long medicalRecordId, string note)
         {
             if (string.IsNullOrWhiteSpace(selectedMedicinesJson))
             {
@@ -254,6 +255,18 @@ namespace Doctor.Controllers
                     return RedirectToAction("CreatePrescription", new { medicalRecordId });
                 }
 
+                // Kiểm tra thông tin cho đơn thuốc
+                var prescription = new PRESCRIPTION
+                {
+                    MEDICAL_RECORD_ID = medicalRecordId,
+                    NOTES = note,
+                    PRESCRIPTION_DATE = DateTime.Now
+                };
+
+                // Thêm đơn thuốc vào DB trước khi thêm các PrescriptionDetails
+                _db.PRESCRIPTIONs.Add(prescription);
+
+                // Duyệt qua danh sách thuốc được chọn
                 foreach (var medicineInput in selectedMedicines)
                 {
                     // Kiểm tra thuốc có tồn tại không
@@ -273,15 +286,15 @@ namespace Doctor.Controllers
                         return RedirectToAction("CreatePrescription", new { medicalRecordId });
                     }
 
-                    // Thêm thuốc vào đơn thuốc
-                    var prescription = new PRESCRIPTIONDETAIL
+                    // Thêm chi tiết thuốc vào đơn thuốc
+                    var prescriptionDetail = new PRESCRIPTIONDETAIL
                     {
                         MEDICAL_RECORD_ID = medicalRecordId,
                         MEDICINE_ID = medicineInput.MedicineId,
                         PRESCRIBED_QUANTITY = medicineInput.PrescribedQuantity,
                         DOSAGE = medicineInput.Dosage
                     };
-                    _db.PRESCRIPTIONDETAILs.Add(prescription);
+                    _db.PRESCRIPTIONDETAILs.Add(prescriptionDetail);
                 }
 
                 // Lưu thay đổi
@@ -289,12 +302,36 @@ namespace Doctor.Controllers
                 TempData["SuccessMessage"] = "Đơn thuốc đã được thêm thành công!";
                 return RedirectToAction("MedicalRecordDetails", new { id = medicalRecordId });
             }
+            catch (DbUpdateException ex)
+            {
+                // In thông tin lỗi vào console hoặc ghi log
+                Debug.WriteLine("DbUpdateException Thrown:");
+                Debug.WriteLine($"Error Message: {ex.Message}");
+                Debug.WriteLine("Inner Exception:");
+                Debug.WriteLine(ex.InnerException?.Message);
+
+                if (ex.InnerException != null)
+                {
+                    Debug.WriteLine("Inner Exception Details:");
+                    Debug.WriteLine(ex.InnerException.Message);
+                    if (ex.InnerException.InnerException != null)
+                    {
+                        Debug.WriteLine("Inner Exception Inner Details:");
+                        Debug.WriteLine(ex.InnerException.InnerException.Message);
+                    }
+                }
+
+                // Gửi thông báo lỗi chi tiết đến giao diện
+                TempData["ErrorMessage"] = "Có lỗi xảy ra khi lưu dữ liệu: " + ex.Message;
+                return RedirectToAction("CreatePrescription", new { medicalRecordId });
+            }
             catch (Exception ex)
             {
                 TempData["ErrorMessage"] = "Có lỗi xảy ra: " + ex.Message;
                 return RedirectToAction("CreatePrescription", new { medicalRecordId });
             }
         }
+
 
         // GET: Danh sách đơn thuốc
         public async Task<ActionResult> Prescriptions(int? medicalRecordId)

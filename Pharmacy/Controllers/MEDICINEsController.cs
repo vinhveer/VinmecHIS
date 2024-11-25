@@ -21,35 +21,6 @@ namespace Pharmacy.Controllers
     {
         private PharmacyDBContext db = new PharmacyDBContext();
 
-        // GET: MEDICINEs
-        //public ActionResult Index()
-        //{
-        //    var mEDICINEs = db.MEDICINEs.Include(m => m.SUPPLIER);
-        //    return View(mEDICINEs.ToList());
-        //}
-
-        //public ActionResult Index(string NameSort, string StockSort)
-        //{
-        //    ViewBag.CurrentSort = NameSort ?? StockSort;
-
-        //    var medicines = db.MEDICINEs.Include(m => m.SUPPLIER);
-
-        //    if (!string.IsNullOrEmpty(NameSort))
-        //    {
-        //        medicines = NameSort == "NameAsc"
-        //            ? medicines.OrderBy(m => m.MEDICINE_NAME)
-        //            : medicines.OrderByDescending(m => m.MEDICINE_NAME);
-        //    }
-        //    else if (!string.IsNullOrEmpty(StockSort))
-        //    {
-        //        medicines = StockSort == "StockAsc"
-        //            ? medicines.OrderBy(m => m.STOCK_QUANTITY)
-        //            : medicines.OrderByDescending(m => m.STOCK_QUANTITY);
-        //    }
-
-        //    return View(medicines.ToList());
-        //}
-
         public ActionResult Index(string NameSort, string StockSort, string currentFilter, string searchString, int? page)
         {
             ViewBag.CurrentSort = NameSort ?? StockSort;
@@ -99,7 +70,7 @@ namespace Pharmacy.Controllers
             }
 
             // Thiết lập phân trang
-            int pageSize = 2; // Số lượng bản ghi mỗi trang
+            int pageSize = 10; // Số lượng bản ghi mỗi trang
             int pageNumber = page ?? 1; // Trang hiện tại, mặc định là 1
             int totalRecords = medicines.Count(); // Tổng số bản ghi
             int totalPages = (int)Math.Ceiling((double)totalRecords / pageSize); // Tổng số trang

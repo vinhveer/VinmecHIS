@@ -4,71 +4,96 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>SearchPrescription</h2>
+<h3>Kết quả tìm kiếm đơn thuốc</h3>
 
-<div class="container-fluid p-3 my-5 bg-light border">
-
-    @using (Html.BeginForm("SearchPrescription", "ConfirmedPrescriptions", FormMethod.Get, new { @class = "mb-4" }))
-    {
-        <div class="row mt-4 d-flex justify-content-center  align-items-center">
-
-            <div class="col-md-4 mb-3">
-                <label for="maSV" class="form-label">Mã đơn thuốc</label>
-                <input type="text" class="form-control" id="prescrID" name="prescrID" value="@Request.QueryString["prescrID"]" placeholder="Nhập mã đơn thuốc">
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="hoTen" class="form-label">Họ tên</label>
-                <input type="text" class="form-control" id="patientName" name="patientName" value="@Request.QueryString["patientName"]" placeholder="Nhập họ tên bệnh nhân">
-            </div>
-
-
-            <div class="col-md-4 mb-3 ms-auto">
-                <button type="submit" class="btn btn-primary me-2">Tìm kiếm</button>
-                <a href="/ConfirmedPrescriptions/SearchPrescription" class="btn btn-secondary">Nhập mới</a>
+@using (Html.BeginForm("SearchPrescription", "ConfirmedPrescriptions", FormMethod.Get, new { @class = "mb-4 mt-4" }))
+{
+    <div class="row g-3 align-items-end">
+        <!-- Search inputs -->
+        <div class="col-md-4">
+            <label for="prescrID" class="form-label">Mã đơn thuốc</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-prescription"></i>
+                </span>
+                <input type="text"
+                       class="form-control"
+                       id="prescrID"
+                       name="prescrID"
+                       value="@Request.QueryString["prescrID"]"
+                       placeholder="Nhập mã đơn thuốc">
             </div>
         </div>
 
+        <div class="col-md-4">
+            <label for="patientName" class="form-label">Họ tên</label>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <i class="bi bi-person"></i>
+                </span>
+                <input type="text"
+                       class="form-control"
+                       id="patientName"
+                       name="patientName"
+                       value="@Request.QueryString["patientName"]"
+                       placeholder="Nhập họ tên bệnh nhân">
+            </div>
+        </div>
 
-    }
+        <!-- Action buttons -->
+        <div class="col-md-4">
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-search me-1"></i>
+                    Tìm kiếm
+                </button>
+                <a href="/ConfirmedPrescriptions/Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-clockwise me-1"></i>
+                    Nhập mới
+                </a>
+            </div>
+        </div>
+    </div>
 
-    
-    <!-- tây bồ -->
-    <table id="schedule" class="table table-striped nowrap" style="width:100%">
-        <!-- header của bảng -->
-        <thead>
-            <tr>
-                <th>Mã số đơn thuốc </th>
-                <th>Họ tên bệnh nhân</th>
+}
 
-                <th>Ngày khám</th>
+
+<!-- tây bồ -->
+<table id="schedule" class="table table-striped nowrap" style="width:100%">
+    <!-- header của bảng -->
+    <thead>
+        <tr>
+            <th>Mã số đơn thuốc </th>
+            <th>Họ tên bệnh nhân</th>
+
+            <th>Ngày khám</th>
+        </tr>
+    </thead>
+
+    <!-- body của bảng -->
+    <tbody>
+        @foreach (var precsription in Model)
+        {
+            <tr style="cursor: pointer;" onclick="location.href='@Url.Action("Details", "ConfirmedPrescriptions", new { id = precsription.MEDICAL_RECORD_ID })'">
+                <td>@precsription.MEDICAL_RECORD_ID</td>
+                <td>@(precsription.PatientName)</td>
+                <td>@precsription.PrescriptionDate</td>
             </tr>
-        </thead>
+        }
+    </tbody>
+</table>
 
-        <!-- body của bảng -->
-        <tbody>
-            @foreach (var precsription in Model)
+<!-- Điều hướng phân trang -->
+@if (ViewBag.TotalPages > 1)
+{
+    <div>
+        <ul class="pagination">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
             {
-                <tr style="cursor: pointer;" onclick="location.href='@Url.Action("Details", "ConfirmedPrescriptions", new { id = precsription.MEDICAL_RECORD_ID })'">
-                    <td>@precsription.MEDICAL_RECORD_ID</td>
-                    <td>@(precsription.PatientName)</td>
-                    <td>@precsription.PrescriptionDate</td>
-                </tr>
+                <li class="@(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a href="@Url.Action("SearchPrescription", new { prescriptionId = Request.QueryString["prescriptionId"], patientName = Request.QueryString["patientName"], page = i })">@i</a>
+                </li>
             }
-        </tbody>
-    </table>
-
-    <!-- Điều hướng phân trang -->
-    @if (ViewBag.TotalPages > 1)
-    {
-        <div>
-            <ul class="pagination">
-                @for (int i = 1; i <= ViewBag.TotalPages; i++)
-                {
-                    <li class="@(i == ViewBag.CurrentPage ? "active" : "")">
-                        <a href="@Url.Action("SearchPrescription", new { prescriptionId = Request.QueryString["prescriptionId"], patientName = Request.QueryString["patientName"], page = i })">@i</a>
-                    </li>
-                }
-            </ul>
-        </div>
-    }
-</div>
+        </ul>
+    </div>
+}

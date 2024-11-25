@@ -38,7 +38,7 @@ namespace Authentication.Models.Data
         public string PATIENT_EMAIL { get; set; }
 
         [Required]
-        [StringLength(5)]
+        [StringLength(15)]
         public string PATIENT_PHONE { get; set; }
 
         [Required]

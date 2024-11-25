@@ -57,10 +57,12 @@
     @Html.Hidden("medicalRecordId", (long)ViewBag.MedicalRecord.MEDICAL_RECORD_ID)
 
     <input type="hidden" id="selectedMedicinesJson" name="selectedMedicinesJson" value="">
+    <input type="text" name="note" class="form-control mb-5" value="Nhập ghi chú"/>
 
     <button type="submit" class="btn btn-success">Lưu đơn thuốc</button>
     <a href="@Url.Action("Index")" class="btn btn-secondary">Quay lại</a>
 }
+
 
 <!-- Modal -->
 <div class="modal fade" id="medicineModal" tabindex="-1" aria-labelledby="medicineModalLabel" aria-hidden="true">

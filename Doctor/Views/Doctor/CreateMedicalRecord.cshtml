@@ -31,18 +31,15 @@
     <dd class="col-md-9">@ViewBag.examination_date</dd>
 </dl>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("CreateMedicalRecord", "Doctor", FormMethod.Post))
 {
-    @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <!-- Thông tin ẩn (Hidden) -->
-        <div>
-            @Html.HiddenFor(model => model.PATIENT_ID, new { value = ViewBag.patient_id })
-            @Html.HiddenFor(model => model.EMPLOYEE_ID, new { value = ViewBag.employee_id })
-            @Html.HiddenFor(model => model.EXAMINATION_DATE, new { value = ViewBag.examination_date })
+        <div class="mb-3 d-none">
+            <input type="text" name="patientID" value="@ViewBag.patient_id" />
+            <input type="text" name="ED" value="@ViewBag.examination_date" />
         </div>
 
         <!-- Ngày hẹn tái khám -->

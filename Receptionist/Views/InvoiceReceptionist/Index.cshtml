@@ -1,48 +1,89 @@
-﻿
+﻿@model IEnumerable<Receptionist.Models.Views.InvoiceViewModel>
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh sách hóa đơn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model IEnumerable<Receptionist.Models.Data.MEDICALRECORD>
 
-<div class="container py-5">
-    <h3>Danh sách hóa đơn</h3>
-    <table class="table mt-5">
-        <thead>
-            <tr>
-                <th scope="col">STT</th>
-                <th scope="col">Mã số hồ sơ</th>
-                <th scope="col">Lễ tân xác nhận</th>
-                <th scope="col">Ngày thanh toán</th>
-                <th scope="col">Tùy chọn</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model != null && Model.Any())
-            {
-                int stt = 1;
-                foreach (var item in Model)
-                {
-                    <tr>
-                        <th scope="row">@stt</th>
-                        <th>@item.MEDICAL_RECORD_ID</th>
-                        <th>@item.EMPLOYEE.FIRST_NAME @item.EMPLOYEE.LAST_NAME</th>
-                        <td>@item.INVOICE.PAYMENT_DATE.ToString("dd/MM/yyyy")</td>
-                        <td>
-                            <a href="@Url.Action("Details", "InvoicePatient", new { id = item.MEDICAL_RECORD_ID})" class="">
-                                Xem đơn thuốc
-                            </a>
-                        </td>
-                    </tr>
-                    stt++;
-                }
-            }
-            else
+
+<!-- Thanh điều hướng -->
+<ul class="nav nav-tabs mb-4">
+    <li class="nav-item">
+        <a class="nav-link active" href="@Url.Action("Index")">
+            Danh sách hóa đơn đã lập
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("MedicalRecord")">
+            Hồ sơ bệnh án chưa lập hóa đơn
+        </a>
+    </li>
+</ul>
+
+<form method="get" action="@Url.Action("Index")" class="container-fluid mb-4 row">
+    <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm theo tên bệnh nhân hoặc bác sĩ"
+           value="@ViewBag.CurrentKeyword" />
+    <!-- Nút submit ẩn -->
+    <button type="submit" style="display: none;"></button>
+</form>
+
+<!-- Bảng danh sách hóa đơn -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Hoá đơn số</th>
+            <th>Lập bởi</th>
+            <th>Họ tên bệnh nhân</th>
+            <th>Ngày lập</th>
+            <th>Hình thức thanh toán</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
             {
                 <tr>
-                    <td colspan="3">Không có dữ liệu</td>
+                    <td>@item.InvoiceId</td>
+                    <td>@item.EmployeeName</td>
+                    <td>@item.PatientName</td>
+                    <td>@item.PaymentDate</td>
+                    <td>@item.PaymentMethod</td>
+                    <td>
+                        <a href="@Url.Action("Details", "InvoiceReceptionist", new { id = item.InvoiceId })"
+                           class="btn btn-outline-primary btn-sm me-2">
+                            <i class="bi bi-eye"></i> Chi tiết hóa đơn
+                        </a>
+                        <a href="@Url.Action("Delete", "InvoiceReceptionist", new { id = item.InvoiceId })"
+                           class="btn btn-outline-danger btn-sm">
+                            <i class="bi bi-trash"></i> Xoá hóa đơn
+                        </a>
+                    </td>
                 </tr>
             }
-        </tbody>
-    </table>
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="text-center">Không có dữ liệu</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Phân trang -->
+<div>
+    @if (ViewBag.TotalPages > 1)
+    {
+        <ul class="pagination">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = i, keyword = ViewBag.Keyword })">@i</a>
+                </li>
+            }
+        </ul>
+    }
 </div>
