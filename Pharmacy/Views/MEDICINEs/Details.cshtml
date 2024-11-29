@@ -1,0 +1,64 @@
+﻿@model Pharmacy.Models.Data.MEDICINE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>CHI TIẾT THÔNG TIN THUỐC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nhà cung cấp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SUPPLIER.SUPPLIER_NAME)
+        </dd>
+
+        <dt>
+            Tên thuốc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MEDICINE_NAME)
+        </dd>
+
+        <dt>
+            Đơn vị
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UNIT)
+        </dd>
+
+        <dt>
+            Số lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STOCK_QUANTITY)
+        </dd>
+
+        <dt>
+            Ngày hết hạn
+        </dt>
+
+        <dd>
+            @Model.EXPIRATION_DATE.ToString("dd/MM/yyyy")
+        </dd>
+
+        <dt>
+            Giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRICE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MEDICINE_ID }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

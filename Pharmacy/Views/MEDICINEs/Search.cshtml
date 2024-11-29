@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Pharmacy.Models.Data.MEDICINE>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2 class="text-center">TÌM KIẾM THUỐC</h2>
+
+<!-- Form tìm kiếm -->
+@using (Html.BeginForm("Search", "MEDICINEs", FormMethod.Get))
+{
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="form-inline text-center">
+            <input type="text" name="searchString" class="form-control"
+                   placeholder="Nhập tên thuốc" value="@ViewBag.SearchString" />
+            <button type="submit" class="btn btn-primary mt-3">Tìm kiếm</button>
+        </div>
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <p class="text-warning mt-3">Không tìm thấy kết quả nào.</p>
+}
+else
+{
+    <!-- Bảng hiển thị kết quả -->
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Nhà cung cấp</th>
+                <th>Tên thuốc</th>
+                <th>Đơn vị</th>
+                <th>Số lượng</th>
+                <th>Ngày hết hạn</th>
+                <th>Giá</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                // Kiểm tra số lượng thuốc và áp dụng màu đỏ nếu số lượng nhỏ hơn 100
+                var stockClass = item.STOCK_QUANTITY < 100 ? "font-weight-bold bg-danger text-white" : "";
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.SUPPLIER.SUPPLIER_NAME)</td>
+                    <td>@Html.DisplayFor(modelItem => item.MEDICINE_NAME)</td>
+                    <td>@Html.DisplayFor(modelItem => item.UNIT)</td>
+                    <td class="@stockClass">@Html.DisplayFor(modelItem => item.STOCK_QUANTITY)</td>
+                    <td>@item.EXPIRATION_DATE.ToString("dd/MM/yyyy")</td>
+                    <td>@Html.DisplayFor(modelItem => item.PRICE)</td>
+                    <td>
+                        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MEDICINE_ID }, new { @class = "btn btn-sm btn-warning" }) |
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.MEDICINE_ID }, new { @class = "btn btn-sm btn-info" }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.MEDICINE_ID }, new { @class = "btn btn-sm btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
