@@ -26,3 +26,119 @@ Receptionists/.vs/
 Receptionists/obj/
 Receptionists/bin/
 
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]rtifacts/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Mac auto generated files
+.DS_Store
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Files built by Visual Studio
+*.obj
+*.exe
+*.dll
+*.pdb
+*.appx
+*.appxsym
+*.pri
+*.ipch
+*.iobj
+*.idb
+*.ipdb
+*.pgc
+*.pgd
+
+# VS Code directories
+.vscode/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+.nuget/
+
+# npm package folder
+node_modules/
+*.log
+
+# Visual Studio Code workspace
+.vscode/
+
+# Microsoft Azure Web App publish folder
+publish/
+wwwroot/
+
+# Local IIS
+*.vs/
+
+# Log files
+*.log
+*.tlog
+*.out
+*.err
+*.tlog
+
+# SQL Server files
+*.mdf
+*.ldf
+
+# Resharper
+_ReSharper*
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Rider
+.idea/
+
+# Byebug
+.byebug_history
+
+# StyleCop
+StyleCop.*
+
+# Coverage reports
+*.coverage
+*.coveragexml
+
+# Test Results
+TestResults/
+*.trx
+*.userosscache
+*.VisualStudioTest.vscode.settings.json
+
+# BundlerMinifier
+*.min.css
+*.min.js
+*.bundle
+
+# Git Extensions
+*.gitignore.local
+.gitignore.worktree
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Include the NuGet Packages directory if you have committed packages to source control
+/packages/
